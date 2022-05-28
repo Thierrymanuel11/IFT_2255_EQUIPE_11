@@ -1,0 +1,25 @@
+nom : suspendre un membre
+but : un administrateur veut suspendre le compte d'un membre
+acteur : administrateur (principal)
+précondition : avoir un compte administrateur
+
+Scénario principal:
+
+	1. l'administrateur se connecte
+	2. l'administrateur navigue sur la page des administrateurs (visible seulement par eux)
+	3. l'administrateur choisi l'option "Changer l'état d'un compte"
+	4. l'administrateur entre le nom du membre qu'il veut suspendre
+	5. le système vérifie que le membre n'est pas suspendu
+	6. le système montre un message disant : "Voulez-vous suspendre le comtpe de XXXXXXX?"
+	7. l'administrateur confirme le choix
+	8. l'administrateur revient sur la page des administrateurs
+
+Scénario altérnatif:
+
+	5.1 le système se rend compte que le compte est déjà suspendu
+	6.1 le système montre un message disant : "Voulez-vous activer le compte de XXXXXXX?"
+	7.1.1 l'administrateur confirme le choix
+	7.1.2 l'administrateur annule la requête
+
+	8.1 l'administrateur revient sur la page d'acceuil
+ 
