@@ -1,0 +1,22 @@
+nom : rechercher un article
+but : membre recherche un article spécifique sur Round table
+acteur : membre (principal)
+précondition : le membre possède déjà un compte
+
+Scénario principal:
+
+	1. le membre se connecte
+	2. le membre navigue vers la page de recherche
+	3. le membre spécifie qu'il recherche un article
+	4. le membre entre le nom de l'article ou du id de l'article qu'il désire
+	5. le système regarde si l'article est dans la base de donnmées
+	6. le système amène le membre vers la page de l'article
+	7. le membre consulte la page de l'article
+	8. le membre retourne vers la page de recherche
+
+Scénarios alternatifs:
+	5.1 le système ne trouve pas la page et affiche un message d'erreur au membre
+	5.2 le système ramène le membre vers la page de recherche
+	5.3 retour à l'étape 4
+
+	7.1 le membre retourne vers la page d'acceuil
