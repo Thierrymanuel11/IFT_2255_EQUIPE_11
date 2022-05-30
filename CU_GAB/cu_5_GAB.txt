@@ -13,7 +13,7 @@ Scénario principal:
 	6. l'administrateur confirme le choix
 	7. l'administrateur revient sur la page d'acceuil
 
-Scénario altérnatif :
+Scénario alternatif :
 
 	4.1 l'activité n'existe pas dans la BD et montre un message d'erreur à l'administrateur
 	4.2 retour à l'étape 3

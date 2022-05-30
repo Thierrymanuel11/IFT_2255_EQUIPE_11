@@ -14,7 +14,7 @@ Scénario principal:
 	7. l'administrateur confirme le choix
 	8. l'administrateur revient sur la page d'acceuil
 
-Scénario altérnatif:
+Scénario alternatif:
 
 	4.1 le membre n'existe pas et le système montre un message d'erreur à l'administrateur
 	4.2 retour à l'étape 3	
