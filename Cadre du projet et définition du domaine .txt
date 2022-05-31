@@ -1,12 +1,12 @@
 Cadre du projet 
 Description du projet 
 - Contexte 
-o Notre client, le GEODES, est un groupe de recherche du département d’informatique et de recherche opérationnelle qui est dédié au génie logiciel. Le groupe est sous la direction de 3 professeurs et est aussi composé d’étudiants et de chercheurs. Le GEODES profite d’une réputation importante dans le domaine du génie logiciel et compte maintenant plus de 25 membres, un nombre qui ne risque que de croitre. 
+o Notre client, le GEODES, est un groupe de recherche du département d’informatique et de recherche opérationnelle de l’Université de Montréal qui est dédié au génie logiciel. Le groupe est composé d’étudiants et de chercheurs et il est sous la direction de 3 professeurs du Département. Le GEODES profite d’une réputation importante dans le domaine du génie logiciel et compte maintenant plus de 25 membres, un nombre qui ne risque que de croitre. 
 - Problèmes à résoudre 
-o La croissance du GEODES entraine d’importants problèmes de cohésion et de suivi au sein du groupe. Présentement, le GEODES utilise Discord pour la communication au sein du groupe et son site web pour la communication avec le grand public, mais ces outils ne permettent pas véritablement de faire un suivi adéquat des développements. De plus, en raison du nombre croissant de membres, le tour de table hebdomadaire qui sert présentement de suivi n’est plus adéquat et souffre de la multiplicité des horaires qui engendre des conflits.  
+o La croissance du GEODES entraine d’importants problèmes de cohésion et de suivi au sein du groupe. Présentement, le GEODES utilise Discord pour la communication entre membres et son site web pour la communication avec le grand public. Toutefois, ces outils ne permettent pas véritablement de faire un suivi adéquat des développements. De plus, en raison du nombre croissant de membres, le tour de table hebdomadaire qui sert présentement de suivi n’est plus adéquat et souffre de la multiplicité des horaires qui engendre des conflits.  
 Pour résoudre ces problèmes, le GEODES désire mettre sur pied la plateforme Roundtable, soit un outil qui permettra de faire un meilleur suivi des activités au sein du groupe et qui permettra aux membres de travailler avec une meilleure synergie. 
 - Portée 
-o La plateforme Roundtable devra donc permettre aux membres notamment de faire des suivis et des recherches au sein du groupe, ainsi que de se souscrire à des centres d’intérêts. La plateforme sera uniquement accessible aux membres du GEODES qui détiendront un compte valide. La plateforme ne remplacera pas les outils en place, mais servira plutôt de complément à ceux-ci, soit Discord pour la messagerie et le site web pour la communication avec le public. 
+o La plateforme Roundtable devra permettre aux membres notamment de faire des suivis et des recherches au sein du groupe, ainsi que de se souscrire à des centres d’intérêts. La plateforme sera uniquement accessible aux membres du GEODES qui détiendront un compte valide. La plateforme ne remplacera pas les outils en place, mais servira plutôt de complément à ces derniers, soit Discord pour la messagerie et le site web pour la communication avec le public. 
 La plateforme se limitera à une interaction en ligne de commande. 
 
 Équipe 
@@ -32,7 +32,7 @@ Semaine 2 (23 mai 2022)
 - Travail commun 
 o Deuxième rencontre d’équipe 
 o Analyse des modifications à l’énoncé et détermination des questions à poser au client 
-o Discussions sur les principaux cas d’utilisation
+o Détermination des principaux cas d’utilisation à explorer 
 - Distribution
 o Patrick : Cadre du projet, hypothèses et glossaire 
 o Thierry : Cas d’utilisation et scénarios
@@ -42,10 +42,11 @@ o Gabriel : Cas d’utilisation et scénarios
 Semaine 3 (30 mai 2022) 
 - Travail commun 
 o Troisième rencontre d’équipe 
-o Analyse des modifications à l’énoncé et détermination des questions à poser au client 
+o Analyse des modifications à l’énoncé et détermination de la dernière question à poser au client 
 o Analyse et raffinement des artéfacts produits dans le cadre des tâches de chaque membre de l’équipe 
 o Développement du prototype en fonction des principaux cas d’utilisation identifiés 
 o Détermination des besoins non fonctionnels 
+o Mise en commun des produits finaux et finalisation du rapport 
 - Distribution
 o Patrick : Cadre du projet, hypothèses et glossaire 
 o Thierry : Cas d’utilisation et scénarios
@@ -53,34 +54,34 @@ o Fannie : Analyse complète
 o Gabriel : Cas d’utilisation et scénarios
 
 Priorisation
-En bref, nous avons établi l’ordre de priorité suivant pour les tâches qui tient compte des dépendances entre ces tâches :  
-1. Détermination du cadre du projet : Essentiel pour cerner le contexte et les problèmes à résoudre afin de déterminer les exigences appropriées 
-2. Établissement du glossaire : Permettre aux membres de l’équipe de cerner le langage du métier avant de se pencher sur les autres tâches 
-3. Déterminer les besoins fonctionnels : Développement des cas d’utilisation et des scénarios est le cœur du travail
-4. Déterminer les besoins non-fonctionnels : Après avoir cerné les fonctionnalités du logiciel, il est possible de se pencher sur l’expérience d’utilisation
-5. Analyse : Maintenant que les besoins sont cernés
-6. Prototype : Développement une fois que nous avons suffisamment bien cernés toutes les exigences 
+En bref, nous avons établi l’ordre de priorité suivant pour les tâches qui tient compte des dépendances entre ces tâches. Veuillez noter que l’ordre n’est pas strict et que les itérations successives ont mené à des sauts entre les différentes étapes une fois que le premier jalon de chacune a été établi. 
+1. Cadre du projet : Essentiel pour cerner le contexte et les problèmes à résoudre afin de déterminer les besoins du client 
+2. Glossaire : Permettre aux membres de l’équipe de cerner le langage du métier avant de se pencher sur les autres tâches 
+3. Besoins fonctionnels : Développement des cas d’utilisation et des scénarios est le cœur du travail et ils sont essentiels pour la création du prototype
+4. Besoins non-fonctionnels : Après avoir cerné les fonctionnalités du logiciel, il est possible de se pencher sur l’expérience d’utilisation
+5. Analyse : Une fois que tous les besoins sont établis, il est possible de déterminer les risques et les contraintes pour le projet 
+6. Prototype : Développement seulement lorsque toutes les exigences sont suffisamment cernées pour développer un prototype qui reflète les vues les plus importantes de la plateforme 
 
 Échanges avec le client 
 Sommaire des questions envoyées au client par courriel et des réponses trouvées : 
 - Semaine 1 
 o QUESTION : Est-ce que la plateforme aura une structure hiérarchique avec des rôles distincts pour différents utilisateurs ? 
-o RÉPONSE : Oui, la plateforme aura des membres, des administrateurs et des professeurs et les administrateurs et les professeurs auront des responsabilités supplémentaires distinctes 
+o RÉPONSE : Oui, la plateforme aura des membres, des administrateurs et des professeurs et les administrateurs et les professeurs auront des responsabilités supplémentaires distinctes. 
 o QUESTION : Est-ce que la plateforme devra offrir la possibilité de faire des annonces aux membres, par exemple par la voie de notifications ? 
 o RÉPONSE : La plateforme devra envoyer des notifications à des membres spécifiques lors de certaines actions, par exemple une notification sera envoyée aux administrateurs lorsqu’on tente de créer un nouveau compte. 
-o QUESTION : Est-ce que la plateforme devra permettre aux membres de travailler ensemble sur un projet d’une manière similaire à Git par exemple ?
-o RÉPONSE : La plateforme sera uniquement un outil de recherche et de suivi, amis un lien vers un répertoire Github pourrait être inclus dans un outil.
+o QUESTION : Est-ce que la plateforme devra permettre aux membres de travailler ensemble sur un projet d’une manière similaire à Github ?
+o RÉPONSE : La plateforme sera uniquement un outil de recherche et de suivi, mais un lien vers un répertoire Github pourrait être inclus dans un outil.
 - Semaine 2
-o QUESTION : Est-ce que la plateforme doit traités les activités de type « événements » ? 
+o QUESTION : Est-ce que la plateforme doit traiter les activités de type « événements » ? 
 o RÉPONSE : Non, pas pour le moment. 
-o QUESTION : Serait-il d’obtenir des précisions sur les administrateurs, e.g. qui sont-ils, peuvent-ils aussi être des professeurs, doivent-ils avoir un compte distinct, etc. 
+o QUESTION : Serait-il possible d’obtenir des précisions sur les administrateurs, e.g. qui sont-ils, peuvent-ils aussi être des professeurs, doivent-ils avoir un compte distinct, etc. 
 o RÉPONSE : Pour le moment, les administrateurs sont Istvan David et Louis-Edouard Lafontant, qui ne sont pas des professeurs. Un membre ne peut être associé qu’à un seul rôle qui est défini par un nom unique associé à son compte. 
 - Semaine 3 
 
 Définition du domaine 
 Hypothèses
 Pour les fins de ce rapport et du travail associé, nous supposons les choses suivantes : 
-- Le GEODES détient ou mettra sur pied une base de données qui contiendra toute les données pouvant faire l’objet d’une requête ou d’une visualisation par la plateforme Roundtable.
+- Le GEODES détient ou mettra sur pied une base de données qui contiendra toutes les données pouvant faire l’objet d’une requête ou d’une visualisation par la plateforme Roundtable.
 Glossaire
 Entités
 - GEODES : Groupe de recherche du département d’informatique et de recherche opérationnelle de l’Université de Montréal dédié au génie logiciel 
