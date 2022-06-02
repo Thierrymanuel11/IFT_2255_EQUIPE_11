@@ -411,17 +411,24 @@
                 </ul>
                 <br>
                 <h3>Cas d'utilisation 8</h3>
-                <h4>Titre: </h4>
-                <h4>But: </h4>
-                <h4>Acteurs: </h4>
-                <h4>Précondition: </h4>
+                <h4>Titre: Suprimer une activité</h4>
+                <h4>But: Un administrateur veut suprimer une activité</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Avoir un compte administrateur et être au menu principal</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-
+                    <li>L'administrateur clique sur l'option "Activités"</li>
+                    <li>L'administrateur clique sur l'option "Suprimer un activité"</li>
+                    <li>L'administrateur entre le nom de l'activité qu'il souhaite suprimer</li>
+                    <li>Le système vérifie que l'activité existe</li>
+                    <li>Le système demande à l'administrateur de confirmer le choix de suprimer l'activité</li>
+                    <li>L'administrateur confirme le choix</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
-
+                    <li>4.1 L'activité n'existe pas dans la BD et montre un message d'erreur à l'administrateur</li>
+                    <li>4.2 Retour à l'étape 3</li>
+                    <li>6.1 L'administrateur annule la requête</li>
                 </ul>
                 <br>
                 <h3>Cas d'utilisation 9</h3>
