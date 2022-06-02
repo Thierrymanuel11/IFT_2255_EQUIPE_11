@@ -312,8 +312,24 @@
                 </p>
                 <p><b>Présentation des hypothèses</b></p>
                 <p>
-                    Pour les fins de ce rapport et du travail associé, nous supposons que le GEODES détient ou mettra sur pied une base de 
-                    données qui contiendra toutes les données pouvant faire l’objet d’une requête par la plateforme <i>Roundtable</i>.
+                    Pour les fins de ce rapport et du travail associé, nous supposons ce qui suit : 
+                    <ul>
+                        <li>
+                            Le GEODES détient ou mettra sur pied une base de données qui contiendra toutes les données 
+                            pouvant faire l’objet d’une requête par la plateforme <i>Roundtable</i>.
+                        </li>
+                        <li>
+                            Les contraintes suivantes sont souhaitées: 
+                            <ul>
+                                <li>
+                                    Disponibilité de la plateforme de 99.99% pendant les heures de travail.
+                                </li>
+                                <li>
+                                    Temps de réponse du système de 0.5 secondes pour une action de l'utilisateur et 2 secondes pour une requête.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> 
                 </p>
             </section>
 
@@ -325,14 +341,87 @@
                 </p>
                 <h3>Glossaire</h3>
                 <dl class="glossary">
-                    <dt class="glossary-term">Terme 1</dt>
-                    <dd class="glossary-def">Definition Debitis vel incidunt quaerat vitae iure, amet voluptatem commodi neque perferendis, asperiores facilis fugit! Dicta possimus aperiam officiis recusandae ipsum magni dignissimos?</dd>
-                    <dt class="glossary-term">Terme 2</dt>
-                    <dd class="glossary-def">Definition Culpa assumenda pariatur doloremque accusamus obcaecati reiciendis saepe sapiente, nihil adipisci quo architecto amet veniam vero delectus ullam dolorem unde quidem? Debitis.</dd>
-                    <dt class="glossary-term">Terme 3</dt>
-                    <dd class="glossary-def">Definition Alias sequi officia tempore maiores placeat omnis eum quo totam quia fuga? Officia repellendus odio ducimus dolores error dolorem hic a beatae.</dd>
-                </dl>
+                    <dt class="glossary-term">Activité</dt>
+                    <dd class="glossary-def">Une publication, un projet, un outil ou un événement. </dd>
 
+                    <dt class="glossary-term">Activité visée</dt>
+                    <dd class="glossary-def">Une publication, un projet, ou un outil (exclue les événements pour le moment).</dd>
+
+                    <dt class="glossary-term">Administrateur</dt>
+                    <dd class="glossary-def">Membre du GEODES qui aura un rôle d'administration pour la plateforme.</dd>
+
+                    <dt class="glossary-term">Auteur</dt>
+                    <dd class="glossary-def">Membre du GEODES qui rédige un article destiné à la publication.</dd>
+
+                    <dt class="glossary-term">Authentification</dt>
+                    <dd class="glossary-def">Identification d'un membre du GEODES à l’accès de la plateforme avec son adresse courriel et son mot de passe. </dd>
+
+                    <dt class="glossary-term">Collaborateur </dt>
+                    <dd class="glossary-def">Membre du GEODES qui participe à une activité de publication ou à la création d’un outil.</dd>
+
+                    <dt class="glossary-term">Événement</dt>
+                    <dd class="glossary-def">Conférences, séminaires et ateliers organisés ou auxquels participe le GEODES.</dd>
+
+                    <dt class="glossary-term">GEODES</dt>
+                    <dd class="glossary-def">Groupe de recherche du département d’informatique et de recherche opérationnelle de l’Université de Montréal 
+                    dédié au génie logiciel. </dd>
+
+                    <dt class="glossary-term">Intérêt</dt>
+                    <dd class="glossary-def">Sous domaine du génie logiciel ou de l’informatique qui peut être associé à une activité ou un profil.</dd>
+
+                    <dt class="glossary-term">Membre</dt>
+                    <dd class="glossary-def">Toute personne faisant partie du GEODES, incluant un étudiant à la maitrîse ou au doctorat, un chercheur, un professeur
+                    ou un administrateur. </dd>
+
+                    <dt class="glossary-term">Mot-clé</dt>
+                    <dd class="glossary-def">Terme descriptif associé à une activité.</dd>
+
+                    <dt class="glossary-term">Mot de passe</dt>
+                    <dd class="glossary-def">Chaine composée d’au moins 8 caractères, dont au moins 1 chiffre, 1 majuscule, 1 minuscule et 1 caractère spécial.</dd>
+
+                    <dt class="glossary-term">Niveau de visibilité </dt>
+                    <dd class="glossary-def">Caractéristique d’une activité qui est publique (visible par tous) ou privée (visible par les membres associés à l’activité). </dd>
+
+                    <dt class="glossary-term">Notification</dt>
+                    <dd class="glossary-def">Avis envoyé aux comptes de certaines membres spécifiques du GEODES.</dd>
+
+                    <dt class="glossary-term">Outil</dt>
+                    <dd class="glossary-def">Démonstration pratique d’un travail de recherche créé, exploité et modifié par un membre du GEODES.</dd>
+
+                    <dt class="glossary-term">Partenaire</dt>
+                    <dd class="glossary-def">Membre du GEODES qui participe à un projet. </dd>
+
+                    <dt class="glossary-term">Professeur</dt>
+                    <dd class="glossary-def">Professeur du département d'informatique et de recherche opérationnelle de l’Université de Montréal attitré au GEODES.</dd>
+
+                    <dt class="glossary-term">Projet</dt>
+                    <dd class="glossary-def">Programme de recherche en lien avec une subvention reçue et mené par un membre du GEODES.</dd>
+
+                    <dt class="glossary-term">Publication</dt>
+                    <dd class="glossary-def">Article produit par un ou plusieurs membres du GEODES dans le but d’être partagé avec la communauté.</dd>
+
+                    <dt class="glossary-term">Requête</dt>
+                    <dd class="glossary-def">Création, recherche ou modification d’une information à partir d’une liste ou d’un terme de recherche. Une requête peut 
+                    être accessible à tout membre ou spécifique à une catégorie de membres ou un rôle. </dd>
+
+                    <dt class="glossary-term">Responsable</dt>
+                    <dd class="glossary-def">Membre du GEODES qui crée une activité ou le professeur qui y est associé. </dd>
+
+                    <dt class="glossary-term">Rôle</dt>
+                    <dd class="glossary-def">Nom unique associé au compte d’un membre du GEODES entre « PROFESSEUR », « ADMINISTRATEUR » ou « MEMBRE » et 
+                    qui détermine les requêtes accessibles pour ce compte.</dd>
+
+                    <dt class="glossary-term">Statut (compte)</dt>
+                    <dd class="glossary-def">Se dit d’un compte qui est soit « EN_ATTENTE », « VALIDE » ou « SUSPENDU ».</dd>
+
+                    <dt class="glossary-term">Statut (publication)</dt>
+                    <dd class="glossary-def">Se dit d’un article, qui est soit brouillon, prêt, soumis ou publié.</dd>
+
+                    <dt class="glossary-term"></dt>
+                    <dd class="glossary-def"></dd>
+
+                </dl>
+                <br>
                 <p>
                     De plus, nous avons aussi répertorié nos échanges avec le client sous la forme des questions que nous lui avons posées et des réponses que 
                     nous avons trouvées. 
@@ -393,9 +482,10 @@
                     <ul>
                         <li>
                             <p>
-                                QUESTION : TBD!!!!!! 
+                                QUESTION : Est-ce qu'il y a des contraintes budgétaires ou temporelles pour le projet ? 
                                 <br>
-                                RÉPONSE : TBD!!!!!!!
+                                RÉPONSE : Le projet est à remettre à la fin du mois de juillet 2022 et il n'y a aucun budget alloué au projet, seules les ressources 
+                                du DIRO seront disponibles. 
                             </p>
                         </li>
                     </ul>
@@ -430,11 +520,43 @@
                 <div>
                     <h3>Exigences non-fonctionnelles</h3>
                     <ul class="nf-requirements">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <p>
+                            <b>Sécurité</b> : Le système ne doit pas permettre à une personne autre qu’un membre du GEODES de se connecter. La 
+                            plateforme n’est pas destinée à l’usage par le public et l’information disponible à travers la plateforme peut
+                            être confidentielle. Il est donc impératif que le processus d’authentification soit rigoureux dans l’acceptation
+                            que des membres du GEODES. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Performance</b> : Le système doit répondre aux actions de l’utilisateur en moins de 0.5 secondes et produire les résultats
+                            des requêtes en moins de 2 secondes. Pour que la plateforme soit efficace et pertinente à l’utilisation, elle doit être 
+                            en mesure de s’exécuter rapidement de manière à ne pas décourager les utilisateurs et éviter de perdre leur temps. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Fiabilité</b> : Le système doit être disponible 99.99% du temps pendant les heures normales de travail des membres du GEODES. Comme 
+                            la plateforme a pour objectif de permettre un meilleur suivi et une meilleure cohésion au sein de l’équipe, il est essentiel qu’elle 
+                            soit disponible lorsque les membres en ont de besoin au cours de leur journée normale de travail.  
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Fiabilité</b> : Le système ne doit pas perdre de données. Puisque la plateforme permet de créer des activités ou de faire des requêtes, 
+                            les données transmises ou reçues doivent être complètes de manière à ce que l’information visualisée ou entrée soit représentative 
+                            de la situation réelle au sein du GEODES. Sans quoi, la plateforme qui se veut un outil de suivi perd de sa pertinence.   
+                            </p>    
+                        </li>
+                        <li>
+                            <p>
+                            <b>Utilisabilité</b> : L’affichage des options lors de l’utilisation de la plateforme doit être descriptif 
+                            et non-équivoque. Puisque l’interaction se fait en ligne de commande, la seule information disponible 
+                            est le nom des différentes options. Il est donc essentiel que l’utilisateur puisse comprendre exactement 
+                            le contenu de chaque option de manière à permettre une navigation efficace de la plateforme. 
+                            </p>
+                        </li>
                     </ul>
                 </div>
                 <div>
