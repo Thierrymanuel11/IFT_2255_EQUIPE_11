@@ -1,11 +1,10 @@
 nom : rechercher un article
 but : membre recherche un article spécifique sur Round table
 acteur : membre (principal)
-précondition : le membre possède déjà un compte
+précondition : le membre est déjà authentifié
 
 Scénario principal:
 
-	1. le membre se connecte
 	2. le membre navigue vers la page de recherche
 	3. le membre spécifie qu'il recherche un article
 	4. le membre entre le nom de l'article ou du id de l'article qu'il désire
