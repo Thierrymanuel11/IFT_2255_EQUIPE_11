@@ -219,7 +219,6 @@
 
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
-                <p>Cas d'utilisation</p>
                 <a href="lien-vers-fichier.vpp">
                     <img src="url-du-cu.png" alt="">
                 </a>
@@ -236,7 +235,8 @@
                     <li>L'utilisateur choisit un superviseur (prof) qui va valider la création de son compte</li>
                     <li>L'utilisateur entre son nom lorsqu'indiqué</li>
                     <li>Il entre son prénom lorsqu'indiqué</li>
-                    <li>Il entre son addresse couriel lorsqu'indiqué</li>
+                    <li>Il entre son addresse courriel lorsqu'indiqué</li>
+                    <li>Il entre son numéro de téléphone lorsqu'indiqué</li>
                     <li>Il entre son mot de passe de son compte</li>
                     <li>Il valide ses informations et les envoies au superviseur en attente de la validation de ce dernier</li>
                 </ol>
@@ -249,6 +249,9 @@
                     <li>7.1 Son mot de passe n'est pas valide, donc le système le mentionne
                     </li>
                     <li>7.2 Retour à l'étape 7</li>
+                    <li>8.1 Son numéro de téléphone n'est pas valide n'est pas valide, donc le système le mentionne
+                    </li>
+                    <li>8.2 Retour à l'étape 8</li>
                 </ul>
                 <br>
                 <h3>Cas d'utilisation 2</h3>
@@ -492,17 +495,28 @@
                 </ul>
                 <br>
                 <h3>Cas d'utilisation 12</h3>
-                <h4>Titre: </h4>
-                <h4>But: </h4>
-                <h4>Acteurs: </h4>
-                <h4>Précondition: </h4>
+                <h4>Titre: Modification du profile</h4>
+                <h4>But: Un membre veux modifier son profile</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Avoir un compte et être au menu principal</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-
+                    <li>Le membre choisit l'option "Mon profil"</li>
+                    <li>Le membre choisit l'option "Modifier mes informations personnelles"</li>
+                    <li>Le membre choisit l'information qu'il veut changer (nom. prénom, courriel ou numéro de téléphone)</li>
+                    <li>Le membre entre la nouvelle valeur</li>
+                    <li>Le système vérifie que la valeur est valide</li>
+                    <li>Le système demande au membre de confirmer son choix</li>
+                    <li>Le membre confirme la modification</li>
+                    <li>Le membre revient à la page principale</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
-
+                    <li>5.1 La valeur est invalide donc le sytème le dit au membre</li>
+                    <li>5.2 Retour à l'étape 5</li>
+                    <li>7.1 Le membre annule la modification</li>
+                    <li>8.1 Le membre choisit de modifier une autre valeur</li>
+                    <li>8.2 Retour à l'étape 4</li>
                 </ul>
 
             </section>
