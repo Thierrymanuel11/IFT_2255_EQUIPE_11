@@ -126,11 +126,12 @@
 <body>
     <header class="report-header">
         <div class="title-section">
-            <h1 class="report-title">Rapport du livrable X</h1>
+            <h1 class="report-title">Rapport du livrable 1 : Exigences et analyse</h1>
             <p class="report-summary">
-                <em>Court résumé du rapport</em> &ndash; Ce livrable se concentre sur... 
-                lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia distinctio tempora quam nulla quod enim. 
-                Odit eius dolores repellendus incidunt doloribus delectus at ex sunt error, iste dicta, maiores blanditiis.
+                <em>Court résumé du rapport</em> &ndash; Ce livrable se concentre sur les exigences et l'analyse pour la création de 
+                la plateforme <i>Roundtable</i> à la demande du GEODES. Plus précisement, ce rapport fait état de notre équipe, notre 
+                plannification, notre compréhension du domaine, notre modélisation du domaine et notre analyse. Il comprend aussi 
+                un prototype de la plateforme. 
             </p>
         </div>
 
@@ -138,31 +139,40 @@
             <h2 class="team-title">Notre équipe</h2>
             <ul class="bare-list members">
                 <li class="member">
-                    <img class="member-pic" src="" alt="" >
+                    <img class="member-pic" src="images/11_1.jpg" alt="11_1" >
                     <div class="member-identification">
-                        <span class="member-name">Francois LABONTE</span>
-                        <span class="member-id">2014069</span>
+                        <span class="member-name">Thierry Manuel TCHOUMKEU DJEUMEN </span>
+                        <span class="member-id">#########</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
-                    <span class="member-role">Chargé de...</span>
+                    <a href="mailto:#########@umontreal.ca">############@umontreal.ca</a>
+                    <span class="member-role">Responsable de l’équipe <br> Chargé des besoins fonctionnels et non fonctionnels</span>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="" alt="" >
+                    <img class="member-pic" src="images/11_2.jpg" alt="11_2" >
                     <div class="member-identification">
-                        <span class="member-name">Lola MONTENEGRO</span>
-                        <span class="member-id">1034870</span>
+                        <span class="member-name">Fannie FILION-BIENVENUE</span>
+                        <span class="member-id">#########</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
-                    <span class="member-role">Chargé de...</span>
+                    <a href="mailto:#########@umontreal.ca">############@umontreal.ca</a>
+                    <span class="member-role">Chargé de l'analyse</span>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="" alt="" >
+                    <img class="member-pic" src="images/11_3.jpg" alt="11_3" >
                     <div class="member-identification">
-                        <span class="member-name">Tien NGUYEN</span>
-                        <span class="member-id">2046973</span>
+                        <span class="member-name">Patrick LANOIE</span>
+                        <span class="member-id">20212654</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
-                    <span class="member-role">Chargé de...</span>
+                    <a href="mailto:patrick.lanoie@umontreal.ca">patrick.lanoie@umontreal.ca</a>
+                    <span class="member-role">Chargé du cadre du projet et de la définition du domaine </span>
+                </li>
+                <li class="member">
+                    <img class="member-pic" src="images/11_4.jpg" alt="11_4" >
+                    <div class="member-identification">
+                        <span class="member-name">Gabriel MÉNARD</span>
+                        <span class="member-id">#########</span>
+                    </div> 
+                    <a href="mailto:#########@umontreal.ca">#########@umontreal.ca</a>
+                    <span class="member-role">Chargé des besoins fonctionnels et non fonctionnels</span>
                 </li>
             </ul>
         </div>
@@ -195,15 +205,122 @@
         <div class="report-main">
             <section>
                 <h2 id="plan" class="section-title">Plannification</h2>
-                <p>Description brève du domaine et du problème</p>
-                <p>Présentation de l'échéancier et la distribution des taches</p>
-                <p>Présentation des hypothèses</p>
+                <p><b>Description brève du domaine et du problème</b></p>
+                <p>
+                    Notre client, le GEODES, est un groupe de recherche du département d’informatique et de recherche opérationnelle de 
+                    l’Université de Montréal qui est dédié au génie logiciel. Le groupe est composé d’étudiants et de chercheurs et il est 
+                    sous la direction de 3 professeurs du Département. Le GEODES profite d’une réputation importante dans le domaine du génie
+                    logiciel et compte maintenant plus de 25 membres, un nombre qui ne risque que de croitre. 
+                </p>
+                
+                <p>
+                    La croissance du GEODES entraine d’importants problèmes de cohésion et de suivi au sein du groupe. Présentement, le GEODES 
+                    utilise Discord pour la communication entre membres et son site web pour la communication avec le grand public. Toutefois, 
+                    ces outils ne permettent pas véritablement de faire un suivi adéquat des développements. De plus, en raison du nombre 
+                    croissant de membres, le tour de table hebdomadaire qui sert présentement de suivi n’est plus adéquat et souffre de la 
+                    multiplicité des horaires qui engendre des conflits.  
+                    Pour résoudre ces problèmes, le GEODES désire mettre sur pied la plateforme <i>Roundtable</i>. 
+                </p>
+                <p>
+                    La plateforme Roundtable devra permettre aux membres notamment de faire des suivis et des recherches au sein du groupe, ainsi 
+                    que de se souscrire à des centres d’intérêts. La plateforme sera uniquement accessible aux membres du GEODES qui détiendront un 
+                    compte valide. La plateforme ne remplacera pas les outils en place, mais servira plutôt de complément à ces derniers. 
+                    La plateforme se limitera à une interaction en ligne de commande. 
+                </p>
+                <p><b>Présentation de l'échéancier et la distribution des taches</b></p>
+                <p>
+                    N.B. : Veuillez noter que pour ce qui est de la priorisation des tâches, nous avons opté pour une distribution des tâches hebdomadaire
+                    qui tient compte des dépendances entre les diverses parties du rapport. Donc, nous débutons par une définition approfondie du cadre du
+                    projet et de la compréhension du domaine, pour ensuite se lancer simultanément dans la modélisation du domaine et l'analyse et en terminant 
+                    par le prototype. Il ne s'agit toutefois pas d'une priorisation stricte et il y a retour et amélioration sur les étapes précédentes tout
+                    au long de cette phase de développement.  
+                </p>
+                <p>
+                    Semaine 1 (16 mai 2021)
+                    <ul>
+                        <li>
+                            Travail en commun
+                        </li>
+                            <p>Première rencontre d'équipe pendant laquelle nous procédons à l'analyse de l'énoncé, la détermination des questions
+                            à poser au client et la distribution des tâches. 
+                            </p>
+                        <li>
+                            Distribution 
+                            <ul>
+                                <li>
+                                    Patrick: Début du cadre du projet 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 2 (23 mai 2021)
+                    <ul>
+                        <li>
+                            Travail en commun
+                        </li>
+                            <p>Analyse des modifications de l'énoncé, détermination des questions à poser au client et identification des principaux
+                            cas d'utilisation à détailler. 
+                            </p>
+                        <li>
+                            Distribution 
+                            <ul>
+                                <li>
+                                    Thierry: Cas d'utilisation et scénarios
+                                </li>
+                                <li>
+                                    Fannie: Analyse à l'exception du prototype
+                                </li>
+                                <li>
+                                    Patrick: Révision du cadre du projet et compréhension du domaine 
+                                </li>
+                                <li>
+                                    Gabriel: Cas d'utilisation et scénarios
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 3 (30 mai 2021)
+                    <ul>
+                        <li>
+                            Travail en commun
+                        </li>
+                            <p>Analyse des modifications de l'énoncé, détermination de la dernière question à poser au client, mise en commun et raffinement
+                            des artéfacts produits, développement du prototype et complétion du rapport final.
+                            </p>
+                        <li>
+                            Distribution 
+                            <ul>
+                                <li>
+                                    Thierry: Développement du prototype interactif 
+                                </li>
+                                <li>
+                                    Fannie: Révision analyse et prototype fixe 
+                                </li>
+                                <li>
+                                    Patrick: Révision de la compréhension du domaine et des besoins non-fonctionnels
+                                </li>
+                                <li>
+                                    Gabriel: Révision de la modélisation du domaine 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p><b>Présentation des hypothèses</b></p>
+                <p>
+                    Pour les fins de ce rapport et du travail associé, nous supposons que le GEODES détient ou mettra sur pied une base de 
+                    données qui contiendra toutes les données pouvant faire l’objet d’une requête par la plateforme <i>Roundtable</i>.
+                </p>
             </section>
 
             <section>
                 <h2 id="domain" class="section-title">Compréhension du domaine</h2>
                 <p>
-                    Après de nombreuses rencontres et une familiarisation avec l'activité VaxTodo, nous avons préparé un glossaire 
+                    Après de nombreuses rencontres et une familiarisation avec les activités du GEODES, nous avons préparé un glossaire 
                     rassemblant les termes et expressions clés caractérisant l'environnement.
                 </p>
                 <h3>Glossaire</h3>
@@ -215,6 +332,76 @@
                     <dt class="glossary-term">Terme 3</dt>
                     <dd class="glossary-def">Definition Alias sequi officia tempore maiores placeat omnis eum quo totam quia fuga? Officia repellendus odio ducimus dolores error dolorem hic a beatae.</dd>
                 </dl>
+
+                <p>
+                    De plus, nous avons aussi répertorié nos échanges avec le client sous la forme des questions que nous lui avons posées et des réponses que 
+                    nous avons trouvées. 
+                </p>
+                <p>
+                    Semaine 1 (16 mai 2021)
+                    <ul>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme aura une structure hiérarchique avec des rôles distincts pour les types différents utilisateurs ? 
+                                <br>
+                                RÉPONSE : Oui, la plateforme aura des membres, des administrateurs et des professeurs. Les administrateurs et les professeurs 
+                                auront des responsabilités supplémentaires distinctes. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme devra offrir la possibilité de faire des annonces aux membres, par exemple par la voie de 
+                                notifications ?  
+                                <br>
+                                RÉPONSE : Oui, la plateforme devra envoyer des notifications à des membres spécifiques lors de certaines actions, par exemple une 
+                                notification sera envoyée aux administrateurs lorsqu’on tente de créer un nouveau compte. 
+                            </p> 
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme devra permettre aux membres de travailler ensemble sur un projet d’une manière similaire à Github ? 
+                                <br>
+                                RÉPONSE : Oui, la plateforme sera uniquement un outil de recherche et de suivi, mais un lien vers un répertoire Github devra être inclus 
+                                dans un outil.
+                            </p> 
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 2 (23 mai 2021)
+                    <ul>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme doit traiter les activités de type « événements » ?  
+                                <br>
+                                RÉPONSE : Non, pas pour le moment. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Serait-il possible d’obtenir des précisions sur les administrateurs, e.g. qui sont-ils, peuvent-ils aussi être 
+                                des professeurs, doivent-ils avoir un compte distinct, etc.  
+                                <br>
+                                RÉPONSE : Pour le moment, les administrateurs sont Istvan David et Louis-Edouard Lafontant, qui ne sont pas des professeurs. 
+                                Un membre ne peut être associé qu’à un seul rôle qui est défini par un nom unique associé à son compte.  
+                            </p> 
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 3 (30 mai 2021)
+                    <ul>
+                        <li>
+                            <p>
+                                QUESTION : TBD!!!!!! 
+                                <br>
+                                RÉPONSE : TBD!!!!!!!
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+
+
             </section>
 
             <section>
