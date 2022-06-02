@@ -432,15 +432,27 @@
                 </ul>
                 <br>
                 <h3>Cas d'utilisation 9</h3>
-                <h4>Titre: </h4>
-                <h4>But: </h4>
-                <h4>Acteurs: </h4>
+                <h4>Titre: Suspendre un membre</h4>
+                <h4>But: Un administrateur veut suspendre le compte d'un membre</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Avoir un compte administrateur et être dans le menu principal</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-
+                    <li>L'administrateur choisit l'option "Membres"</li>
+                    <li>L'administrateur choisit l'option "Suspendre le compte d'un membre"</li>
+                    <li>L'administrateur entre le nom du membre qu'il veut suspendre</li>
+                    <li>Le système vérifie que le membre existe dans la BD</li>
+                    <li>Le système vérifie que le membre n'est pas suspendu</li>
+                    <li>Le système montre un message disant "Voulez-vous suspendre le compte de XXXXXXXX"</li>
+                    <li>L'administrateur confirme le choix</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
+                    <li>4.1 Le membre n'existe pas et le système montre un message d'erreur à l'administrateur</li>
+                    <li>4.2 Retour à l'étape 3</li>
+                    <li>5.1 Le système se rend compte que le compte est déjà suspendu</li>
+                    <li>5.2 Retour à l'étape 3</li>
+                    <li>7.1 L'administrateur annule la requête</li>
 
                 </ul>
                 <br>
