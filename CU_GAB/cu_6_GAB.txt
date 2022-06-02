@@ -1,5 +1,5 @@
 nom : ajouter un intérêt
-but : un professeur veut ajouter un intérêt à son profil
+but : un professeur veut ajouter un intérêt
 acteur : professeur (principal)
 précondition: avoir un compte professeur
 
