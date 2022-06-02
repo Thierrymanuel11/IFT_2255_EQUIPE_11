@@ -282,7 +282,8 @@
                 <h4>Scénario principal</h4>
                 <ol>
                     <li>Cliquer sur "Activités"</li>
-                    <li>CLiquer sur "Créer une activité"</li>
+                    <li>Cliquer sur "Créer une activité"</li>
+                    <li>Cliquer sur "Créer un projet"</li>
                     <li>Inscrire le nom du projet</li>
                     <li>Inscrire une brève description du projet</li>
                     <li>Inscrire une date de début du projet</li>
@@ -293,7 +294,7 @@
                     <li>Le membre sélectionnera le statut de visibilité de l'article (public ou privé)</li>
                     <li>Soumettre le projet au professeur et attendre la confirmation</li>
                 </ol>
-                <h4>Scénario secondaire</h4>
+                <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
                     <li>5.1 L'utilisateur inscrit une date invalide (date avant la date du jour actuel)
                         et le système lui fait savoir
@@ -303,6 +304,40 @@
                         et le système lui fait savoir
                     </li>
                     <li>6.2 Retour à l'étape 6</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 4</h3>
+                <h4>Titre: Création et publication d'un article</h4>
+                <h4>But: Un membre du GEODES souhaites céer et publier un article</h4>
+                <h4>Acteurs: Membre du GEODES</h4>
+                <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Cliquer sur "Activités"</li>
+                    <li>Cliquer sur "Créer une activité"</li>
+                    <li>Cliquer sur "Créer un article"</li>
+                    <li>Le membre entrer le titre de l'article</li>
+                    <li>Le membre inscrit un résumé de l'article qu'il veut publier</li>
+                    <li>Le membre inscrit une liste d'auteurs et de collaborateurs</li>
+                    <li>Le membre sélectionne le statut actuel de l'article</li>
+                    <li>Le membre sélectionne le statut de visibilité de l'article</li>
+                    <li>Le membre peut publier l'article en sélectionnant l'option de publication</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>4.1 Le membre sélectionnera tout d'abord les membres du GEODES inscrit 
+                        à la plateforme qui sont concernés via une liste présentant tous les membres et où il est possible de
+                         faire une recherche détaillée pour trouver le membre recherché
+                    </li>
+                    <li>4.2 Le membre pourra ensuite inscrire de façon textuelle les collaborateurs de l'article ne faisant 
+                        pas partie du GEODES en inscrivant leur nom, prénom et adresse courriel
+                    </li>
+                    <li>5.1 Si le statut de l'article est « brouillon », le membre ne pourra pas ajouter de 
+                        lien vars un PDF par exemple pour référer l'article
+                    </li>
+                    <li>5.2 Si le statut choisi est « prêt », le membre pourra donc y inscrire son lien 
+                        vers l'article en question
+                    </li>
                 </ul>
 
             </section>
