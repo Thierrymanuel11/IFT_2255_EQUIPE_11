@@ -496,12 +496,306 @@
 
             <section>
                 <h2 id="model" class="section-title">Modélisation du domaine</h2>
-                <p>Cas d'utilisation</p>
-                <a href="lien-vers-fichier.vpp">
-                    <img src="url-du-cu.png" alt="">
+                <a href="VPP/CUs.vpp">
+                    VPP
                 </a>
 
-                <p>Scénarios</p>
+                <h3>Cas d'utilisation 1</h3>
+                <h4>Titre: Création de compte</h4>
+                <h4>But: Un membre du GEODES veut pouvoir créer son compte sur la plateforme</h4>
+                <h4>Acteurs: membre du GEODES, professeur s'occupant de la validation</h4>
+                <h4>Précondition: Avoir accès à un outil permettant l'accès à la plateforme</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur ouvre la plateforme RoundTable</li>
+                    <li>L'utilisateur sélectionne l'option de création de compte</li>
+                    <li>L'utilisateur choisit un superviseur (prof) qui va valider la création de son compte</li>
+                    <li>L'utilisateur entre son nom lorsqu'indiqué</li>
+                    <li>Il entre son prénom lorsqu'indiqué</li>
+                    <li>Il entre son addresse courriel lorsqu'indiqué</li>
+                    <li>Il entre son numéro de téléphone lorsqu'indiqué</li>
+                    <li>Il entre son mot de passe de son compte</li>
+                    <li>Il valide ses informations et les envoies au superviseur en attente de la validation de ce dernier</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>6.1 Son adresse courriel est invalide et le système lui fait savoir cela
+                        et lui demande d'entrer un addresse courriel valide
+                    </li>
+                    <li>6.2 Retour à l'étape 6</li>
+                    <li>7.1 Son mot de passe n'est pas valide, donc le système le mentionne
+                    </li>
+                    <li>7.2 Retour à l'étape 7</li>
+                    <li>8.1 Son numéro de téléphone n'est pas valide n'est pas valide, donc le système le mentionne
+                    </li>
+                    <li>8.2 Retour à l'étape 8</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 2</h3>
+                <h4>Titre: Connexion à la plateforme</h4>
+                <h4>But: Un membre du GEODES veut accéder à son compte sur la plateforme</h4>
+                <h4>Acteurs: membre du GEODES</h4>
+                <h4>Précondition: Avoir un compte déjà créé au préalable sur la plateforme</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur ouvre la plateforme RoundTable</li>
+                    <li>L'utilisateur entre son addresse courriel lorsqu'indiqué</li>
+                    <li>L'utilisateur entre son mot de passe</li>
+                    <li>L'utilisateur appuis sur la touche enter to login</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>2.1 Son addresse courriel es invalide et le système lui fait savoir
+                        et lui demande d'entrer un adresse courriel valide
+                    </li>
+                    <li>2.2 Retour à l'étape 2</li>
+                    <li>4.1 	Son mot de passe n'est pas le bon et donc le système le lui fait
+                         savoir pour qu'il mette un bon mot de passe</li>
+                    <li>Retour à l'étape 3</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 3</h3>
+                <h4>Titre: Création de projet</h4>
+                <h4>But: Un membre du GEODES souhaites céer un projet quelconque</h4>
+                <h4>Acteurs: Membre du GEODES, professeur</h4>
+                <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Choisir l'option "Activités"</li>
+                    <li>Choisir l'option "Créer une activité"</li>
+                    <li>Choisir l'option "Créer un projet"</li>
+                    <li>Inscrire le nom du projet</li>
+                    <li>Inscrire une brève description du projet</li>
+                    <li>Inscrire une date de début du projet</li>
+                    <li>Inscrire la date de fin du projet</li>
+                    <li>Choisir les partenaires du GEODES pouvant être associés 
+                        au projet via une liste de tous les membres du GEODES inscrits à la plateforme</li>
+                    <li>Choisir un responsable de projet qui sera un professeur via la liste des profs du GEODES inscrits sur la plateforme</li>
+                    <li>Le membre sélectionnera le statut de visibilité de l'article (public ou privé)</li>
+                    <li>Soumettre le projet au professeur et attendre la confirmation</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>5.1 L'utilisateur inscrit une date invalide (date avant la date du jour actuel)
+                        et le système lui fait savoir
+                    </li>
+                    <li>5.2 Retour à l'étape 5</li>
+                    <li>6.1 L'utilisateur inscrit une date invalide (date avant la date du jour actuel)
+                        et le système lui fait savoir
+                    </li>
+                    <li>6.2 Retour à l'étape 6</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 4</h3>
+                <h4>Titre: Création et publication d'un article</h4>
+                <h4>But: Un membre du GEODES souhaites céer et publier un article</h4>
+                <h4>Acteurs: Membre du GEODES</h4>
+                <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Choisir l'option "Activités"</li>
+                    <li>Choisir l'option "Créer une activité"</li>
+                    <li>Choisir l'option "Créer un article"</li>
+                    <li>Le membre entrer le titre de l'article</li>
+                    <li>Le membre inscrit un résumé de l'article qu'il veut publier</li>
+                    <li>Le membre inscrit une liste d'auteurs et de collaborateurs</li>
+                    <li>Le membre sélectionne le statut actuel de l'article</li>
+                    <li>Le membre sélectionne le statut de visibilité de l'article</li>
+                    <li>Le membre peut publier l'article en sélectionnant l'option de publication</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>4.1 Le membre sélectionnera tout d'abord les membres du GEODES inscrit 
+                        à la plateforme qui sont concernés via une liste présentant tous les membres et où il est possible de
+                         faire une recherche détaillée pour trouver le membre recherché
+                    </li>
+                    <li>4.2 Le membre pourra ensuite inscrire de façon textuelle les collaborateurs de l'article ne faisant 
+                        pas partie du GEODES en inscrivant leur nom, prénom et adresse courriel
+                    </li>
+                    <li>5.1 Si le statut de l'article est « brouillon », le membre ne pourra pas ajouter de 
+                        lien vars un PDF par exemple pour référer l'article
+                    </li>
+                    <li>5.2 Si le statut choisi est « prêt », le membre pourra donc y inscrire son lien 
+                        vers l'article en question
+                    </li>
+                </ul>
+
+                <h3>Cas d'utilisation 5</h3>
+                <h4>Titre: Création d'outil</h4>
+                <h4>But: Un membre du GEODES souhaites céer et un outil</h4>
+                <h4>Acteurs: Membre du GEODES</h4>
+                <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Choisir l'option "Activités"</li>
+                    <li>Choisir l'option "Créer une activité"</li>
+                    <li>Choisir l'option "Créer un outil"</li>
+                    <li>Le membre inscri le nom de l'outil</li>
+                    <li>Le membre inscrit une description des spécificité de l'outil</li>
+                    <li>Le membre entre la version de l'outil (par défault, la version sera 1.0)</li>
+                    <li>Le membre entre le lien du répertoire GitHub ou autre répertoire</li>
+                    <li>Le membre à l'option d'ajouter divers liens (autant qu'il veut)</li>
+                    <li>Le membre sélectionne le respondable de l'outil (par défault, se sera le membre ayant 
+                        créé l'outil
+                    </li>
+                    <li>Le membre sélectionne via une liste des membres du GEODES les collaborateurs pour l'outils</li>
+                    <li>Le membre peut associer (facultatif) un ou plusieur articles publiés sur la plateforme
+                        dans la création de l'outil via une liste des articles
+                    </li>
+                    <li>Le membre assigne un statut à l'outil (public ou privé)</li>
+                    <li>Le membre peut finalement publier l'outil</li>
+                </ol>
+                <br>
+                <h3>Cas d'utilisation 6</h3>
+                <h4>Titre: Validation d'un membre par un professeur</h4>
+                <h4>But: In professeur du GEODES doit valider un membre voulant se créer un compte</h4>
+                <h4>Acteurs: Professeur du GEODES</h4>
+                <h4>Précondition: Le professeur doit avoir déjà accès à son compte et être connecté. 
+                    Il doit avoir une demande de faite par un membre
+                </h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Le professeur choisit l'option "Mon profil"</li>
+                    <li>Le professeur choisit l'option "Voir mes notifications"</li>
+                    <li>Le professeur sélectionne la demande de validation de compte de la part du membre
+                        qui est en attente de confirmation
+                    </li>
+                    <li>Le professeur vérifie les informations présentes sur la demande</li>
+                    <li>Le professeur accepte la demande</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>5.1 Le professeur refuse la demande</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 7</h3>
+                <h4>Titre: Ajouter un intérêt</h4>
+                <h4>But: Un professeur veut ajouter un intérêt</h4>
+                <h4>Acteurs: Professeur</h4>
+                <h4>Précondition: Le professeur est connecté à la plateform est est au menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Le professeur choisit l'option "Intérêts"</li>
+                    <li>Le professeur choisit l'option "Ajouter un intérêt"</li>
+                    <li>Il entre le titre de l'intérêt</li>
+                    <li>Il entre un courte description de celui-ci</li>
+                    <li>L'intérêt complet est présenté aux professeur</li>
+                    <li>Le professeur confirme la création de l'intérêt</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>5.1 Le professeur choisit l'option "Changer le titre"</li>
+                    <li>5.2 Le professeur choisit l'option "Changer la description"</li>
+                    <li>5.3 Retour à l'étape 5</li>
+                    <li>6.1 Le professeur annule la création de l'intérêt</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 8</h3>
+                <h4>Titre: Suprimer une activité</h4>
+                <h4>But: Un administrateur veut suprimer une activité</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Avoir un compte administrateur et être au menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'administrateur choisit l'option "Activités"</li>
+                    <li>L'administrateur choisit l'option "Suprimer un activité"</li>
+                    <li>L'administrateur entre le nom de l'activité qu'il souhaite suprimer</li>
+                    <li>Le système vérifie que l'activité existe</li>
+                    <li>Le système demande à l'administrateur de confirmer le choix de suprimer l'activité</li>
+                    <li>L'administrateur confirme le choix</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>4.1 L'activité n'existe pas dans la BD et montre un message d'erreur à l'administrateur</li>
+                    <li>4.2 Retour à l'étape 3</li>
+                    <li>6.1 L'administrateur annule la requête</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 9</h3>
+                <h4>Titre: Suspendre un membre</h4>
+                <h4>But: Un administrateur veut suspendre le compte d'un membre</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Avoir un compte administrateur et être dans le menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'administrateur choisit l'option "Membres"</li>
+                    <li>L'administrateur choisit l'option "Suspendre le compte d'un membre"</li>
+                    <li>L'administrateur entre le nom du membre qu'il veut suspendre</li>
+                    <li>Le système vérifie que le membre existe dans la BD</li>
+                    <li>Le système vérifie que le membre n'est pas suspendu</li>
+                    <li>Le système montre un message disant "Voulez-vous suspendre le compte de XXXXXXXX"</li>
+                    <li>L'administrateur confirme le choix</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>4.1 Le membre n'existe pas et le système montre un message d'erreur à l'administrateur</li>
+                    <li>4.2 Retour à l'étape 3</li>
+                    <li>5.1 Le système se rend compte que le compte est déjà suspendu</li>
+                    <li>5.2 Retour à l'étape 3</li>
+                    <li>7.1 L'administrateur annule la requête</li>
+
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 10</h3>
+                <h4>Titre: Afficher la liste des membre</h4>
+                <h4>But: Un membre veut afficher la liste des membres pour consulter la page d'un membre</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Avoir un compte et être au menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Le membre choisit l'option "Membres"</li>
+                    <li>Le membre choisit l'option "Liste des membres"</li>
+                    <li>Le membre navigue la liste des membres</li>
+                    <li>Le membre sélectionne un membre de la liste qu'il veut consulter</li>
+                    <li>Le membre cosulte la page</li>
+                </ol>
+                <br>
+                <h3>Cas d'utilisation 11</h3>
+                <h4>Titre: Rechercher un article</h4>
+                <h4>But: Un membre recherche un article sécifique sur la plateforme</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Avoir un compte et être au menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Le membre choisit l'option "Articles"</li>
+                    <li>Il choisit l'option "Chercher un article"</li>
+                    <li>Le membre entre le nom de l'article qu'il veut consulter</li>
+                    <li>Le système regarde si l'article est dans la BD</li>
+                    <li>Le système amène le membre vers la page de l'article</li>
+                    <li>Le membre consulte l'article</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>5.1 Le système ne trouve pas l'article et affiche un message d'erreur au membre</li>
+                    <li>5.2 Le système ramène le membre vers la page de recherche</li>
+                    <li>5.3 Retour à l'étape 4</li>
+                </ul>
+                <br>
+                <h3>Cas d'utilisation 12</h3>
+                <h4>Titre: Modification du profil</h4>
+                <h4>But: Un membre veux modifier son profil</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Avoir un compte et être au menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>Le membre choisit l'option "Mon profil"</li>
+                    <li>Le membre choisit l'option "Modifier mes informations personnelles"</li>
+                    <li>Le membre choisit l'information qu'il veut changer (nom. prénom, courriel ou numéro de téléphone)</li>
+                    <li>Le membre entre la nouvelle valeur</li>
+                    <li>Le système vérifie que la valeur est valide</li>
+                    <li>Le système demande au membre de confirmer son choix</li>
+                    <li>Le membre confirme la modification</li>
+                    <li>Le membre revient à la page principale</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>5.1 La valeur est invalide donc le sytème le dit au membre</li>
+                    <li>5.2 Retour à l'étape 5</li>
+                    <li>7.1 Le membre annule la modification</li>
+                    <li>8.1 Le membre choisit de modifier une autre valeur</li>
+                    <li>8.2 Retour à l'étape 4</li>
+                </ul>
+
             </section>
 
             <section>
