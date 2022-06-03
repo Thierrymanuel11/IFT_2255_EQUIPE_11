@@ -126,11 +126,12 @@
 <body>
     <header class="report-header">
         <div class="title-section">
-            <h1 class="report-title">Rapport du livrable X</h1>
+            <h1 class="report-title">Rapport du livrable 1 : Exigences et analyse</h1>
             <p class="report-summary">
-                <em>Court résumé du rapport</em> &ndash; Ce livrable se concentre sur... 
-                lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia distinctio tempora quam nulla quod enim. 
-                Odit eius dolores repellendus incidunt doloribus delectus at ex sunt error, iste dicta, maiores blanditiis.
+                <em>Court résumé du rapport</em> &ndash; Ce livrable se concentre sur les exigences et l'analyse pour la création de 
+                la plateforme <i>Roundtable</i> à la demande du GEODES. Plus précisement, ce rapport fait état de notre équipe, notre 
+                plannification, notre compréhension du domaine, notre modélisation du domaine et notre analyse. Il comprend aussi 
+                un prototype de la plateforme. 
             </p>
         </div>
 
@@ -138,31 +139,40 @@
             <h2 class="team-title">Notre équipe</h2>
             <ul class="bare-list members">
                 <li class="member">
-                    <img class="member-pic" src="" alt="" >
+                    <img class="member-pic" src="images/11_1.jpg" alt="11_1" >
                     <div class="member-identification">
-                        <span class="member-name">Francois LABONTE</span>
-                        <span class="member-id">2014069</span>
+                        <span class="member-name">Thierry Manuel TCHOUMKEU DJEUMEN </span>
+                        <span class="member-id">20170651</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
-                    <span class="member-role">Chargé de...</span>
+                    <a href="mailto:thierry.manuel.tchoumkeu.djeumen@umontreal.ca">thierry.manuel.tchoumkeu.djeumen@umontreal.ca</a>
+                    <span class="member-role">Responsable de l’équipe <br> Chargé des besoins fonctionnels et non fonctionnels</span>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="" alt="" >
+                    <img class="member-pic" src="images/11_2.jpg" alt="11_2" >
                     <div class="member-identification">
-                        <span class="member-name">Lola MONTENEGRO</span>
-                        <span class="member-id">1034870</span>
+                        <span class="member-name">Fannie FILION-BIENVENUE</span>
+                        <span class="member-id">#########</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
-                    <span class="member-role">Chargé de...</span>
+                    <a href="mailto:#########@umontreal.ca">############@umontreal.ca</a>
+                    <span class="member-role">Chargé de l'analyse</span>
                 </li>
                 <li class="member">
-                    <img class="member-pic" src="" alt="" >
+                    <img class="member-pic" src="images/11_3.jpg" alt="11_3" >
                     <div class="member-identification">
-                        <span class="member-name">Tien NGUYEN</span>
-                        <span class="member-id">2046973</span>
+                        <span class="member-name">Patrick LANOIE</span>
+                        <span class="member-id">20212654</span>
                     </div> 
-                    <a href="mailto:prenom.nom@umontreal.ca">prenom.nom@umontreal.ca</a>
-                    <span class="member-role">Chargé de...</span>
+                    <a href="mailto:patrick.lanoie@umontreal.ca">patrick.lanoie@umontreal.ca</a>
+                    <span class="member-role">Chargé du cadre du projet et de la définition du domaine </span>
+                </li>
+                <li class="member">
+                    <img class="member-pic" src="images/11_4.jpg" alt="11_4" >
+                    <div class="member-identification">
+                        <span class="member-name">Gabriel MÉNARD</span>
+                        <span class="member-id">#########</span>
+                    </div> 
+                    <a href="mailto:#########@umontreal.ca">#########@umontreal.ca</a>
+                    <span class="member-role">Chargé des besoins fonctionnels et non fonctionnels</span>
                 </li>
             </ul>
         </div>
@@ -195,26 +205,293 @@
         <div class="report-main">
             <section>
                 <h2 id="plan" class="section-title">Plannification</h2>
-                <p>Description brève du domaine et du problème</p>
-                <p>Présentation de l'échéancier et la distribution des taches</p>
-                <p>Présentation des hypothèses</p>
+                <p><b>Description brève du domaine et du problème</b></p>
+                <p>
+                    Notre client, le GEODES, est un groupe de recherche du département d’informatique et de recherche opérationnelle de 
+                    l’Université de Montréal qui est dédié au génie logiciel. Le groupe est composé d’étudiants et de chercheurs et il est 
+                    sous la direction de 3 professeurs du Département. Le GEODES profite d’une réputation importante dans le domaine du génie
+                    logiciel et compte maintenant plus de 25 membres, un nombre qui ne risque que de croitre. 
+                </p>
+                
+                <p>
+                    La croissance du GEODES entraine d’importants problèmes de cohésion et de suivi au sein du groupe. Présentement, le GEODES 
+                    utilise Discord pour la communication entre membres et son site web pour la communication avec le grand public. Toutefois, 
+                    ces outils ne permettent pas véritablement de faire un suivi adéquat des développements. De plus, en raison du nombre 
+                    croissant de membres, le tour de table hebdomadaire qui sert présentement de suivi n’est plus adéquat et souffre de la 
+                    multiplicité des horaires qui engendre des conflits.  
+                    Pour résoudre ces problèmes, le GEODES désire mettre sur pied la plateforme <i>Roundtable</i>. 
+                </p>
+                <p>
+                    La plateforme Roundtable devra permettre aux membres notamment de faire des suivis et des recherches au sein du groupe, ainsi 
+                    que de se souscrire à des centres d’intérêts. La plateforme sera uniquement accessible aux membres du GEODES qui détiendront un 
+                    compte valide. La plateforme ne remplacera pas les outils en place, mais servira plutôt de complément à ces derniers. 
+                    La plateforme se limitera à une interaction en ligne de commande. 
+                </p>
+                <p><b>Présentation de l'échéancier et la distribution des taches</b></p>
+                <p>
+                    N.B. : Veuillez noter que pour ce qui est de la priorisation des tâches, nous avons opté pour une distribution des tâches hebdomadaire
+                    qui tient compte des dépendances entre les diverses parties du rapport. Donc, nous débutons par une définition approfondie du cadre du
+                    projet et de la compréhension du domaine, pour ensuite se lancer simultanément dans la modélisation du domaine et l'analyse et en terminant 
+                    par le prototype. Il ne s'agit toutefois pas d'une priorisation stricte et il y a retour et amélioration sur les étapes précédentes tout
+                    au long de cette phase de développement.  
+                </p>
+                <p>
+                    Semaine 1 (16 mai 2021)
+                    <ul>
+                        <li>
+                            Travail en commun
+                        </li>
+                            <p>Première rencontre d'équipe pendant laquelle nous procédons à l'analyse de l'énoncé, la détermination des questions
+                            à poser au client et la distribution des tâches. 
+                            </p>
+                        <li>
+                            Distribution 
+                            <ul>
+                                <li>
+                                    Patrick: Début du cadre du projet 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 2 (23 mai 2021)
+                    <ul>
+                        <li>
+                            Travail en commun
+                        </li>
+                            <p>Analyse des modifications de l'énoncé, détermination des questions à poser au client et identification des principaux
+                            cas d'utilisation à détailler. 
+                            </p>
+                        <li>
+                            Distribution 
+                            <ul>
+                                <li>
+                                    Thierry: Cas d'utilisation et scénarios
+                                </li>
+                                <li>
+                                    Fannie: Analyse à l'exception du prototype
+                                </li>
+                                <li>
+                                    Patrick: Révision du cadre du projet et compréhension du domaine 
+                                </li>
+                                <li>
+                                    Gabriel: Cas d'utilisation et scénarios
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 3 (30 mai 2021)
+                    <ul>
+                        <li>
+                            Travail en commun
+                        </li>
+                            <p>Analyse des modifications de l'énoncé, détermination de la dernière question à poser au client, mise en commun et raffinement
+                            des artéfacts produits, développement du prototype et complétion du rapport final.
+                            </p>
+                        <li>
+                            Distribution 
+                            <ul>
+                                <li>
+                                    Thierry: Développement du prototype interactif 
+                                </li>
+                                <li>
+                                    Fannie: Révision analyse et prototype fixe 
+                                </li>
+                                <li>
+                                    Patrick: Révision de la compréhension du domaine et des besoins non-fonctionnels
+                                </li>
+                                <li>
+                                    Gabriel: Révision de la modélisation du domaine 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p><b>Présentation des hypothèses</b></p>
+                <p>
+                    Pour les fins de ce rapport et du travail associé, nous supposons ce qui suit : 
+                    <ul>
+                        <li>
+                            Le GEODES détient ou mettra sur pied une base de données qui contiendra toutes les données 
+                            pouvant faire l’objet d’une requête par la plateforme <i>Roundtable</i>.
+                        </li>
+                        <li>
+                            Les contraintes suivantes sont souhaitées: 
+                            <ul>
+                                <li>
+                                    Disponibilité de la plateforme de 99.99% pendant les heures de travail.
+                                </li>
+                                <li>
+                                    Temps de réponse du système de 0.5 secondes pour une action de l'utilisateur et 2 secondes pour une requête.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </p>
             </section>
 
             <section>
                 <h2 id="domain" class="section-title">Compréhension du domaine</h2>
                 <p>
-                    Après de nombreuses rencontres et une familiarisation avec l'activité VaxTodo, nous avons préparé un glossaire 
+                    Après de nombreuses rencontres et une familiarisation avec les activités du GEODES, nous avons préparé un glossaire 
                     rassemblant les termes et expressions clés caractérisant l'environnement.
                 </p>
                 <h3>Glossaire</h3>
                 <dl class="glossary">
-                    <dt class="glossary-term">Terme 1</dt>
-                    <dd class="glossary-def">Definition Debitis vel incidunt quaerat vitae iure, amet voluptatem commodi neque perferendis, asperiores facilis fugit! Dicta possimus aperiam officiis recusandae ipsum magni dignissimos?</dd>
-                    <dt class="glossary-term">Terme 2</dt>
-                    <dd class="glossary-def">Definition Culpa assumenda pariatur doloremque accusamus obcaecati reiciendis saepe sapiente, nihil adipisci quo architecto amet veniam vero delectus ullam dolorem unde quidem? Debitis.</dd>
-                    <dt class="glossary-term">Terme 3</dt>
-                    <dd class="glossary-def">Definition Alias sequi officia tempore maiores placeat omnis eum quo totam quia fuga? Officia repellendus odio ducimus dolores error dolorem hic a beatae.</dd>
+                    <dt class="glossary-term">Activité</dt>
+                    <dd class="glossary-def">Une publication, un projet, un outil ou un événement. </dd>
+
+                    <dt class="glossary-term">Activité visée</dt>
+                    <dd class="glossary-def">Une publication, un projet, ou un outil (exclue les événements pour le moment).</dd>
+
+                    <dt class="glossary-term">Administrateur</dt>
+                    <dd class="glossary-def">Membre du GEODES qui aura un rôle d'administration pour la plateforme.</dd>
+
+                    <dt class="glossary-term">Auteur</dt>
+                    <dd class="glossary-def">Membre du GEODES qui rédige un article destiné à la publication.</dd>
+
+                    <dt class="glossary-term">Authentification</dt>
+                    <dd class="glossary-def">Identification d'un membre du GEODES à l’accès de la plateforme avec son adresse courriel et son mot de passe. </dd>
+
+                    <dt class="glossary-term">Collaborateur </dt>
+                    <dd class="glossary-def">Membre du GEODES qui participe à une activité de publication ou à la création d’un outil.</dd>
+
+                    <dt class="glossary-term">Événement</dt>
+                    <dd class="glossary-def">Conférences, séminaires et ateliers organisés ou auxquels participe le GEODES.</dd>
+
+                    <dt class="glossary-term">GEODES</dt>
+                    <dd class="glossary-def">Groupe de recherche du département d’informatique et de recherche opérationnelle de l’Université de Montréal 
+                    dédié au génie logiciel. </dd>
+
+                    <dt class="glossary-term">Intérêt</dt>
+                    <dd class="glossary-def">Sous domaine du génie logiciel ou de l’informatique qui peut être associé à une activité ou un profil.</dd>
+
+                    <dt class="glossary-term">Membre</dt>
+                    <dd class="glossary-def">Toute personne faisant partie du GEODES, incluant un étudiant à la maitrîse ou au doctorat, un chercheur, un professeur
+                    ou un administrateur. </dd>
+
+                    <dt class="glossary-term">Mot-clé</dt>
+                    <dd class="glossary-def">Terme descriptif associé à une activité.</dd>
+
+                    <dt class="glossary-term">Mot de passe</dt>
+                    <dd class="glossary-def">Chaine composée d’au moins 8 caractères, dont au moins 1 chiffre, 1 majuscule, 1 minuscule et 1 caractère spécial.</dd>
+
+                    <dt class="glossary-term">Niveau de visibilité </dt>
+                    <dd class="glossary-def">Caractéristique d’une activité qui est publique (visible par tous) ou privée (visible par les membres associés à l’activité). </dd>
+
+                    <dt class="glossary-term">Notification</dt>
+                    <dd class="glossary-def">Avis envoyé aux comptes de certaines membres spécifiques du GEODES.</dd>
+
+                    <dt class="glossary-term">Outil</dt>
+                    <dd class="glossary-def">Démonstration pratique d’un travail de recherche créé, exploité et modifié par un membre du GEODES.</dd>
+
+                    <dt class="glossary-term">Partenaire</dt>
+                    <dd class="glossary-def">Membre du GEODES qui participe à un projet. </dd>
+
+                    <dt class="glossary-term">Professeur</dt>
+                    <dd class="glossary-def">Professeur du département d'informatique et de recherche opérationnelle de l’Université de Montréal attitré au GEODES.</dd>
+
+                    <dt class="glossary-term">Projet</dt>
+                    <dd class="glossary-def">Programme de recherche en lien avec une subvention reçue et mené par un membre du GEODES.</dd>
+
+                    <dt class="glossary-term">Publication</dt>
+                    <dd class="glossary-def">Article produit par un ou plusieurs membres du GEODES dans le but d’être partagé avec la communauté.</dd>
+
+                    <dt class="glossary-term">Requête</dt>
+                    <dd class="glossary-def">Création, recherche ou modification d’une information à partir d’une liste ou d’un terme de recherche. Une requête peut 
+                    être accessible à tout membre ou spécifique à une catégorie de membres ou un rôle. </dd>
+
+                    <dt class="glossary-term">Responsable</dt>
+                    <dd class="glossary-def">Membre du GEODES qui crée une activité ou le professeur qui y est associé. </dd>
+
+                    <dt class="glossary-term">Rôle</dt>
+                    <dd class="glossary-def">Nom unique associé au compte d’un membre du GEODES entre « PROFESSEUR », « ADMINISTRATEUR » ou « MEMBRE » et 
+                    qui détermine les requêtes accessibles pour ce compte.</dd>
+
+                    <dt class="glossary-term">Statut (compte)</dt>
+                    <dd class="glossary-def">Se dit d’un compte qui est soit « EN_ATTENTE », « VALIDE » ou « SUSPENDU ».</dd>
+
+                    <dt class="glossary-term">Statut (publication)</dt>
+                    <dd class="glossary-def">Se dit d’un article, qui est soit brouillon, prêt, soumis ou publié.</dd>
+
+                    <dt class="glossary-term"></dt>
+                    <dd class="glossary-def"></dd>
+
                 </dl>
+                <br>
+                <p>
+                    De plus, nous avons aussi répertorié nos échanges avec le client sous la forme des questions que nous lui avons posées et des réponses que 
+                    nous avons trouvées. 
+                </p>
+                <p>
+                    Semaine 1 (16 mai 2021)
+                    <ul>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme aura une structure hiérarchique avec des rôles distincts pour les types différents utilisateurs ? 
+                                <br>
+                                RÉPONSE : Oui, la plateforme aura des membres, des administrateurs et des professeurs. Les administrateurs et les professeurs 
+                                auront des responsabilités supplémentaires distinctes. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme devra offrir la possibilité de faire des annonces aux membres, par exemple par la voie de 
+                                notifications ?  
+                                <br>
+                                RÉPONSE : Oui, la plateforme devra envoyer des notifications à des membres spécifiques lors de certaines actions, par exemple une 
+                                notification sera envoyée aux administrateurs lorsqu’on tente de créer un nouveau compte. 
+                            </p> 
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme devra permettre aux membres de travailler ensemble sur un projet d’une manière similaire à Github ? 
+                                <br>
+                                RÉPONSE : Oui, la plateforme sera uniquement un outil de recherche et de suivi, mais un lien vers un répertoire Github devra être inclus 
+                                dans un outil.
+                            </p> 
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 2 (23 mai 2021)
+                    <ul>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que la plateforme doit traiter les activités de type « événements » ?  
+                                <br>
+                                RÉPONSE : Non, pas pour le moment. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Serait-il possible d’obtenir des précisions sur les administrateurs, e.g. qui sont-ils, peuvent-ils aussi être 
+                                des professeurs, doivent-ils avoir un compte distinct, etc.  
+                                <br>
+                                RÉPONSE : Pour le moment, les administrateurs sont Istvan David et Louis-Edouard Lafontant, qui ne sont pas des professeurs. 
+                                Un membre ne peut être associé qu’à un seul rôle qui est défini par un nom unique associé à son compte.  
+                            </p> 
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Semaine 3 (30 mai 2021)
+                    <ul>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce qu'il y a des contraintes budgétaires ou temporelles pour le projet ? 
+                                <br>
+                                RÉPONSE : Le projet est à remettre à la fin du mois de juillet 2022 et il n'y a aucun budget alloué au projet, seules les ressources 
+                                du DIRO seront disponibles. 
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+
+
             </section>
 
             <section>
@@ -229,36 +506,116 @@
 
             <section>
                 <h2 id="analysis" class="section-title">Analyse</h2>
-                <p>Notre analyse préliminaire nous a permis d'élucider les besoins et risques suivants...</p>
+                <p>Notre analyse préliminaire nous a permis d'élucider les besoins et risques suivants :</p>
                 <div>
                     <h3>Risques</h3>
                     <ol class="risks">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <p>
+                            3 rencontres avec le client sont permises afin de poser un maximum de 6 questions afin de demander des 
+                            informations additionnelles pour bien comprendre leurs besoins. La communication possible étant limitée avec le 
+                            client, il y a un risque de spécification incomplète du projet. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Les lacunes en connaissances techniques du client rendent difficile la visualisation du logiciel et de ses fonctionnalités 
+                            par ce dernier, ce qui cause des risques de fonctionnalités (il ne faut ni fonctionnalité inutile, ni fonctionnalité oubliée). 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            L’équipe se chargeant du projet sont de nouveaux coéquipiers avec une expérience limitée dans le domaine, causant un 
+                            risque lié à l’organisation du projet et à la communication entre les membres en charge (lacunes possibles en leadership,
+                            en maturité, en expérience, en disponibilités…).  
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Le code informatique étant intangible, il est particulièrement difficile de prévoir le temps nécessaire à allouer aux 
+                            problèmes potentiels dans un tel projet. Le dérapage possible du calendrier cause ainsi un risque temporel.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Mauvaise compréhension du domaine????
+                            </p>
+                        </li>
                     </ol>
                 </div>
                 <div>
                     <h3>Exigences non-fonctionnelles</h3>
                     <ul class="nf-requirements">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <p>
+                            <b>Sécurité</b> : Le système ne doit pas permettre à une personne autre qu’un membre du GEODES de se connecter. La 
+                            plateforme n’est pas destinée à l’usage par le public et l’information disponible à travers la plateforme peut
+                            être confidentielle. Il est donc impératif que le processus d’authentification soit rigoureux dans l’acceptation
+                            que des membres du GEODES. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Performance</b> : Le système doit répondre aux actions de l’utilisateur en moins de 0.5 secondes et produire les résultats
+                            des requêtes en moins de 2 secondes. Pour que la plateforme soit efficace et pertinente à l’utilisation, elle doit être 
+                            en mesure de s’exécuter rapidement de manière à ne pas décourager les utilisateurs et éviter de perdre leur temps. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Fiabilité</b> : Le système doit être disponible 99.99% du temps pendant les heures normales de travail des membres du GEODES. Comme 
+                            la plateforme a pour objectif de permettre un meilleur suivi et une meilleure cohésion au sein de l’équipe, il est essentiel qu’elle 
+                            soit disponible lorsque les membres en ont de besoin au cours de leur journée normale de travail.  
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Fiabilité</b> : Le système ne doit pas perdre de données. Puisque la plateforme permet de créer des activités ou de faire des requêtes, 
+                            les données transmises ou reçues doivent être complètes de manière à ce que l’information visualisée ou entrée soit représentative 
+                            de la situation réelle au sein du GEODES. Sans quoi, la plateforme qui se veut un outil de suivi perd de sa pertinence.   
+                            </p>    
+                        </li>
+                        <li>
+                            <p>
+                            <b>Utilisabilité</b> : L’affichage des options lors de l’utilisation de la plateforme doit être descriptif 
+                            et non-équivoque. Puisque l’interaction se fait en ligne de commande, la seule information disponible 
+                            est le nom des différentes options. Il est donc essentiel que l’utilisateur puisse comprendre exactement 
+                            le contenu de chaque option de manière à permettre une navigation efficace de la plateforme. 
+                            </p>
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h3>Matériels nécessaires</h3>
-                    <p>Description et justification des besoins matériels du projet...</p>
+                    <p>Description et justification des besoins matériels du projet : </p>
                     <ul class="nf-requirements">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <p>
+                            
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Serveur : Il est important que toutes les données disponibles ou entrées sur la plateforme soit stockées sur un serveur afin qu'elles soient
+                            accessibles lors de l'utilisation et enregistrées lors de la sauvegarde.   
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Connexion internet : Puisque la plateforme devra être en mesure d'accéder aux données stockées sur le serveur, il est essentiel d'avoir 
+                            une connexion internet fiable pour que le système s'exécute correctement.   
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                
+                            </p>
+                        </li>
                     </ul>
                 </div>
                 <div>
