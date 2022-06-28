@@ -120,6 +120,12 @@
         .report-footer__link {
             color: #fff;
         }
+
+        .imbr {
+            list-style-type: None;
+        }
+
+
     </style>
 </head>
 
@@ -671,60 +677,129 @@
                 <h3>Modélisation des cas d'utilisation</h3>
 
                 <img src="images/Use Case Diagram1.jpg" alt="VP">
+
+                
                 <h3>Cas d'utilisation 1</h3>
-                <h4>Titre: Création de compte</h4>
-                <h4>But: Un membre du GEODES veut pouvoir créer son compte sur la plateforme</h4>
-                <h4>Acteurs: membre du GEODES, professeur s'occupant de la validation</h4>
-                <h4>Précondition: Avoir accès à un outil permettant l'accès à la plateforme</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur ouvre la plateforme RoundTable</li>
-                    <li>L'utilisateur sélectionne l'option de création de compte</li>
-                    <li>L'utilisateur choisit un superviseur (prof) qui va valider la création de son compte</li>
-                    <li>L'utilisateur entre son nom lorsqu'indiqué</li>
-                    <li>Il entre son prénom lorsqu'indiqué</li>
-                    <li>Il entre son addresse courriel lorsqu'indiqué</li>
-                    <li>Il entre son numéro de téléphone lorsqu'indiqué</li>
-                    <li>Il entre son mot de passe de son compte</li>
-                    <li>Il valide ses informations et les envoies au superviseur en attente de la validation de ce dernier</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>6.1 Son adresse courriel est invalide et le système lui fait savoir cela
-                        et lui demande d'entrer un addresse courriel valide
-                    </li>
-                    <li>6.2 Retour à l'étape 6</li>
-                    <li>7.1 Son mot de passe n'est pas valide, donc le système le mentionne
-                    </li>
-                    <li>7.2 Retour à l'étape 7</li>
-                    <li>8.1 Son numéro de téléphone n'est pas valide n'est pas valide, donc le système le mentionne
-                    </li>
-                    <li>8.2 Retour à l'étape 8</li>
-                </ul>
-                <br>
-                <h3>Cas d'utilisation 2</h3>
                 <h4>Titre: Connexion à la plateforme</h4>
-                <h4>But: Un membre du GEODES veut accéder à son compte sur la plateforme</h4>
-                <h4>Acteurs: membre du GEODES</h4>
+                <h4>But: Un membre veut accéder à son compte sur la plateforme</h4>
+                <h4>Acteurs: Membre</h4>
                 <h4>Précondition: Avoir un compte déjà créé au préalable sur la plateforme</h4>
+                <h4>Postcondition: L'utilisateur se retrouve au menu principal</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-                    <li>L'utilisateur ouvre la plateforme RoundTable</li>
-                    <li>L'utilisateur entre son addresse courriel lorsqu'indiqué</li>
-                    <li>L'utilisateur entre son mot de passe</li>
-                    <li>L'utilisateur appuis sur la touche enter to login</li>
+                    <li>L'utilisateur ouvre la plateforme Roundtable.</li>
+                    <li>L'utilisateur sélectionne l'option "Authentification".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer son adresse courriel.</li>
+                    <li>L'utilisateur entre son addresse courriel.
+                        <ul class="imbr"><li>4.1. Le système valide l'adresse courriel.</li></ul>
+                    </li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer son mot de passe.</li>
+                    <li>L'utilisateur entre son mot de passe.
+                        <ul class="imbr"><li>6.1. Le système valide le mot de passe.</li></ul>
+                    </li>
+                    <li>Le système affiche le menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>2.1 Son addresse courriel es invalide et le système lui fait savoir
-                        et lui demande d'entrer un adresse courriel valide
+                <ul class="imbr">
+                    <li>5a. L'adresse courriel est invalide.
+                        <ul class="imbr">
+                            <li>5a.1. Le système ne trouve pas de compte associé à cette adresse courriel.</li>
+                            <li>5a.2. Le système affiche "Ce compte n'existe pas".</li>
+                            <li>5a.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
                     </li>
-                    <li>2.2 Retour à l'étape 2</li>
-                    <li>4.1 	Son mot de passe n'est pas le bon et donc le système le lui fait
-                         savoir pour qu'il mette un bon mot de passe</li>
-                    <li>Retour à l'étape 3</li>
+                    <br>
+                    <li>5b. Le compte est suspendu.
+                        <ul class="imbr">
+                            <li>5b.1. Le système constate que le compte associé à cette adresse courriel est suspendu.</li>
+                            <li>5b.2. Le système affiche "Ce compte est suspendu".</li>
+                            <li>5b.3. Le scénario se termine.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>7a. Le mot de passe est invalide.
+                        <ul class="imbr">
+                            <li>7a.1. Le système constate que le mot de passe entré ne correspond pas au mot de passe associé à ce compte.</li>
+                            <li>7a.2. Le système affiche "Mot de passe incorrect".</li>
+                            <li>7a.3. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
                 </ul>
                 <br>
+
+
+                <h3>Cas d'utilisation 2</h3>
+                <h4>Titre: Création de compte</h4>
+                <h4>But: Un membre veut se créer un compte sur la plateforme</h4>
+                <h4>Acteurs: Membre (principal) et administrateur (secondaire)</h4>
+                <h4>Précondition: Ne pas déjà posseder un compte sur la plateforme.</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur ouvre la plateforme Roundtable</li>
+                    <li>L'utilisateur sélectionne l'option "Inscription".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur de choisir un superviseur parmi les 3 superviseurs indiqués.</li>
+                    <li>L'utilisateur choisit son superviseur.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer son nom.</li>
+                    <li>L'utilisateur entre son nom.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer son prénom.</li>
+                    <li>L'utilisateur entre son prénom.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer son adresse courriel.</li>
+                    <li>L'utilisateur entre son adresse courriel.</li>
+                        <ul class="imbr"><li>10.1. Le système valide l'adresse courriel.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer son numéro de téléphone.</li>
+                    <li>L'utilisateur entre son numéro de téléphone.</li>
+                        <ul class="imbr"><li>12.1. Le système valide le numéro de téléphone.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un mot de passe qui respecte les règles.</li>
+                    <li>L'utilisateur entre le mot de passe qu'il choisit.
+                        <ul class="imbr"><li>14.1. Le système valide le mot de passe.</li></ul>
+                    </li>
+                    <li>Le système crée le compte et lui affecte le statut "EN_ATTENTE".</li>
+                    <li>Le système affiche un message de succès et termine l'exécution pour le membre.</li>
+                    <li>Le système envoie une confirmation à l'adresse courielle fournie.</li>
+                    <li>Le système envoie une notification aux administrateurs pour effectuer la validation du compte.</li>
+                        <ul class="imbr"><li>18.1. L'administrateur sélectionne la notification à partir de son compte.</li></ul>
+                        <ul class="imbr"><li>18.2. L'administrateur valide les informations fournies par le membre.</li></ul>
+                        <ul class="imbr"><li>18.3. L'administrateur affecte le statut "VALIDE" au compte en sélectionnant l'option "Accepter".</li></ul>
+                        <ul class="imbr"><li>18.4. Le système envoie une notification par courriel au membre pour lui indiquer que le compte a été validé.</li></ul>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>11a. L'adresse courriel est invalide.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Adresse courriel invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 9.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>13a. Le numéro de téléphone est invalide.
+                        <ul class="imbr">
+                            <li>13a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>13a.2. Le système affiche "Numéro de téléphone invalide".</li>
+                            <li>13a.3. Le scénario reprend à l'étape 11.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>15a. Le mot de passe est invalide.
+                        <ul class="imbr">
+                            <li>13a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>13a.2. Le système affiche "Mot de passe invalide".</li>
+                            <li>13a.3. Le scénario reprend à l'étape 13.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>18.4a. L'administrateur refuse de valider le compte.
+                        <ul class="imbr">
+                            <li>18.4a.1. L'administrateur constate que le compte n'est pas valide et sélectionne l'option "Refuser".</li>
+                            <li>18.4a.2. Le système envoie une notification par courriel au membre pour lui indiquer que sa demande a été refusée.</li>
+                            <li>18.4a.3. Le système supprime le compte.</li>
+                            <li>18.4a.4. Le scénario se termine.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
                 <h3>Cas d'utilisation 3</h3>
                 <h4>Titre: Création de projet</h4>
                 <h4>But: Un membre du GEODES souhaites céer un projet quelconque</h4>
@@ -757,6 +832,7 @@
                     <li>6.2 Retour à l'étape 6</li>
                 </ul>
                 <br>
+
                 <h3>Cas d'utilisation 4</h3>
                 <h4>Titre: Création et publication d'un article</h4>
                 <h4>But: Un membre du GEODES souhaites céer et publier un article</h4>
@@ -817,6 +893,7 @@
                     <li>Le membre peut finalement publier l'outil</li>
                 </ol>
                 <br>
+
                 <h3>Cas d'utilisation 6</h3>
                 <h4>Titre: Validation d'un membre par un professeur</h4>
                 <h4>But: In professeur du GEODES doit valider un membre voulant se créer un compte</h4>
@@ -839,6 +916,7 @@
                     <li>5.1 Le professeur refuse la demande</li>
                 </ul>
                 <br>
+
                 <h3>Cas d'utilisation 7</h3>
                 <h4>Titre: Ajouter un intérêt</h4>
                 <h4>But: Un professeur veut ajouter un intérêt</h4>
@@ -861,6 +939,7 @@
                     <li>6.1 Le professeur annule la création de l'intérêt</li>
                 </ul>
                 <br>
+
                 <h3>Cas d'utilisation 8</h3>
                 <h4>Titre: Suprimer une activité</h4>
                 <h4>But: Un administrateur veut suprimer une activité</h4>
@@ -882,6 +961,7 @@
                     <li>6.1 L'administrateur annule la requête</li>
                 </ul>
                 <br>
+
                 <h3>Cas d'utilisation 9</h3>
                 <h4>Titre: Suspendre un membre</h4>
                 <h4>But: Un administrateur veut suspendre le compte d'un membre</h4>
@@ -907,6 +987,7 @@
 
                 </ul>
                 <br>
+
                 <h3>Cas d'utilisation 10</h3>
                 <h4>Titre: Afficher la liste des membre</h4>
                 <h4>But: Un membre veut afficher la liste des membres pour consulter la page d'un membre</h4>
@@ -921,6 +1002,7 @@
                     <li>Le membre cosulte la page</li>
                 </ol>
                 <br>
+
                 <h3>Cas d'utilisation 11</h3>
                 <h4>Titre: Rechercher un article</h4>
                 <h4>But: Un membre recherche un article sécifique sur la plateforme</h4>
@@ -942,6 +1024,7 @@
                     <li>5.3 Retour à l'étape 4</li>
                 </ul>
                 <br>
+
                 <h3>Cas d'utilisation 12</h3>
                 <h4>Titre: Modification du profil</h4>
                 <h4>But: Un membre veux modifier son profil</h4>
