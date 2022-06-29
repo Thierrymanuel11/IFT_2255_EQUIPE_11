@@ -497,6 +497,9 @@
                     <dt class="glossary-term">Chercheur</dt>
                     <dd class="glossary-def">Tout visiteur ou postdoc affilié au GEODES.</dd>
 
+                    <dt class="glossary-term">Code d'identification</dt>
+                    <dd class="glossary-def">Numéro unique généré par le système pour identifier une activité ou un membre.</dd>
+
                     <dt class="glossary-term">Collaborateur </dt>
                     <dd class="glossary-def">Membre du GEODES qui participe à une activité de publication ou à la création d’un outil.</dd>
 
@@ -660,9 +663,9 @@
                     <ul>
                         <li>
                             <p>
-                                QUESTION : ??????????
+                                QUESTION : Est-ce que l'identifiant unique pour les membres et les activités est généré par le système ou fourni par l'utilisateur ? 
                                 <br>
-                                RÉPONSE : ???????????
+                                RÉPONSE : L'identifiant unique doit être généré par le système.
                             </p>
                         </li>
                     </ul>
@@ -818,7 +821,7 @@
                         <ul class="imbr"><li>10.1. Le système valide la taille du titre.</li></ul>
                     <li>Le système affiche un message demandant à l'utilisateur d'entrer un résumé pour l'article.</li>
                     <li>L'utilisateur entre un résumé.</li>
-                            <ul class="imbr"><li>10.1. Le système valide la taille du résumé.</li></ul>
+                        <ul class="imbr"><li>10.1. Le système valide la taille du résumé.</li></ul>
                     <li>Le système affiche un message demandant à l'utilisateur d'entrer un URL vers l'article.</li>
                     <li>L'utilisateur entre un URL.</li>
                         <ul class="imbr"><li>10.1. Le système valide l'URL.</li></ul>
@@ -862,9 +865,9 @@
 
                 <h3>Cas d'utilisation 4</h3>
                 <h4>Titre: Supprimer un article</h4>
-                <h4>But: Un membre veut supprimer un article</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme, avoir sélectionné l'option "Articles" du menu principal et être le créateur de l'article</h4>
+                <h4>But: Un administrateur veut supprimer un article</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Articles" du menu principal</h4>
                 <h4>Postcondition: L'article est supprimé de la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
@@ -887,7 +890,7 @@
                 </ul>
                 <br>
 
-                <h3>Cas d'utilisation 3</h3>
+                <h3>Cas d'utilisation X</h3>
                 <h4>Titre: Création de projet</h4>
                 <h4>But: Un membre du GEODES souhaites céer un projet quelconque</h4>
                 <h4>Acteurs: Membre du GEODES, professeur</h4>
@@ -926,9 +929,85 @@
                 <br>
 
 
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Modifier son profil</h4>
+                <h4>But: Un membre veut modifier son profil</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Mon profil" du menu principal</h4>
+                <h4>Postcondition: Le profil est modifié dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Modifier mon profil".</li>
+                    <li>Le système affiche le profil complet.</li>
+                    <li>L'utilisateur choisit l'attribut du profil qu'il désire modifier.</li>
+                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
+                    <li>L'utilisateur entre un nouveau contenu.</li>
+                        <ul class="imbr"><li>10.1. Le système valide le nouveau contenu.</li></ul>
+                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la modification.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>11a. Le nouveau contenu est invalide.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Modification invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>5a. L'utilisateur ne confirme pas la modification.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Consulter ses notifications</h4>
+                <h4>But: Un membre veut consulter ses notifications</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Mon profil" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter mes notifications".</li>
+                    <li>Le système affiche les notifications de l'utilisateur.</li>
+                    <li>L'utilisateur choisit une notification.</li>
+                    <li>Le système affiche le contenu détaillé de la notification.</li>
+                    <li>L'utilisateur quitte son menu de notification et retourne au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>11a. L'utilisateur n'a pas de notification.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'utilisateur n'a pas de notification.</li>
+                            <li>11a.2. Le système affiche "Vous n'avez aucune notification".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 5.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>5a. L'utilisateur ne confirme pas la modification.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+
+
+
 
                 <h3>Cas d'utilisation 5</h3>
-                <h4>Titre: Création d'outil</h4>
+                <h4>Titre: Modifier une activité</h4>
                 <h4>But: Un membre du GEODES souhaites céer et un outil</h4>
                 <h4>Acteurs: Membre du GEODES</h4>
                 <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
@@ -1087,11 +1166,211 @@
                     <li>8.2 Retour à l'étape 4</li>
                 </ul>
 
+
+                <h3>Cas d'utilisation SUP1</h3>
+                <h4>Titre: Ajouter un intérêt</h4>
+                <h4>But: Un superviseur veut ajouter un intérêt</h4>
+                <h4>Acteurs: Superviseur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant que superviseur et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: Le nouvel intérêt sera présent dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Ajouter un intérêt".</li>
+                    <li>Le système demande à l'utilisateur d'entrer un titre pour l'intérêt.</li>
+                    <li>L'utilisateur entre un titre.</li>
+                        <ul class="imbr"><li>10.1. Le système valide la taille du titre et que l'intérêt n'existe pas déjà.</li></ul>
+                    <li>Le système demande à l'utilisateur d'entrer une description pour l'intérêt.</li>
+                    <li>L'utilisateur entre une description.</li>
+                        <ul class="imbr"><li>10.1. Le système valide la taille de la description.</li></ul>
+                    <li>Le système génère un identifiant unique pour le nouvel intérêt.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>11a. Le titre est invalide.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Titre invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>11a. Le titre existe déjà.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée est déjà présente dans la base de données.</li>
+                            <li>11a.2. Le système affiche "Cet intérêt existe déjà".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>13a. La descritpion est invalide.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Description invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+                <h3>Cas d'utilisation SUP2</h3>
+                <h4>Titre: Modifier un intérêt</h4>
+                <h4>But: Un superviseur veut modifier un intérêt</h4>
+                <h4>Acteurs: Superviseur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant que superviseur et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: L'intérêt sera modifié dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Modifier un intérêt".</li>
+                    <li>Le système affiche la liste des intérêts.</li>
+                    <li>L'utilisateur sélectionne un intérêt dans la liste.</li>
+                    <li>Le système affiche la fiche complète de l'intérêt selectionné.</li>
+                    <li>L'utilisateur choisit l'attribut de l'intérêt qu'il désire modifier.</li>
+                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
+                    <li>L'utilisateur entre un nouveau contenu.</li>
+                        <ul class="imbr"><li>10.1. Le système valide le nouveau contenu.</li></ul>
+                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la modification.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>11a. Le nouveau contenu est invalide.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Modification invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>5a. L'utilisateur ne confirme pas la modification.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+                <h3>Cas d'utilisation SUP3</h3>
+                <h4>Titre: Supprimer un intérêt</h4>
+                <h4>But: Un superviseur veut supprimer un intérêt</h4>
+                <h4>Acteurs: Superviseur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant que superviseur et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: L'intérêt est supprimé de la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Supprimer un intérêt".</li>
+                    <li>Le système affiche la liste des intérêts.</li>
+                    <li>L'utilisateur sélectionne un intérêt dans la liste.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire supprimer cet intérêt.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la suppression.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas la suppression.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la suppression de l'intérêt.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+
+                <h3>Cas d'utilisation ADMIN1</h3>
+                <h4>Titre: Suspendre un compte</h4>
+                <h4>But: Un administrateur veut suspendre un compte</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Gestion des membres" du menu principal</h4>
+                <h4>Postcondition: Le compte visé a maintenant le statut "SUSPENDU" dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Suspendre un compte".</li>
+                    <li>Le système affiche la liste de tous les membres dont le statut n'est pas "SUSPENDU".</li>
+                    <li>L'utilisateur sélectionne le compte à suspendre.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire suspendre ce compte.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la suspension.</li></ul>
+                    <li>Le système change le statut du compte du membre visé.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas la suspension.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la suspension du compte sélectionné.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+                <h3>Cas d'utilisation ADMIN2</h3>
+                <h4>Titre: Réactiver un compte</h4>
+                <h4>But: Un administrateur veut réactiver un compte</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Gestion des membres" du menu principal</h4>
+                <h4>Postcondition: Le compte visé a maintenant le statut "VALIDE" dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Réactiver un compte".</li>
+                    <li>Le système affiche la liste de tous les membres dont le statut n'est pas "VALIDE".</li>
+                    <li>L'utilisateur sélectionne le compte à réactiver.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire réactiver ce compte.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la réactivation.</li></ul>
+                    <li>Le système change le statut du compte du membre visé.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas la réactivation.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la réactivation du compte sélectionné.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+                <h3>Cas d'utilisation ADMIN3</h3>
+                <h4>Titre: Modifier un rôle</h4>
+                <h4>But: Un administrateur modifier le rôle affilié à un compte</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Gestion des membres" du menu principal</h4>
+                <h4>Postcondition: Le compte visé a maintenant le nouveau rôle attribué dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Modifier un rôle".</li>
+                    <li>Le système affiche la liste de tous les membres.</li>
+                    <li>L'utilisateur sélectionne le compte auquel il désire attribuer un nouveau rôle.</li>
+                    <li>Le système demande à l'utilisateur de sélectionner le rôle qu'il désire attribuer à ce compte.</li>
+                    <li>L'utilisateur choisi un rôle.</li>
+                    <li>Le système demande à l'utilisateur de confirmer que le rôle choisi est le bon.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme le rôle.</li></ul>
+                    <li>Le système change le rôle associé au compte visé.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas le rôle choisi.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer le rôle choisi.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
             </section>
 
             <section>
                 <h2 id="analysis" class="section-title">Analyse</h2>
-                <p>Notre analyse préliminaire nous a permis d'élucider les besoins et risques suivants :</p>
+                <p>Notre analyse préliminaire nous a permis d'identifier les besoins et risques suivants :</p>
                 <div>
                     <h3>Risques</h3>
                     <ol class="risks">
