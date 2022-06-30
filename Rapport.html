@@ -863,67 +863,81 @@
                 </ul>
 
 
-                <h3>Cas d'utilisation 4</h3>
-                <h4>Titre: Supprimer un article</h4>
-                <h4>But: Un administrateur veut supprimer un article</h4>
-                <h4>Acteurs: Administrateur</h4>
-                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Articles" du menu principal</h4>
-                <h4>Postcondition: L'article est supprimé de la base de données</h4>
+                <h3>Cas d'utilisation RESPONSABLE</h3>
+                <h4>Titre: Modifier une activité</h4>
+                <h4>But: Un membre veut modifier une activité dont il est le responsable</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme, être le responsable de l'activité et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: L'activité est modifié dans la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-                    <li>L'utilisateur sélectionne l'option "Supprimer un article".</li>
-                    <li>Le système affiche la liste de tous les articles dont l'utilisateur est le créateur.</li>
-                    <li>L'utilisateur sélectionne l'article à supprimer.</li>
-                    <li>Le système demande à l'utilisateur de confirmer qu'il désire supprimer cet article.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme la suppression.</li></ul>
-                    <li>Le système supprime l'article.</li>
+                    <li>L'utilisateur sélectionne l'option "Modifier une activité".</li>
+                    <li>Le système affiche le la liste des activités dont le membre est responsable.</li>
+                    <li>L'utilisateur choisit l'activité à modifier.</li>
+                    <li>Le système affiche la fiche complète de l'activité sélectionnée.</li>
+                    <li>L'utilisateur sélectionne un attribut à modifier.</li>
+                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
+                    <li>L'utilisateur entre un nouveau contenu.</li>
+                        <ul class="imbr"><li>10.1. Le système valide le nouveau contenu.</li></ul>
+                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la modification.</li></ul>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
-                <ul class="imbr">
-                    <li>5a. L'utilisateur ne confirme pas la supression.
+                <ul style="list-style-type: none;">
+                    <li>11a. Le nouveau contenu est invalide.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la supression de l'article sélectionné.</li>
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Modification invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>5a. L'utilisateur ne confirme pas la modification.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
                             <li>5a.2. Le scénario reprend à l'étape 2.</li>
                         </ul>
                     </li>
                 </ul>
                 <br>
 
-                <h3>Cas d'utilisation X</h3>
-                <h4>Titre: Création de projet</h4>
-                <h4>But: Un membre du GEODES souhaites céer un projet quelconque</h4>
-                <h4>Acteurs: Membre du GEODES, professeur</h4>
-                <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
+                <h3>Cas d'utilisation ADMIN</h3>
+                <h4>Titre: Supprimer une activité</h4>
+                <h4>But: Un administrateur veut supprimer une activité</h4>
+                <h4>Acteurs: Administrateur</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: L'activité est supprimée de la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-                    <li>Choisir l'option "Activités"</li>
-                    <li>Choisir l'option "Créer une activité"</li>
-                    <li>Choisir l'option "Créer un projet"</li>
-                    <li>Inscrire le nom du projet</li>
-                    <li>Inscrire une brève description du projet</li>
-                    <li>Inscrire une date de début du projet</li>
-                    <li>Inscrire la date de fin du projet</li>
-                    <li>Choisir les partenaires du GEODES pouvant être associés 
-                        au projet via une liste de tous les membres du GEODES inscrits à la plateforme</li>
-                    <li>Choisir un responsable de projet qui sera un professeur via la liste des profs du GEODES inscrits sur la plateforme</li>
-                    <li>Le membre sélectionnera le statut de visibilité de l'article (public ou privé)</li>
-                    <li>Soumettre le projet au professeur et attendre la confirmation</li>
+                    <li>L'utilisateur sélectionne l'option "Supprimer une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi un type d'activité.</li>
+                    <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
+                    <li>L'utilisateur entre un terme de recherche.</li>
+                        <ul class="imbr"><li>4.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
+                    <li>Le système affiche la liste des résultats.</li>
+                    <li>L'utilisateur sélectionne l'activité qu'il désire supprimer.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire supprimer cet article.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la suppression.</li></ul>
+                    <li>Le système supprime l'activité.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>4.1 Le membre sélectionnera tout d'abord les membres du GEODES inscrit 
-                        à la plateforme qui sont concernés via une liste présentant tous les membres et où il est possible de
-                         faire une recherche détaillée pour trouver le membre recherché
+                <ul class="imbr">
+                    <li>5a. Le terme de recherche n'est pas valide.
+                        <ul class="imbr">
+                            <li>5a.1. Le système constate que le terme de recherche n'est pas valide.</li>
+                            <li>11a.2. Le système affiche "Recherche invalide".</li>
+                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                        </ul>
                     </li>
-                    <li>4.2 Le membre pourra ensuite inscrire de façon textuelle les collaborateurs de l'article ne faisant 
-                        pas partie du GEODES en inscrivant leur nom, prénom et adresse courriel
-                    </li>
-                    <li>5.1 Si le statut de l'article est « brouillon », le membre ne pourra pas ajouter de 
-                        lien vars un PDF par exemple pour référer l'article
-                    </li>
-                    <li>5.2 Si le statut choisi est « prêt », le membre pourra donc y inscrire son lien 
-                        vers l'article en question
+                    <br>
+                    <li>5a. L'utilisateur ne confirme pas la supression.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la supression de l'activité.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                        </ul>
                     </li>
                 </ul>
                 <br>
@@ -990,10 +1004,200 @@
                             <li>11a.3. Le scénario reprend à l'étape 5.</li>
                         </ul>
                     </li>
-                    <br>
-                    <li>5a. L'utilisateur ne confirme pas la modification.
+                </ul>
+                <br>
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: S'inscrire à une activité</h4>
+                <h4>But: Un membre veut s'inscrire à une activité</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: Le membre est inscrit à l'activité dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "M'inscrire à une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi un type d'activité.</li>
+                    <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
+                    <li>L'utilisateur entre un terme de recherche.</li>
+                        <ul class="imbr"><li>4.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
+                    <li>Le système affiche la liste des résultats.</li>
+                    <li>L'utilisateur sélectionne l'activité à laquelle il désire s'inscrire.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire s'inscrire à l'activité.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme l'inscription.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. Le terme de recherche n'est pas valide.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>5a.1. Le système constate que le terme de recherche n'est pas valide.</li>
+                            <li>11a.2. Le système affiche "Recherche invalide".</li>
+                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>5a. L'utilisateur ne confirme pas l'inscription.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer l'inscription.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Se désinscrire d'une activité</h4>
+                <h4>But: Un membre veut se désinscrire d'une activité</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: Le membre n'est plus inscrit à l'activité dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Me désinscrire d'une activité".</li>
+                    <li>Le système affiche toutes les activités auxquelles l'utilisateur est inscrit.</li>
+                    <li>L'utilisateur sélectionne l'activité à laquelle il désire se désinscrire.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire se désinscrire de l'activité.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la désinscription.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas la désinscription.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la désinscription.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: S'inscrire à un intérêt</h4>
+                <h4>But: Un membre veut s'inscrire à un intérêt</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: Le membre est inscrit à l'intérêt dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "M'inscrire à un intérêt".</li>
+                    <li>Le système affiche tous les intérêts.</li>
+                    <li>L'utilisateur sélectionne l'intérêt auquel il désire s'inscrire.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire s'inscrire à l'intérêt.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme l'inscription.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas l'inscription.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer l'inscription.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Se désinscrire d'un intérêt</h4>
+                <h4>But: Un membre veut se désinscrire d'un intérêt</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: Le membre n'est plus inscrit à l'intérêt dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Me désinscrire d'une activité".</li>
+                    <li>Le système affiche tous les intérêts auxquels l'utilisateur est inscrit.</li>
+                    <li>L'utilisateur sélectionne l'intérêt duquel il désire se désinscrire.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire se désinscrire de l'intérêt.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la désinscription.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas la désinscription.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la désinscription.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Consulter la liste d'un type d'activité</h4>
+                <h4>But: Un membre veut consulter la liste d'un type d'activité</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des activités".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi un type d'activité.</li>
+                    <li>Le système affiche la liste de toutes les activités de ce type.</li>
+                    <li>L'utilisateur choisit une activité.</li>
+                    <li>Le système affiche la fiche complète de l'activité.</li>
+                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Consulter la liste des activités associées à un intérêt</h4>
+                <h4>But: Un membre veut consulter les activités liées à un intérêt</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des activités par intérêts".</li>
+                    <li>Le système affiche la liste de tous les intérêts.</li>
+                    <li>L'utilisateur choisit un intérêt.</li>
+                    <li>Le système affiche la liste de toutes les activités liées à cet intérêt.</li>
+                    <li>L'utilisateur choisit une activité.</li>
+                    <li>Le système affiche la fiche complète de cette activité.</li>
+                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Chercher une activité</h4>
+                <h4>But: Un membre veut chercher une activité par un terme de recherche</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Chercher une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi un type d'activité.</li>
+                    <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
+                    <li>L'utilisateur entre un terme de recherche.</li>
+                        <ul class="imbr"><li>4.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
+                    <li>Le système affiche la liste des résultats.</li>
+                    <li>L'utilisateur sélectionne l'activité qu'il désire consulter.</li>
+                    <li>Le système affiche la fiche complète de l'activité.</li>
+                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. Le terme de recherche n'est pas valide.
+                        <ul class="imbr">
+                            <li>5a.1. Le système constate que le terme de recherche n'est pas valide.</li>
+                            <li>11a.2. Le système affiche "Recherche invalide".</li>
+                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>5a. Le système ne trouve pas l'activité correspondant au terme de recherche donné.
+                        <ul class="imbr">
+                            <li>5a.1. Le système ne trouve pas d'activité qui correspond au terme de recherche donné.</li>
+                            <li>11a.2. Le système affiche "Aucune activité trouvée".</li>
                             <li>5a.2. Le scénario reprend à l'étape 2.</li>
                         </ul>
                     </li>
@@ -1002,169 +1206,66 @@
 
 
 
-
-
-
-
-                <h3>Cas d'utilisation 5</h3>
-                <h4>Titre: Modifier une activité</h4>
-                <h4>But: Un membre du GEODES souhaites céer et un outil</h4>
-                <h4>Acteurs: Membre du GEODES</h4>
-                <h4>Précondition: Être déjà connecté sur la plateforme RoundTable avec son compte</h4>
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Consulter la liste des membres</h4>
+                <h4>But: Un membre veut consulter la liste des membres</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-                    <li>Choisir l'option "Activités"</li>
-                    <li>Choisir l'option "Créer une activité"</li>
-                    <li>Choisir l'option "Créer un outil"</li>
-                    <li>Le membre inscri le nom de l'outil</li>
-                    <li>Le membre inscrit une description des spécificité de l'outil</li>
-                    <li>Le membre entre la version de l'outil (par défault, la version sera 1.0)</li>
-                    <li>Le membre entre le lien du répertoire GitHub ou autre répertoire</li>
-                    <li>Le membre à l'option d'ajouter divers liens (autant qu'il veut)</li>
-                    <li>Le membre sélectionne le respondable de l'outil (par défault, se sera le membre ayant 
-                        créé l'outil
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des membres".</li>
+                    <li>Le système affiche la liste de tous les membres.</li>
+                    <li>L'utilisateur choisit un membre.</li>
+                    <li>Le système affiche le profil complet du membre.</li>
+                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Consulter la liste des membres par intérêts</h4>
+                <h4>But: Un membre veut consulter la liste des membres par intérêts</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des membres".</li>
+                    <li>Le système affiche la liste de tous les intérêts.</li>
+                    <li>L'utilisateur choisit un intérêt.</li>
+                    <li>Le système affiche la liste de tous les membres liés à cet intérêt.</li>
+                    <li>L'utilisateur choisit un membre.</li>
+                    <li>Le système affiche le profil complet du membre.</li>
+                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+                <h3>Cas d'utilisation MEMBRE</h3>
+                <h4>Titre: Chercher un membre</h4>
+                <h4>But: Un membre veut chercher un membre par son nom et prénom</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Chercher un membre".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer le nom du membre.</li>
+                    <li>L'utilisateur entre le nom.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer le prénom du membre.</li>
+                    <li>L'utilisateur entre le prénom.</li>
+                    <li>Le système affiche le profil complet du membre.</li>
+                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. Le système ne trouve pas le membre correspondant aux nom et prénom donnés.
+                        <ul class="imbr">
+                            <li>5a.1. Le système ne trouve pas de compte qui correspond aux nom et prénom donnés.</li>
+                            <li>11a.2. Le système affiche "Aucun membre trouvé".</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
                     </li>
-                    <li>Le membre sélectionne via une liste des membres du GEODES les collaborateurs pour l'outils</li>
-                    <li>Le membre peut associer (facultatif) un ou plusieur articles publiés sur la plateforme
-                        dans la création de l'outil via une liste des articles
-                    </li>
-                    <li>Le membre assigne un statut à l'outil (public ou privé)</li>
-                    <li>Le membre peut finalement publier l'outil</li>
-                </ol>
-                <br>
-
-                <h3>Cas d'utilisation 7</h3>
-                <h4>Titre: Ajouter un intérêt</h4>
-                <h4>But: Un professeur veut ajouter un intérêt</h4>
-                <h4>Acteurs: Professeur</h4>
-                <h4>Précondition: Le professeur est connecté à la plateform est est au menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>Le professeur choisit l'option "Intérêts"</li>
-                    <li>Le professeur choisit l'option "Ajouter un intérêt"</li>
-                    <li>Il entre le titre de l'intérêt</li>
-                    <li>Il entre un courte description de celui-ci</li>
-                    <li>L'intérêt complet est présenté aux professeur</li>
-                    <li>Le professeur confirme la création de l'intérêt</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>5.1 Le professeur choisit l'option "Changer le titre"</li>
-                    <li>5.2 Le professeur choisit l'option "Changer la description"</li>
-                    <li>5.3 Retour à l'étape 5</li>
-                    <li>6.1 Le professeur annule la création de l'intérêt</li>
                 </ul>
                 <br>
-
-                <h3>Cas d'utilisation 8</h3>
-                <h4>Titre: Suprimer une activité</h4>
-                <h4>But: Un administrateur veut suprimer une activité</h4>
-                <h4>Acteurs: Administrateur</h4>
-                <h4>Précondition: Avoir un compte administrateur et être au menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'administrateur choisit l'option "Activités"</li>
-                    <li>L'administrateur choisit l'option "Suprimer un activité"</li>
-                    <li>L'administrateur entre le nom de l'activité qu'il souhaite suprimer</li>
-                    <li>Le système vérifie que l'activité existe</li>
-                    <li>Le système demande à l'administrateur de confirmer le choix de suprimer l'activité</li>
-                    <li>L'administrateur confirme le choix</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>4.1 L'activité n'existe pas dans la BD et montre un message d'erreur à l'administrateur</li>
-                    <li>4.2 Retour à l'étape 3</li>
-                    <li>6.1 L'administrateur annule la requête</li>
-                </ul>
-                <br>
-
-                <h3>Cas d'utilisation 9</h3>
-                <h4>Titre: Suspendre un membre</h4>
-                <h4>But: Un administrateur veut suspendre le compte d'un membre</h4>
-                <h4>Acteurs: Administrateur</h4>
-                <h4>Précondition: Avoir un compte administrateur et être dans le menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'administrateur choisit l'option "Membres"</li>
-                    <li>L'administrateur choisit l'option "Suspendre le compte d'un membre"</li>
-                    <li>L'administrateur entre le nom du membre qu'il veut suspendre</li>
-                    <li>Le système vérifie que le membre existe dans la BD</li>
-                    <li>Le système vérifie que le membre n'est pas suspendu</li>
-                    <li>Le système montre un message disant "Voulez-vous suspendre le compte de XXXXXXXX"</li>
-                    <li>L'administrateur confirme le choix</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>4.1 Le membre n'existe pas et le système montre un message d'erreur à l'administrateur</li>
-                    <li>4.2 Retour à l'étape 3</li>
-                    <li>5.1 Le système se rend compte que le compte est déjà suspendu</li>
-                    <li>5.2 Retour à l'étape 3</li>
-                    <li>7.1 L'administrateur annule la requête</li>
-
-                </ul>
-                <br>
-
-                <h3>Cas d'utilisation 10</h3>
-                <h4>Titre: Afficher la liste des membre</h4>
-                <h4>But: Un membre veut afficher la liste des membres pour consulter la page d'un membre</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Avoir un compte et être au menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>Le membre choisit l'option "Membres"</li>
-                    <li>Le membre choisit l'option "Liste des membres"</li>
-                    <li>Le membre navigue la liste des membres</li>
-                    <li>Le membre sélectionne un membre de la liste qu'il veut consulter</li>
-                    <li>Le membre cosulte la page</li>
-                </ol>
-                <br>
-
-                <h3>Cas d'utilisation 11</h3>
-                <h4>Titre: Rechercher un article</h4>
-                <h4>But: Un membre recherche un article sécifique sur la plateforme</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Avoir un compte et être au menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>Le membre choisit l'option "Articles"</li>
-                    <li>Il choisit l'option "Chercher un article"</li>
-                    <li>Le membre entre le nom de l'article qu'il veut consulter</li>
-                    <li>Le système regarde si l'article est dans la BD</li>
-                    <li>Le système amène le membre vers la page de l'article</li>
-                    <li>Le membre consulte l'article</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>5.1 Le système ne trouve pas l'article et affiche un message d'erreur au membre</li>
-                    <li>5.2 Le système ramène le membre vers la page de recherche</li>
-                    <li>5.3 Retour à l'étape 4</li>
-                </ul>
-                <br>
-
-                <h3>Cas d'utilisation 12</h3>
-                <h4>Titre: Modification du profil</h4>
-                <h4>But: Un membre veux modifier son profil</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Avoir un compte et être au menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>Le membre choisit l'option "Mon profil"</li>
-                    <li>Le membre choisit l'option "Modifier mes informations personnelles"</li>
-                    <li>Le membre choisit l'information qu'il veut changer (nom. prénom, courriel ou numéro de téléphone)</li>
-                    <li>Le membre entre la nouvelle valeur</li>
-                    <li>Le système vérifie que la valeur est valide</li>
-                    <li>Le système demande au membre de confirmer son choix</li>
-                    <li>Le membre confirme la modification</li>
-                    <li>Le membre revient à la page principale</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>5.1 La valeur est invalide donc le sytème le dit au membre</li>
-                    <li>5.2 Retour à l'étape 5</li>
-                    <li>7.1 Le membre annule la modification</li>
-                    <li>8.1 Le membre choisit de modifier une autre valeur</li>
-                    <li>8.2 Retour à l'étape 4</li>
-                </ul>
 
 
                 <h3>Cas d'utilisation SUP1</h3>
