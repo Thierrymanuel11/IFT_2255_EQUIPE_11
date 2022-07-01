@@ -497,9 +497,6 @@
                     <dt class="glossary-term">Chercheur</dt>
                     <dd class="glossary-def">Tout visiteur ou postdoc affilié au GEODES.</dd>
 
-                    <dt class="glossary-term">Code d'identification</dt>
-                    <dd class="glossary-def">Numéro unique généré par le système pour identifier une activité ou un membre.</dd>
-
                     <dt class="glossary-term">Collaborateur </dt>
                     <dd class="glossary-def">Membre du GEODES qui participe à une activité de publication ou à la création d’un outil.</dd>
 
@@ -515,6 +512,9 @@
                     <dt class="glossary-term">GEODES</dt>
                     <dd class="glossary-def">Groupe de recherche du département d’informatique et de recherche opérationnelle de l’Université de Montréal 
                     dédié au génie logiciel. </dd>
+
+                    <dt class="glossary-term">Identifiant unique</dt>
+                    <dd class="glossary-def">Numéro unique généré par le système pour identifier une activité, un rôle ou un membre.</dd>
 
                     <dt class="glossary-term">Intérêt</dt>
                     <dd class="glossary-def">Sous domaine du génie logiciel ou de l’informatique qui peut être associé à une activité ou un profil.</dd>
@@ -679,14 +679,21 @@
 
                 <h3>Modélisation des cas d'utilisation</h3>
 
-                <img src="images/Use Case Diagram1.jpg" alt="VP">
+                <p>
+                    Veuillez noter que pour le diagramme ci-dessous, les CUs de création d'un article, d'un outil et d'un projet ont été regroupés, de même que les 
+                    CUs de consultation d'une liste d'un type d'activité ou de membre par type vs par intérêt. Il en est de même pour les CUs d'inscription/désinscription.
+                    Toutefois, vous constaterez que les CUs demeurent séparés dans la description des scénarios, le regroupement ayant été fait uniquement pour 
+                    simplifier la lecture du diagramme.
+                </p>
+
+                <img src="images/Use Case Diagram_V2.jpg" alt="VP">
 
 
                 <h3>Cas d'utilisation 1</h3>
                 <h4>Titre: Connexion à la plateforme</h4>
                 <h4>But: Un membre veut accéder à son compte sur la plateforme</h4>
                 <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Avoir un compte déjà créé au préalable sur la plateforme</h4>
+                <h4>Précondition: Avoir un compte déjà créé sur la plateforme</h4>
                 <h4>Postcondition: L'utilisateur se retrouve au menu principal</h4>
                 <h4>Scénario principal</h4>
                 <ol>
@@ -708,14 +715,14 @@
                         <ul class="imbr">
                             <li>5a.1. Le système ne trouve pas de compte associé à cette adresse courriel.</li>
                             <li>5a.2. Le système affiche "Ce compte n'existe pas".</li>
-                            <li>5a.3. Le scénario reprend à l'étape 4.</li>
+                            <li>5a.3. Le scénario reprend à l'étape 3.</li>
                         </ul>
                     </li>
                     <br>
                     <li>5b. Le compte est suspendu.
                         <ul class="imbr">
                             <li>5b.1. Le système constate que le compte associé à cette adresse courriel est suspendu.</li>
-                            <li>5b.2. Le système affiche "Ce compte est suspendu".</li>
+                            <li>5b.2. Le système affiche "Ce compte est suspendu. Veuillez consulter un administrateur".</li>
                             <li>5b.3. Le scénario se termine.</li>
                         </ul>
                     </li>
@@ -724,7 +731,7 @@
                         <ul class="imbr">
                             <li>7a.1. Le système constate que le mot de passe entré ne correspond pas au mot de passe associé à ce compte.</li>
                             <li>7a.2. Le système affiche "Mot de passe incorrect".</li>
-                            <li>7a.3. Le scénario reprend à l'étape 6.</li>
+                            <li>7a.3. Le scénario reprend à l'étape 5.</li>
                         </ul>
                     </li>
                 </ul>
@@ -732,7 +739,7 @@
 
 
                 <h3>Cas d'utilisation 2</h3>
-                <h4>Titre: Création de compte</h4>
+                <h4>Titre: Créer un compte</h4>
                 <h4>But: Un membre veut se créer un compte sur la plateforme</h4>
                 <h4>Acteurs: Membre (principal) et administrateur (secondaire)</h4>
                 <h4>Précondition: Ne pas déjà posseder un compte sur la plateforme.</h4>
@@ -745,8 +752,10 @@
                     <li>L'utilisateur choisit son superviseur.</li>
                     <li>Le système affiche un message demandant à l'utilisateur d'entrer son nom.</li>
                     <li>L'utilisateur entre son nom.</li>
+                        <ul class="imbr"><li>6.1. Le système valide le nom.</li></ul>
                     <li>Le système affiche un message demandant à l'utilisateur d'entrer son prénom.</li>
                     <li>L'utilisateur entre son prénom.</li>
+                        <ul class="imbr"><li>8.1. Le système valide le prénom.</li></ul>
                     <li>Le système affiche un message demandant à l'utilisateur d'entrer son adresse courriel.</li>
                     <li>L'utilisateur entre son adresse courriel.</li>
                         <ul class="imbr"><li>10.1. Le système valide l'adresse courriel.</li></ul>
@@ -757,18 +766,34 @@
                     <li>L'utilisateur entre le mot de passe qu'il choisit.
                         <ul class="imbr"><li>14.1. Le système valide le mot de passe.</li></ul>
                     </li>
-                    <li>Le système crée le compte et lui affecte le statut "EN_ATTENTE".</li>
+                    <li>Le système crée le compte et un identifiant unique pour le membre et affecte au compte le statut "EN_ATTENTE".</li>
                     <li>Le système affiche un message de succès et termine l'exécution pour le membre.</li>
                     <li>Le système envoie une confirmation à l'adresse courielle fournie.</li>
                     <li>Le système envoie une notification aux administrateurs pour effectuer la validation du compte.</li>
                         <ul class="imbr"><li>18.1. L'administrateur sélectionne la notification à partir de son compte.</li></ul>
                         <ul class="imbr"><li>18.2. L'administrateur valide les informations fournies par le membre.</li></ul>
                         <ul class="imbr"><li>18.3. L'administrateur affecte le rôle approprié au compte en sélectionnant parmi les 3 rôles possibles.</li></ul>
-                        <ul class="imbr"><li>18.3. L'administrateur affecte le statut "VALIDE" au compte en sélectionnant l'option "Accepter".</li></ul>
-                        <ul class="imbr"><li>18.4. Le système envoie une notification par courriel au membre pour lui indiquer que le compte a été validé.</li></ul>
+                        <ul class="imbr"><li>18.4. L'administrateur affecte le statut "VALIDE" au compte en sélectionnant l'option "Accepter".</li></ul>
+                        <ul class="imbr"><li>18.5. Le système envoie une notification par courriel au membre pour lui indiquer que le compte a été validé.</li></ul>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul class="imbr">
+                    <li>7a. Le nom est invalide.
+                        <ul class="imbr">
+                            <li>7a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>7a.2. Le système affiche "nom invalide".</li>
+                            <li>7a.3. Le scénario reprend à l'étape 5.</li>
+                        </ul>
+                    </li>
+                    <li>9a. Le prénom est invalide.
+                        <ul class="imbr">
+                            <ul class="imbr">
+                                <li>9a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                                <li>9a.2. Le système affiche "prénom invalide".</li>
+                                <li>9a.3. Le scénario reprend à l'étape 7.</li>
+                            </ul>
+                        </ul>
+                    </li>
                     <li>11a. L'adresse courriel est invalide.
                         <ul class="imbr">
                             <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
@@ -806,103 +831,325 @@
 
 
                 <h3>Cas d'utilisation 3</h3>
-                <h4>Titre: Création d'un article</h4>
+                <h4>Titre: Créer un article</h4>
                 <h4>But: Un membre veut créer un article</h4>
                 <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Articles" du menu principal</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
                 <h4>Postcondition: L'article est présent dans la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
-                    <li>L'utilisateur sélectionne l'option "Créer un article".</li>
-                    <li>Le système crée le nouvel article.</li>
-                    <li>Le système génère un identifiant unique pour l'activité.</li>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un titre pour l'article.</li>
+                    <li>L'utilisateur sélectionne l'option "Créer une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi "Article".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un titre.</li>
                     <li>L'utilisateur entre un titre.</li>
-                        <ul class="imbr"><li>10.1. Le système valide la taille du titre.</li></ul>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un résumé pour l'article.</li>
+                        <ul class="imbr"><li>5.1. Le système valide le titre.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un résumé.</li>
                     <li>L'utilisateur entre un résumé.</li>
-                        <ul class="imbr"><li>10.1. Le système valide la taille du résumé.</li></ul>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un URL vers l'article.</li>
+                        <ul class="imbr"><li>7.1. Le système valide le résumé.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un URL vers l'activité.</li>
                     <li>L'utilisateur entre un URL.</li>
-                        <ul class="imbr"><li>10.1. Le système valide l'URL.</li></ul>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une date de publication (si applicable).</li>
-                    <li>L'utilisateur entre une date de publication (si applicable).</li>
-                        <ul class="imbr"><li>10.1. Le système valide la date.</li></ul>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un URL vers la publication (si applicable).</li>
-                    <li>L'utilisateur entre un URL (su applicable).</li>
-                        <ul class="imbr"><li>10.1. Le système valide l'URL.</li></ul>
+                        <ul class="imbr"><li>9.1. Le système valide l'URL.</li></ul>
                     <li>Le système affiche un message demandant à l'utilisateur de sélectionner un statut pour l'article.</li>
                     <li>L'utilisateur sélectionne un statut.</li>
                     <li>Le système affiche un message demandant à l'utilisateur de sélectionner les auteurs parmi une liste des membres.</li>
-                    <li>L'utilisateur sélectionne un ou plusieurs auteurs</li>
+                    <li>L'utilisateur sélectionne un ou plusieurs auteurs.</li>
                     <li>Le système affiche un message demandant à l'utilisateur de sélectionner les collaborateurs parmi une liste des membres.</li>
                     <li>L'utilisateur sélectionne un ou plusieurs collaborateurs.</li>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer des mots clés pour l'article.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer des mots clés pour l'activité.</li>
                     <li>L'utilisateur entre un mot clé.</li>
-                        <ul class="imbr"><li>10.1. Le système valide le mot clé.</li></ul>
+                        <ul class="imbr"><li>17.1. Le système valide le mot clé.</li></ul>
                     <li>Le système affiche un message demandant à l'utilisateur de sélectionner les intérêts liés parmi une liste des intérêts.</li>
                     <li>L'utilisateur sélectionne un ou plusieurs intérêts liés.</li>
-                    <li>Le système envoie une notification aux auteurs, aux collaborateurs et à toute personne qui a souscrit à ces intérêts.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description pour la création de l'activité.</li>
+                    <li>L'utilisateur entre une description.</li>
+                        <ul class="imbr"><li>21.1. Le système valide la description.</li></ul>
+                    <li>Le système crée l'activité et lui affecte un identifiant unique</li>
+                    <li>Le système envoie une notification aux auteurs, aux collaborateurs et à toute personne qui a souscrit aux intérêts listés.</li>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
-                    <li>4.1 Le membre sélectionnera tout d'abord les membres du GEODES inscrit 
-                        à la plateforme qui sont concernés via une liste présentant tous les membres et où il est possible de
-                         faire une recherche détaillée pour trouver le membre recherché
-                    </li>
-                    <li>4.2 Le membre pourra ensuite inscrire de façon textuelle les collaborateurs de l'article ne faisant 
-                        pas partie du GEODES en inscrivant leur nom, prénom et adresse courriel
-                    </li>
-                    <li>5.1 Si le statut de l'article est « brouillon », le membre ne pourra pas ajouter de 
-                        lien vars un PDF par exemple pour référer l'article
-                    </li>
-                    <li>5.2 Si le statut choisi est « prêt », le membre pourra donc y inscrire son lien 
-                        vers l'article en question
-                    </li>
-                </ul>
-
-
-                <h3>Cas d'utilisation RESPONSABLE</h3>
-                <h4>Titre: Modifier une activité</h4>
-                <h4>But: Un membre veut modifier une activité dont il est le responsable</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme, être le responsable de l'activité et avoir sélectionné l'option "Activités" du menu principal</h4>
-                <h4>Postcondition: L'activité est modifié dans la base de données</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Modifier une activité".</li>
-                    <li>Le système affiche le la liste des activités dont le membre est responsable.</li>
-                    <li>L'utilisateur choisit l'activité à modifier.</li>
-                    <li>Le système affiche la fiche complète de l'activité sélectionnée.</li>
-                    <li>L'utilisateur sélectionne un attribut à modifier.</li>
-                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
-                    <li>L'utilisateur entre un nouveau contenu.</li>
-                        <ul class="imbr"><li>10.1. Le système valide le nouveau contenu.</li></ul>
-                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme la modification.</li></ul>
-                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>11a. Le nouveau contenu est invalide.
+                    <li>6a. Le titre est invalide.
                         <ul class="imbr">
-                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
-                            <li>11a.2. Le système affiche "Modification invalide".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                            <li>6a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>6a.2. Le système affiche "Titre invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <li>8a. Le résumé est invalide.
+                        <ul class="imbr">
+                            <ul class="imbr">
+                                <li>8a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                                <li>8a.2. Le système affiche "Résumé invalide".</li>
+                                <li>8a.3. Le scénario reprend à l'étape 6.</li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li>10a. L'URL est invalide.
+                        <ul class="imbr">
+                            <li>10a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>10a.2. Le système affiche "URL invalide".</li>
+                            <li>10a.3. Le scénario reprend à l'étape 8.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>5a. L'utilisateur ne confirme pas la modification.
+                    <li>12a. Le statut sélectionné est "Publié".
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                            <li>12a.1. Le système affiche un message demandant à l'utilisateur d'entrer une date de publication.</li>
+                            <li>12a.2. L'utilisateur entre une date de publication.</li>
+                                <ul class="imbr"><li>12a.2.1. Le système valide la date.</li></ul>
+                            <li>12a.3. Le système affiche un message demandant à l'utilisateur d'entrer un URL vers la publication.</li>
+                            <li>12a.4. L'utilisateur entre un URL.</li>
+                                <ul class="imbr"><li>12a.4.1. Le système valide l'URL.</li></ul>
+                            <li>12a.5. Le scénario reprend à l'étape 12.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>18a. Le mot clé est invalide.
+                        <ul class="imbr">
+                            <li>18a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>18a.2. Le système affiche "Mot clé invalide".</li>
+                            <li>18a.3. Le scénario reprend à l'étape 16.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>22a. La description est invalide.
+                        <ul class="imbr">
+                            <li>22a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>22a.2. Le système affiche "Description invalide".</li>
+                            <li>22a.3. Le scénario reprend à l'étape 20.</li>
                         </ul>
                     </li>
                 </ul>
                 <br>
 
-                <h3>Cas d'utilisation ADMIN</h3>
+                <h3>Cas d'utilisation 4</h3>
+                <h4>Titre: Créer un outil</h4>
+                <h4>But: Un membre veut créer un outil</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: L'outil est présent dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Créer une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi "Outil".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un titre.</li>
+                    <li>L'utilisateur entre un titre.</li>
+                        <ul class="imbr"><li>5.1. Le système valide le titre.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description.</li>
+                    <li>L'utilisateur entre une description.</li>
+                        <ul class="imbr"><li>7.1. Le système valide la description.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un numéro de version.</li>
+                    <li>L'utilisateur entre un numéro de version.</li>
+                        <ul class="imbr"><li>9.1. Le système valide le numéro de version.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un URL vers le répertoire du code source.</li>
+                    <li>L'utilisateur entre un URL.</li>
+                        <ul class="imbr"><li>11.1. Le système valide l'URL.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur de sélectionner un responsable parmi la liste des membres.</li>
+                    <li>L'utilisateur sélectionne un responsable.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur de sélectionner les collaborateurs parmi une liste des membres.</li>
+                    <li>L'utilisateur sélectionne un ou plusieurs collaborateurs.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur de sélectionner les articles liés parmi la liste des articles.</li>
+                    <li>L'utilisateur sélectionne un ou plusieurs articles.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer des mots clés pour l'activité.</li>
+                    <li>L'utilisateur entre un mot clé.</li>
+                        <ul class="imbr"><li>19.1. Le système valide le mot clé.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur de sélectionner les intérêts liés parmi une liste des intérêts.</li>
+                    <li>L'utilisateur sélectionne un ou plusieurs intérêts liés.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description pour la création de l'activité.</li>
+                    <li>L'utilisateur entre une description.</li>
+                        <ul class="imbr"><li>23.1. Le système valide la description.</li></ul>
+                    <li>Le système crée l'activité et lui affecte un identifiant unique</li>
+                    <li>Le système envoie une notification aux responsables, aux collaborateurs et à toute personne qui a souscrit aux intérêts listés.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li> 
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>6a. Le titre est invalide.
+                        <ul class="imbr">
+                            <li>6a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>6a.2. Le système affiche "Titre invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <li>8a. La description est invalide.
+                        <ul class="imbr">
+                            <ul class="imbr">
+                                <li>8a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                                <li>8a.2. Le système affiche "Description invalide".</li>
+                                <li>8a.3. Le scénario reprend à l'étape 6.</li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li>10a. Le numéro de version est invalide.
+                        <ul class="imbr">
+                            <li>10a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>10a.2. Le système affiche "Numéro de version invalide".</li>
+                            <li>10a.3. Le scénario reprend à l'étape 8.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>12a. L'URL est invalide.
+                        <ul class="imbr">
+                            <li>12a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>12a.2. Le système affiche "URL invalide".</li>
+                            <li>12a.3. Le scénario reprend à l'étape 10.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>20a. Le mot clé est invalide.
+                        <ul class="imbr">
+                            <li>20a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>20a.2. Le système affiche "Mot clé invalide".</li>
+                            <li>20a.3. Le scénario reprend à l'étape 18.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>24a. La description est invalide.
+                        <ul class="imbr">
+                            <li>24a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>24a.2. Le système affiche "Description invalide".</li>
+                            <li>24a.3. Le scénario reprend à l'étape 22.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+                <h3>Cas d'utilisation 5</h3>
+                <h4>Titre: Créer un projet</h4>
+                <h4>But: Un membre veut créer un projet</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: Le projet est présent dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Créer une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi "Projet".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un titre.</li>
+                    <li>L'utilisateur entre un titre.</li>
+                        <ul class="imbr"><li>5.1. Le système valide le titre.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description.</li>
+                    <li>L'utilisateur entre une description.</li>
+                        <ul class="imbr"><li>7.1. Le système valide la description.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une date de début.</li>
+                    <li>L'utilisateur entre une date.</li>
+                        <ul class="imbr"><li>9.1. Le système valide la date.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une date de fin.</li>
+                    <li>L'utilisateur entre une date.</li>
+                        <ul class="imbr"><li>11.1. Le système valide la date.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur de sélectionner un responsable parmi la liste des superviseurs.</li>
+                    <li>L'utilisateur sélectionne un responsable.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur de sélectionner les intérêts liés parmi une liste des intérêts.</li>
+                    <li>L'utilisateur sélectionne un ou plusieurs intérêts liés.</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description pour la création de l'activité.</li>
+                    <li>L'utilisateur entre une description.</li>
+                        <ul class="imbr"><li>17.1. Le système valide la description.</li></ul>
+                    <li>Le système crée l'activité et lui affecte un identifiant unique</li>
+                    <li>Le système envoie une notification aux responsables et à toute personne qui a souscrit aux intérêts listés.</li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li> 
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>6a. Le titre est invalide.
+                        <ul class="imbr">
+                            <li>6a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>6a.2. Le système affiche "Titre invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <li>8a. La description est invalide.
+                        <ul class="imbr">
+                            <ul class="imbr">
+                                <li>8a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                                <li>8a.2. Le système affiche "Description invalide".</li>
+                                <li>8a.3. Le scénario reprend à l'étape 6.</li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li>10a. La date de début est invalide.
+                        <ul class="imbr">
+                            <li>10a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>10a.2. Le système affiche "Date de début invalide".</li>
+                            <li>10a.3. Le scénario reprend à l'étape 8.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>12a. La date de fin est invalide.
+                        <ul class="imbr">
+                            <li>12a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>12a.2. Le système affiche "Date de fin invalide".</li>
+                            <li>12a.3. Le scénario reprend à l'étape 10.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>18a. La description est invalide.
+                        <ul class="imbr">
+                            <li>18a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>18a.2. Le système affiche "Description invalide".</li>
+                            <li>18a.3. Le scénario reprend à l'étape 16.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+                <h3>Cas d'utilisation 6</h3>
+                <h4>Titre: Modifier une activité</h4>
+                <h4>But: Un membre veut modifier une activité dont il est le responsable</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme, être le responsable de l'activité et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Postcondition: L'activité est modifiée dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Modifier une activité".</li>
+                    <li>Le système affiche la liste des activités dont le membre est responsable.</li>
+                    <li>L'utilisateur choisit l'activité à modifier.</li>
+                    <li>Le système affiche la fiche complète de l'activité sélectionnée.</li>
+                    <li>L'utilisateur sélectionne un attribut à modifier.</li>
+                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
+                    <li>L'utilisateur entre un nouveau contenu.</li>
+                        <ul class="imbr"><li>7.1. Le système valide le nouveau contenu.</li></ul>
+                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
+                        <ul class="imbr"><li>8.1. L'utilisateur confirme la modification.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description pour la modification de l'activité.</li>
+                    <li>L'utilisateur entre une description.</li>
+                            <ul class="imbr"><li>10.1. Le système valide la description.</li></ul>
+                    <li>Le système envoie une notification aux responsables, auteurs, collaborateurs, membres inscrits à l'activité et membres inscrits aux intérêts
+                        liés.
+                    </li>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>8a. Le nouveau contenu est invalide.
+                        <ul class="imbr">
+                            <li>8a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>8a.2. Le système affiche "Modification invalide".</li>
+                            <li>8a.3. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>9a. L'utilisateur ne confirme pas la modification.
+                        <ul class="imbr">
+                            <li>9a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>9a.2. Le scénario reprend à l'étape 6.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>11a. La description est invalide.
+                        <ul class="imbr">
+                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>11a.2. Le système affiche "Description invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 9.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+                <h3>Cas d'utilisation 7</h3>
                 <h4>Titre: Supprimer une activité</h4>
                 <h4>But: Un administrateur veut supprimer une activité</h4>
                 <h4>Acteurs: Administrateur</h4>
@@ -915,66 +1162,120 @@
                     <li>L'utilisateur choisi un type d'activité.</li>
                     <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
                     <li>L'utilisateur entre un terme de recherche.</li>
-                        <ul class="imbr"><li>4.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
+                        <ul class="imbr"><li>5.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
                     <li>Le système affiche la liste des résultats.</li>
                     <li>L'utilisateur sélectionne l'activité qu'il désire supprimer.</li>
-                    <li>Le système demande à l'utilisateur de confirmer qu'il désire supprimer cet article.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme la suppression.</li></ul>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire supprimer l'activité.</li>
+                        <ul class="imbr"><li>8.1. L'utilisateur confirme la suppression.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer une description pour la suppression de l'activité.</li>
+                    <li>L'utilisateur entre une description.</li>
+                            <ul class="imbr"><li>10.1. Le système valide la description.</li></ul>
+                    <li>Le système envoie une notification aux responsables, auteurs, collaborateurs, membres inscrits à l'activité et membres inscrits aux intérêts
+                        liés.
+                    </li>
                     <li>Le système supprime l'activité.</li>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul class="imbr">
-                    <li>5a. Le terme de recherche n'est pas valide.
+                    <li>6a. Le terme de recherche n'est pas valide.
                         <ul class="imbr">
-                            <li>5a.1. Le système constate que le terme de recherche n'est pas valide.</li>
-                            <li>11a.2. Le système affiche "Recherche invalide".</li>
-                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                            <li>6a.1. Le système constate que le terme de recherche n'est pas valide.</li>
+                            <li>6a.2. Le système affiche "Recherche invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>5a. L'utilisateur ne confirme pas la supression.
+                    <li>9a. L'utilisateur ne confirme pas la supression.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la supression de l'activité.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                            <li>9a.1. L'utilisateur choisit de ne pas confirmer la supression de l'activité.</li>
+                            <li>9a.2. Le scénario reprend à l'étape 8.</li>
                         </ul>
                     </li>
-                </ul>
-                <br>
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Modifier son profil</h4>
-                <h4>But: Un membre veut modifier son profil</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Mon profil" du menu principal</h4>
-                <h4>Postcondition: Le profil est modifié dans la base de données</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Modifier mon profil".</li>
-                    <li>Le système affiche le profil complet.</li>
-                    <li>L'utilisateur choisit l'attribut du profil qu'il désire modifier.</li>
-                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
-                    <li>L'utilisateur entre un nouveau contenu.</li>
-                        <ul class="imbr"><li>10.1. Le système valide le nouveau contenu.</li></ul>
-                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme la modification.</li></ul>
-                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>11a. Le nouveau contenu est invalide.
+                    <br>
+                    <li>11a. La description est invalide.
                         <ul class="imbr">
                             <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
-                            <li>11a.2. Le système affiche "Modification invalide".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                            <li>11a.2. Le système affiche "Description invalide".</li>
+                            <li>11a.3. Le scénario reprend à l'étape 9.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 8</h3>
+                <h4>Titre: Consulter la liste d'un type d'activité</h4>
+                <h4>But: Un membre veut consulter la liste d'un type d'activité</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des activités".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi un type d'activité.</li>
+                    <li>Le système affiche la liste de toutes les activités de ce type.</li>
+                    <li>L'utilisateur choisit une activité.</li>
+                    <li>Le système affiche la fiche complète de l'activité.</li>
+                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 9</h3>
+                <h4>Titre: Consulter la liste des activités associées à un intérêt</h4>
+                <h4>But: Un membre veut consulter les activités liées à un intérêt</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des activités par intérêts".</li>
+                    <li>Le système affiche la liste de tous les intérêts.</li>
+                    <li>L'utilisateur choisit un intérêt.</li>
+                    <li>Le système affiche la liste de toutes les activités liées à cet intérêt.</li>
+                    <li>L'utilisateur choisit une activité.</li>
+                    <li>Le système affiche la fiche complète de cette activité.</li>
+                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 10</h3>
+                <h4>Titre: Chercher une activité</h4>
+                <h4>But: Un membre veut chercher une activité par un terme de recherche</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Chercher une activité".</li>
+                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
+                    <li>L'utilisateur choisi un type d'activité.</li>
+                    <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
+                    <li>L'utilisateur entre un terme de recherche.</li>
+                        <ul class="imbr"><li>5.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
+                    <li>Le système affiche la liste des résultats.</li>
+                    <li>L'utilisateur sélectionne l'activité qu'il désire consulter.</li>
+                    <li>Le système affiche la fiche complète de l'activité.</li>
+                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>6a. Le terme de recherche n'est pas valide.
+                        <ul class="imbr">
+                            <li>6a.1. Le système constate que le terme de recherche n'est pas valide.</li>
+                            <li>6a.2. Le système affiche "Recherche invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>5a. L'utilisateur ne confirme pas la modification.
+                    <li>6b. Le système ne trouve pas l'activité correspondant au terme de recherche donné.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                            <li>6b.1. Le système ne trouve pas d'activité qui correspond au terme de recherche donné.</li>
+                            <li>6b.2. Le système affiche "Aucune activité trouvée".</li>
+                            <li>6b.3. Le scénario reprend à l'étape 4.</li>
                         </ul>
                     </li>
                 </ul>
@@ -982,33 +1283,7 @@
 
 
 
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Consulter ses notifications</h4>
-                <h4>But: Un membre veut consulter ses notifications</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Mon profil" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Consulter mes notifications".</li>
-                    <li>Le système affiche les notifications de l'utilisateur.</li>
-                    <li>L'utilisateur choisit une notification.</li>
-                    <li>Le système affiche le contenu détaillé de la notification.</li>
-                    <li>L'utilisateur quitte son menu de notification et retourne au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul style="list-style-type: none;">
-                    <li>11a. L'utilisateur n'a pas de notification.
-                        <ul class="imbr">
-                            <li>11a.1. Le système constate que l'utilisateur n'a pas de notification.</li>
-                            <li>11a.2. Le système affiche "Vous n'avez aucune notification".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 5.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
+                <h3>Cas d'utilisation 11</h3>
                 <h4>Titre: S'inscrire à une activité</h4>
                 <h4>But: Un membre veut s'inscrire à une activité</h4>
                 <h4>Acteurs: Membre</h4>
@@ -1021,34 +1296,43 @@
                     <li>L'utilisateur choisi un type d'activité.</li>
                     <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
                     <li>L'utilisateur entre un terme de recherche.</li>
-                        <ul class="imbr"><li>4.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
+                        <ul class="imbr"><li>5.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
                     <li>Le système affiche la liste des résultats.</li>
                     <li>L'utilisateur sélectionne l'activité à laquelle il désire s'inscrire.</li>
                     <li>Le système demande à l'utilisateur de confirmer qu'il désire s'inscrire à l'activité.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme l'inscription.</li></ul>
+                        <ul class="imbr"><li>8.1. L'utilisateur confirme l'inscription.</li></ul>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul class="imbr">
-                    <li>5a. Le terme de recherche n'est pas valide.
+                    <li>6a. Le terme de recherche n'est pas valide.
                         <ul class="imbr">
-                            <li>5a.1. Le système constate que le terme de recherche n'est pas valide.</li>
-                            <li>11a.2. Le système affiche "Recherche invalide".</li>
-                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                            <li>6a.1. Le système constate que le terme de recherche n'est pas valide.</li>
+                            <li>6a.2. Le système affiche "Recherche invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>5a. L'utilisateur ne confirme pas l'inscription.
+                    <li>6b. Le système ne trouve pas l'activité correspondant au terme de recherche donné.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer l'inscription.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
+                            <li>6b.1. Le système ne trouve pas d'activité qui correspond au terme de recherche donné.</li>
+                            <li>6b.2. Le système affiche "Aucune activité trouvée".</li>
+                            <li>6b.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>9a. L'utilisateur ne confirme pas l'inscription.
+                        <ul class="imbr">
+                            <li>9a.1. L'utilisateur choisit de ne pas confirmer l'inscription.</li>
+                            <li>9a.2. Le scénario reprend à l'étape 6.</li>
                         </ul>
                     </li>
                 </ul>
                 <br>
 
 
-                <h3>Cas d'utilisation MEMBRE</h3>
+
+                <h3>Cas d'utilisation 12</h3>
                 <h4>Titre: Se désinscrire d'une activité</h4>
                 <h4>But: Un membre veut se désinscrire d'une activité</h4>
                 <h4>Acteurs: Membre</h4>
@@ -1075,200 +1359,8 @@
                 <br>
 
 
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: S'inscrire à un intérêt</h4>
-                <h4>But: Un membre veut s'inscrire à un intérêt</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Intérêts" du menu principal</h4>
-                <h4>Postcondition: Le membre est inscrit à l'intérêt dans la base de données</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "M'inscrire à un intérêt".</li>
-                    <li>Le système affiche tous les intérêts.</li>
-                    <li>L'utilisateur sélectionne l'intérêt auquel il désire s'inscrire.</li>
-                    <li>Le système demande à l'utilisateur de confirmer qu'il désire s'inscrire à l'intérêt.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme l'inscription.</li></ul>
-                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul class="imbr">
-                    <li>5a. L'utilisateur ne confirme pas l'inscription.
-                        <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer l'inscription.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Se désinscrire d'un intérêt</h4>
-                <h4>But: Un membre veut se désinscrire d'un intérêt</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Intérêts" du menu principal</h4>
-                <h4>Postcondition: Le membre n'est plus inscrit à l'intérêt dans la base de données</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Me désinscrire d'une activité".</li>
-                    <li>Le système affiche tous les intérêts auxquels l'utilisateur est inscrit.</li>
-                    <li>L'utilisateur sélectionne l'intérêt duquel il désire se désinscrire.</li>
-                    <li>Le système demande à l'utilisateur de confirmer qu'il désire se désinscrire de l'intérêt.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme la désinscription.</li></ul>
-                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul class="imbr">
-                    <li>5a. L'utilisateur ne confirme pas la désinscription.
-                        <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la désinscription.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 6.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
                 
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Consulter la liste d'un type d'activité</h4>
-                <h4>But: Un membre veut consulter la liste d'un type d'activité</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Consulter la liste des activités".</li>
-                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
-                    <li>L'utilisateur choisi un type d'activité.</li>
-                    <li>Le système affiche la liste de toutes les activités de ce type.</li>
-                    <li>L'utilisateur choisit une activité.</li>
-                    <li>Le système affiche la fiche complète de l'activité.</li>
-                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
-                </ol>
-                <br>
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Consulter la liste des activités associées à un intérêt</h4>
-                <h4>But: Un membre veut consulter les activités liées à un intérêt</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Activités" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Consulter la liste des activités par intérêts".</li>
-                    <li>Le système affiche la liste de tous les intérêts.</li>
-                    <li>L'utilisateur choisit un intérêt.</li>
-                    <li>Le système affiche la liste de toutes les activités liées à cet intérêt.</li>
-                    <li>L'utilisateur choisit une activité.</li>
-                    <li>Le système affiche la fiche complète de cette activité.</li>
-                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
-                </ol>
-                <br>
-
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Chercher une activité</h4>
-                <h4>But: Un membre veut chercher une activité par un terme de recherche</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Chercher une activité".</li>
-                    <li>Le système demande à l'utilisateur de sélectionner un type d'activité parmi les 3.</li>
-                    <li>L'utilisateur choisi un type d'activité.</li>
-                    <li>Le système demande à l'utilisateur d'entrer un terme de recherche pour trouver l'activité.</li>
-                    <li>L'utilisateur entre un terme de recherche.</li>
-                        <ul class="imbr"><li>4.1. Le système valide qu'il s'agit d'une terme de recherche valide.</li></ul>
-                    <li>Le système affiche la liste des résultats.</li>
-                    <li>L'utilisateur sélectionne l'activité qu'il désire consulter.</li>
-                    <li>Le système affiche la fiche complète de l'activité.</li>
-                    <li>L'utilisateur quitte le menu des activités et retourne au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul class="imbr">
-                    <li>5a. Le terme de recherche n'est pas valide.
-                        <ul class="imbr">
-                            <li>5a.1. Le système constate que le terme de recherche n'est pas valide.</li>
-                            <li>11a.2. Le système affiche "Recherche invalide".</li>
-                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
-                        </ul>
-                    </li>
-                    <br>
-                    <li>5a. Le système ne trouve pas l'activité correspondant au terme de recherche donné.
-                        <ul class="imbr">
-                            <li>5a.1. Le système ne trouve pas d'activité qui correspond au terme de recherche donné.</li>
-                            <li>11a.2. Le système affiche "Aucune activité trouvée".</li>
-                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Consulter la liste des membres</h4>
-                <h4>But: Un membre veut consulter la liste des membres</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Consulter la liste des membres".</li>
-                    <li>Le système affiche la liste de tous les membres.</li>
-                    <li>L'utilisateur choisit un membre.</li>
-                    <li>Le système affiche le profil complet du membre.</li>
-                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
-                </ol>
-                <br>
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Consulter la liste des membres par intérêts</h4>
-                <h4>But: Un membre veut consulter la liste des membres par intérêts</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Consulter la liste des membres".</li>
-                    <li>Le système affiche la liste de tous les intérêts.</li>
-                    <li>L'utilisateur choisit un intérêt.</li>
-                    <li>Le système affiche la liste de tous les membres liés à cet intérêt.</li>
-                    <li>L'utilisateur choisit un membre.</li>
-                    <li>Le système affiche le profil complet du membre.</li>
-                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
-                </ol>
-                <br>
-
-
-                <h3>Cas d'utilisation MEMBRE</h3>
-                <h4>Titre: Chercher un membre</h4>
-                <h4>But: Un membre veut chercher un membre par son nom et prénom</h4>
-                <h4>Acteurs: Membre</h4>
-                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
-                <h4>Scénario principal</h4>
-                <ol>
-                    <li>L'utilisateur sélectionne l'option "Chercher un membre".</li>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer le nom du membre.</li>
-                    <li>L'utilisateur entre le nom.</li>
-                    <li>Le système affiche un message demandant à l'utilisateur d'entrer le prénom du membre.</li>
-                    <li>L'utilisateur entre le prénom.</li>
-                    <li>Le système affiche le profil complet du membre.</li>
-                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
-                </ol>
-                <h4>Scénario alternatif</h4>
-                <ul class="imbr">
-                    <li>5a. Le système ne trouve pas le membre correspondant aux nom et prénom donnés.
-                        <ul class="imbr">
-                            <li>5a.1. Le système ne trouve pas de compte qui correspond aux nom et prénom donnés.</li>
-                            <li>11a.2. Le système affiche "Aucun membre trouvé".</li>
-                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-
-
-                <h3>Cas d'utilisation SUP1</h3>
+                <h3>Cas d'utilisation 13</h3>
                 <h4>Titre: Ajouter un intérêt</h4>
                 <h4>But: Un superviseur veut ajouter un intérêt</h4>
                 <h4>Acteurs: Superviseur</h4>
@@ -1279,48 +1371,48 @@
                     <li>L'utilisateur sélectionne l'option "Ajouter un intérêt".</li>
                     <li>Le système demande à l'utilisateur d'entrer un titre pour l'intérêt.</li>
                     <li>L'utilisateur entre un titre.</li>
-                        <ul class="imbr"><li>10.1. Le système valide la taille du titre et que l'intérêt n'existe pas déjà.</li></ul>
+                        <ul class="imbr"><li>3.1. Le système valide lle titre et que l'intérêt n'existe pas déjà.</li></ul>
                     <li>Le système demande à l'utilisateur d'entrer une description pour l'intérêt.</li>
                     <li>L'utilisateur entre une description.</li>
-                        <ul class="imbr"><li>10.1. Le système valide la taille de la description.</li></ul>
-                    <li>Le système génère un identifiant unique pour le nouvel intérêt.</li>
+                        <ul class="imbr"><li>5.1. Le système valide la description.</li></ul>
+                    <li>Le système crée l'intérêt et lui affecte un identifiant unique</li>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
-                    <li>11a. Le titre est invalide.
+                    <li>4a. Le titre est invalide.
                         <ul class="imbr">
-                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
-                            <li>11a.2. Le système affiche "Titre invalide".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                            <li>4a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>4a.2. Le système affiche "Titre invalide".</li>
+                            <li>4a.3. Le scénario reprend à l'étape 2.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>11a. Le titre existe déjà.
+                    <li>4b. Le titre existe déjà.
                         <ul class="imbr">
-                            <li>11a.1. Le système constate que l'information entrée est déjà présente dans la base de données.</li>
-                            <li>11a.2. Le système affiche "Cet intérêt existe déjà".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                            <li>4b.1. Le système constate que l'information entrée est déjà présente dans la base de données.</li>
+                            <li>4b.2. Le système affiche "Cet intérêt existe déjà".</li>
+                            <li>4b.3. Le scénario reprend à l'étape 2.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>13a. La descritpion est invalide.
+                    <li>6a. La descritpion est invalide.
                         <ul class="imbr">
-                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
-                            <li>11a.2. Le système affiche "Description invalide".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 2.</li>
+                            <li>6a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>6a.2. Le système affiche "Description invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
                         </ul>
                     </li>
                 </ul>
                 <br>
 
 
-                <h3>Cas d'utilisation SUP2</h3>
+                <h3>Cas d'utilisation 14</h3>
                 <h4>Titre: Modifier un intérêt</h4>
                 <h4>But: Un superviseur veut modifier un intérêt</h4>
                 <h4>Acteurs: Superviseur</h4>
                 <h4>Précondition: Être connecté à la plateforme en tant que superviseur et avoir sélectionné l'option "Intérêts" du menu principal</h4>
-                <h4>Postcondition: L'intérêt sera modifié dans la base de données</h4>
+                <h4>Postcondition: L'intérêt est modifié dans la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
                     <li>L'utilisateur sélectionne l'option "Modifier un intérêt".</li>
@@ -1330,31 +1422,31 @@
                     <li>L'utilisateur choisit l'attribut de l'intérêt qu'il désire modifier.</li>
                     <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
                     <li>L'utilisateur entre un nouveau contenu.</li>
-                        <ul class="imbr"><li>10.1. Le système valide le nouveau contenu.</li></ul>
+                        <ul class="imbr"><li>7.1. Le système valide le nouveau contenu.</li></ul>
                     <li>Le système demande à l'utilisateur de confirmer la modification.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme la modification.</li></ul>
+                        <ul class="imbr"><li>8.1. L'utilisateur confirme la modification.</li></ul>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul style="list-style-type: none;">
-                    <li>11a. Le nouveau contenu est invalide.
+                    <li>8a. Le nouveau contenu est invalide.
                         <ul class="imbr">
-                            <li>11a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
-                            <li>11a.2. Le système affiche "Modification invalide".</li>
-                            <li>11a.3. Le scénario reprend à l'étape 4.</li>
+                            <li>8a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>8a.2. Le système affiche "Modification invalide".</li>
+                            <li>8a.3. Le scénario reprend à l'étape 6.</li>
                         </ul>
                     </li>
                     <br>
-                    <li>5a. L'utilisateur ne confirme pas la modification.
+                    <li>9a. L'utilisateur ne confirme pas la modification.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 4.</li>
+                            <li>9a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>9a.2. Le scénario reprend à l'étape 6.</li>
                         </ul>
                     </li>
                 </ul>
                 <br>
 
-                <h3>Cas d'utilisation SUP3</h3>
+                <h3>Cas d'utilisation 15</h3>
                 <h4>Titre: Supprimer un intérêt</h4>
                 <h4>But: Un superviseur veut supprimer un intérêt</h4>
                 <h4>Acteurs: Superviseur</h4>
@@ -1382,12 +1474,218 @@
 
 
 
+                <h3>Cas d'utilisation 16</h3>
+                <h4>Titre: S'inscrire à un intérêt</h4>
+                <h4>But: Un membre veut s'inscrire à un intérêt</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: Le membre est inscrit à l'intérêt dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "M'inscrire à un intérêt".</li>
+                    <li>Le système affiche la liste des intérêts.</li>
+                    <li>L'utilisateur sélectionne l'intérêt auquel il désire s'inscrire.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire s'inscrire à l'intérêt.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme l'inscription.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas l'inscription.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer l'inscription.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
 
-                <h3>Cas d'utilisation ADMIN1</h3>
+
+
+                <h3>Cas d'utilisation 17</h3>
+                <h4>Titre: Se désinscrire d'un intérêt</h4>
+                <h4>But: Un membre veut se désinscrire d'un intérêt</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Intérêts" du menu principal</h4>
+                <h4>Postcondition: Le membre n'est plus inscrit à l'intérêt dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Me désinscrire d'un intérêt".</li>
+                    <li>Le système affiche tous les intérêts auxquels l'utilisateur est inscrit.</li>
+                    <li>L'utilisateur sélectionne l'intérêt duquel il désire se désinscrire.</li>
+                    <li>Le système demande à l'utilisateur de confirmer qu'il désire se désinscrire de l'intérêt.</li>
+                        <ul class="imbr"><li>4.1. L'utilisateur confirme la désinscription.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>5a. L'utilisateur ne confirme pas la désinscription.
+                        <ul class="imbr">
+                            <li>5a.1. L'utilisateur choisit de ne pas confirmer la désinscription.</li>
+                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                
+
+                
+                <h3>Cas d'utilisation 18</h3>
+                <h4>Titre: Consulter la liste des membres</h4>
+                <h4>But: Un membre veut consulter la liste des membres</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des membres".</li>
+                    <li>Le système affiche la liste de tous les membres.</li>
+                    <li>L'utilisateur choisit un membre.</li>
+                    <li>Le système affiche le profil complet du membre.</li>
+                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 19</h3>
+                <h4>Titre: Consulter la liste des membres par intérêts</h4>
+                <h4>But: Un membre veut consulter la liste des membres par intérêts</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter la liste des membres par intérêts".</li>
+                    <li>Le système affiche la liste de tous les intérêts.</li>
+                    <li>L'utilisateur choisit un intérêt.</li>
+                    <li>Le système affiche la liste de tous les membres liés à cet intérêt.</li>
+                    <li>L'utilisateur choisit un membre.</li>
+                    <li>Le système affiche le profil complet du membre.</li>
+                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
+                </ol>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 20</h3>
+                <h4>Titre: Chercher un membre</h4>
+                <h4>But: Un membre veut chercher un membre par son nom et prénom</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Membres" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Chercher un membre".</li>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un nom.</li>
+                    <li>L'utilisateur entre un nom.</li>
+                        <ul class="imbr"><li>3.1. Le système valide le nom.</li></ul>
+                    <li>Le système affiche un message demandant à l'utilisateur d'entrer un prénom.</li>
+                    <li>L'utilisateur entre un prénom.</li>
+                        <ul class="imbr"><li>5.1. Le système valide le prénom.</li></ul>
+                    <li>Le système affiche le profil complet du membre.</li>
+                    <li>L'utilisateur quitte le menu des membres et retourne au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul class="imbr">
+                    <li>4a. Le nom est invalide.
+                        <ul class="imbr">
+                            <li>4a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>4a.2. Le système affiche "nom invalide".</li>
+                            <li>4a.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>6a. Le prénom est invalide.
+                        <ul class="imbr">
+                            <ul class="imbr">
+                                <li>6a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                                <li>6a.2. Le système affiche "prénom invalide".</li>
+                                <li>6a.3. Le scénario reprend à l'étape 4.</li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>6b. Le système ne trouve pas le membre correspondant aux nom et prénom donnés.
+                        <ul class="imbr">
+                            <li>6b.1. Le système ne trouve pas de compte qui correspond aux nom et prénom donnés.</li>
+                            <li>6b.2. Le système affiche "Aucun membre trouvé".</li>
+                            <li>6b.3. Le scénario reprend à l'étape 2.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 21</h3>
+                <h4>Titre: Modifier son profil</h4>
+                <h4>But: Un membre veut modifier son profil</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Mon profil" du menu principal</h4>
+                <h4>Postcondition: Le profil est modifié dans la base de données</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Modifier mon profil".</li>
+                    <li>Le système affiche le profil complet.</li>
+                    <li>L'utilisateur choisit l'attribut du profil qu'il désire modifier.</li>
+                    <li>Le système demande à l'utlisateur d'entrer un nouveau contenu pour l'attribut sélectionné.</li>
+                    <li>L'utilisateur entre un nouveau contenu.</li>
+                        <ul class="imbr"><li>5.1. Le système valide le nouveau contenu.</li></ul>
+                    <li>Le système demande à l'utilisateur de confirmer la modification.</li>
+                        <ul class="imbr"><li>6.1. L'utilisateur confirme la modification.</li></ul>
+                    <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>6a. Le nouveau contenu est invalide.
+                        <ul class="imbr">
+                            <li>6a.1. Le système constate que l'information entrée n'a pas le format désiré.</li>
+                            <li>6a.2. Le système affiche "Modification invalide".</li>
+                            <li>6a.3. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>7a. L'utilisateur ne confirme pas la modification.
+                        <ul class="imbr">
+                            <li>7a.1. L'utilisateur choisit de ne pas confirmer la modification.</li>
+                            <li>7a.2. Le scénario reprend à l'étape 4.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 22</h3>
+                <h4>Titre: Consulter ses notifications</h4>
+                <h4>But: Un membre veut consulter ses notifications</h4>
+                <h4>Acteurs: Membre</h4>
+                <h4>Précondition: Être connecté à la plateforme et avoir sélectionné l'option "Mon profil" du menu principal</h4>
+                <h4>Scénario principal</h4>
+                <ol>
+                    <li>L'utilisateur sélectionne l'option "Consulter mes notifications".</li>
+                    <li>Le système affiche les notifications de l'utilisateur.</li>
+                    <li>L'utilisateur choisit une notification.</li>
+                    <li>Le système affiche le contenu détaillé de la notification.</li>
+                    <li>L'utilisateur quitte son menu de notification et retourne au menu principal.</li>
+                </ol>
+                <h4>Scénario alternatif</h4>
+                <ul style="list-style-type: none;">
+                    <li>2a. L'utilisateur n'a pas de notification.
+                        <ul class="imbr">
+                            <li>2a.1. Le système constate que l'utilisateur n'a pas de notification.</li>
+                            <li>2a.2. Le système affiche "Vous n'avez aucune notification".</li>
+                            <li>2a.3. Le scénario se termine.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+
+
+
+                <h3>Cas d'utilisation 23</h3>
                 <h4>Titre: Suspendre un compte</h4>
                 <h4>But: Un administrateur veut suspendre un compte</h4>
                 <h4>Acteurs: Administrateur</h4>
-                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Gestion des membres" du menu principal</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Membres" du menu principal</h4>
                 <h4>Postcondition: Le compte visé a maintenant le statut "SUSPENDU" dans la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
@@ -1396,7 +1694,6 @@
                     <li>L'utilisateur sélectionne le compte à suspendre.</li>
                     <li>Le système demande à l'utilisateur de confirmer qu'il désire suspendre ce compte.</li>
                         <ul class="imbr"><li>4.1. L'utilisateur confirme la suspension.</li></ul>
-                    <li>Le système change le statut du compte du membre visé.</li>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
@@ -1410,11 +1707,13 @@
                 </ul>
                 <br>
 
-                <h3>Cas d'utilisation ADMIN2</h3>
+
+
+                <h3>Cas d'utilisation 24</h3>
                 <h4>Titre: Réactiver un compte</h4>
                 <h4>But: Un administrateur veut réactiver un compte</h4>
                 <h4>Acteurs: Administrateur</h4>
-                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Gestion des membres" du menu principal</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Membres" du menu principal</h4>
                 <h4>Postcondition: Le compte visé a maintenant le statut "VALIDE" dans la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
@@ -1423,7 +1722,6 @@
                     <li>L'utilisateur sélectionne le compte à réactiver.</li>
                     <li>Le système demande à l'utilisateur de confirmer qu'il désire réactiver ce compte.</li>
                         <ul class="imbr"><li>4.1. L'utilisateur confirme la réactivation.</li></ul>
-                    <li>Le système change le statut du compte du membre visé.</li>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
@@ -1437,11 +1735,13 @@
                 </ul>
                 <br>
 
-                <h3>Cas d'utilisation ADMIN3</h3>
+
+
+                <h3>Cas d'utilisation 25</h3>
                 <h4>Titre: Modifier un rôle</h4>
                 <h4>But: Un administrateur modifier le rôle affilié à un compte</h4>
                 <h4>Acteurs: Administrateur</h4>
-                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Gestion des membres" du menu principal</h4>
+                <h4>Précondition: Être connecté à la plateforme en tant qu'administrateur et avoir sélectionné l'option "Membres" du menu principal</h4>
                 <h4>Postcondition: Le compte visé a maintenant le nouveau rôle attribué dans la base de données</h4>
                 <h4>Scénario principal</h4>
                 <ol>
@@ -1451,16 +1751,15 @@
                     <li>Le système demande à l'utilisateur de sélectionner le rôle qu'il désire attribuer à ce compte.</li>
                     <li>L'utilisateur choisi un rôle.</li>
                     <li>Le système demande à l'utilisateur de confirmer que le rôle choisi est le bon.</li>
-                        <ul class="imbr"><li>4.1. L'utilisateur confirme le rôle.</li></ul>
-                    <li>Le système change le rôle associé au compte visé.</li>
+                        <ul class="imbr"><li>6.1. L'utilisateur confirme le rôle.</li></ul>
                     <li>Le système affiche un message de succès et redirige l'utilisateur au menu principal.</li>
                 </ol>
                 <h4>Scénario alternatif</h4>
                 <ul class="imbr">
-                    <li>5a. L'utilisateur ne confirme pas le rôle choisi.
+                    <li>7a. L'utilisateur ne confirme pas le rôle choisi.
                         <ul class="imbr">
-                            <li>5a.1. L'utilisateur choisit de ne pas confirmer le rôle choisi.</li>
-                            <li>5a.2. Le scénario reprend à l'étape 2.</li>
+                            <li>7a.1. L'utilisateur choisit de ne pas confirmer le rôle choisi.</li>
+                            <li>7a.2. Le scénario reprend à l'étape 4.</li>
                         </ul>
                     </li>
                 </ul>
@@ -1477,15 +1776,16 @@
                     <ol class="risks">
                         <li>
                             <p>
-                            3 rencontres avec le client sont permises afin de poser un maximum de 6 questions afin de demander des 
+                            Il est seulement permis de recontrer le client 3 fois pour poser un maximum de 6 questions afin de demander des 
                             informations additionnelles pour bien comprendre leurs besoins. La communication possible étant limitée avec le 
                             client, il y a un risque de spécification incomplète du projet. 
                             </p>
                         </li>
                         <li>
                             <p>
-                            Les lacunes en connaissances techniques du client rendent difficile la visualisation du logiciel et de ses fonctionnalités 
-                            par ce dernier, ce qui cause des risques de fonctionnalités (il ne faut ni fonctionnalité inutile, ni fonctionnalité oubliée). 
+                            Comme les exigences du client quant au fonctionnement du logiciel sont peu définies, il existe un risque de ne pas aboutir à la bonne
+                            architecture du système. De plus, comme le GEODES est en pleine expansion et que leurs besoins sont susceptible de changer, ce risque 
+                            est encore plus important pour ce qui est de la possibilité d'additions ou de modifications futures. 
                             </p>
                         </li>
                         <li>
@@ -1497,13 +1797,14 @@
                         </li>
                         <li>
                             <p>
-                            Le code informatique étant intangible, il est particulièrement difficile de prévoir le temps nécessaire à allouer aux 
-                            problèmes potentiels dans un tel projet. Le dérapage possible du calendrier cause ainsi un risque temporel.
+                            Comme aucun budget n'est alloué à ce projet, il existe un risque à l'égard de l'acquisition du matériel nécessaire à la réalisation du
+                            projet, par exemple un serveur pour la gestion des données utilisées par la plateforme. 
                             </p>
                         </li>
                         <li>
                             <p>
-                            Mauvaise compréhension du domaine????
+                            Le code informatique étant intangible, il est particulièrement difficile de prévoir le temps nécessaire à allouer aux 
+                            problèmes potentiels dans un tel projet. Le dérapage possible du calendrier cause ainsi un risque temporel.
                             </p>
                         </li>
                     </ol>
@@ -1530,15 +1831,10 @@
                             <p>
                             <b>Fiabilité</b> : Le système doit être disponible 99.99% du temps pendant les heures normales de travail des membres du GEODES. Comme 
                             la plateforme a pour objectif de permettre un meilleur suivi et une meilleure cohésion au sein de l’équipe, il est essentiel qu’elle 
-                            soit disponible lorsque les membres en ont de besoin au cours de leur journée normale de travail.  
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                            <b>Fiabilité</b> : Le système ne doit pas perdre de données. Puisque la plateforme permet de créer des activités ou de faire des requêtes, 
+                            soit disponible lorsque les membres en ont de besoin au cours de leur journée normale de travail. De plus, le système ne doit pas perdre de données. Puisque la plateforme permet de créer des activités ou de faire des requêtes, 
                             les données transmises ou reçues doivent être complètes de manière à ce que l’information visualisée ou entrée soit représentative 
-                            de la situation réelle au sein du GEODES. Sans quoi, la plateforme qui se veut un outil de suivi perd de sa pertinence.   
-                            </p>    
+                            de la situation réelle au sein du GEODES. Sans quoi, la plateforme qui se veut un outil de suivi perd de sa pertinence.  
+                            </p>
                         </li>
                         <li>
                             <p>
@@ -1546,6 +1842,13 @@
                             et non-équivoque. Puisque l’interaction se fait en ligne de commande, la seule information disponible 
                             est le nom des différentes options. Il est donc essentiel que l’utilisateur puisse comprendre exactement 
                             le contenu de chaque option de manière à permettre une navigation efficace de la plateforme. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <b>Maintenabilité</b> : Le système doit pouvoir être facilement maintenu. Comme le GEODES est en pleine expansion, il est raisonnable de 
+                            croire que leurs besoins sont susceptibles de changer. Il est donc impératif que la plateforme développée puisse être modifiée facilement
+                            pour tenir compte de ces changements et pour que tout bogue éventuel puisse réglé efficacement. 
                             </p>
                         </li>
                     </ul>
@@ -1563,6 +1866,11 @@
                         </li>
                         <li>
                             <p>
+                            Ordinateur : Pour utiliser la plateforme, il est nécessaire de se connecter et d'intéragir en ligne de commande avec le logiciel.   
+                            </p>
+                        </li>
+                        <li>
+                            <p>
                             Connexion internet : Puisque la plateforme devra être en mesure d'accéder aux données stockées sur le serveur, il est essentiel d'avoir 
                             une connexion internet fiable pour que le système s'exécute correctement.   
                             </p>
@@ -1572,9 +1880,40 @@
                 </div>
                 <div>
                     <h3>Contraintes</h3>
-                    <p>Les contraintes les plus importantes que nous avons eu à mentionner sont essentiellement celles du temps (échéance) et des ressources finnancières.
-                        Or ce sont deux aspects qui ne sont pas fondamentalemment importants dans le cadre de ce devoir donc nous n'allons pas entrer plus en détails là dessus.
+                    <p>
+                        Le projet est sujet à plusieurs contraintes, les plus significatives étant les suivantes: 
                     </p>
+                    <ul>
+                        <p>
+                        <li>
+                            Contraintes matériels : Voir la section ci-haut.
+                        </li>
+                        </p>
+                        <p>
+                        <li>
+                            Contraintes logistiques : Le serveur devra pouvoir être stocké à un endroit accessible et accessible avec une latence raisonnable vu la 
+                            fréquence potentielle des requêtes par un membre sur la plateforme.  
+                        </li>
+                        </p>
+                        <p>
+                        <li>
+                            Contrainte de langage : Le logiciel sera écrit en Java et est donc contraint aux opérations qui peuvent être effectuée dans ce langage
+                            orienté-objet.  
+                        </li>
+                        </p>
+                        <p>
+                        <li>
+                            Contrainte d'interface : Le logiciel foncitonne uniquement en ligne de commande, ce qui limite l'information qui peut être affichée
+                            à l'égard des diverses fonctionnalités du logiciel tout en conservant une présentation clair et lisible. 
+                        </li>
+                        </p>
+                        <p>
+                        <li>
+                            Contrainte sur les opérations: Les requêtes exécutables sur la plateforme seront limitées exhaustivement à celles présentées dans 
+                            l'énoncé du projet, tant au niveau du contenu que de la forme. 
+                        </li>
+                        </p>
+                    </ul>
                 </div>
             </section>
 
