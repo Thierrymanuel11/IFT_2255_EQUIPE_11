@@ -201,6 +201,9 @@
                     <li class="nav-item">
                         <a class="nav-item__link" href="#prototype">Prototype</a> 
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-item__link" href="#conception">Conception</a> 
+                    </li>
                     <!--<li class="nav-item">
                         <a class="nav-item__link" href="#annex">Annexe</a> 
                     </li>
@@ -666,6 +669,20 @@
                                 QUESTION : Est-ce que l'identifiant unique pour les membres et les activités est généré par le système ou fourni par l'utilisateur ? 
                                 <br>
                                 RÉPONSE : L'identifiant unique doit être généré par le système.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Est-ce que les intérêts doivent avoir un lien avec les activités du GEODES ? 
+                                <br>
+                                RÉPONSE : Oui, ils doivent porter largement sur des sujets liés au génie logiciel, e.g. Modélisation, simulation, écologie et design.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                QUESTION : Comment les notifications doivent-elles être gérées? 
+                                <br>
+                                RÉPONSE : On doit créer une classe "Notification" dans le prototype.
                             </p>
                         </li>
                     </ul>
@@ -1915,10 +1932,31 @@
                         </p>
                     </ul>
                 </div>
+                <div>
+                    <h3>Diagrammes d'activités</h3>
+                        <p>
+                            Les diagrammes ci-dessous permettent d'avoir une meilleure compréhension du flot des activité dans le logiciel :  
+                        </p>
+                        <h4>Flux de connexion</h4>
+                        <img class="preview-img" src="images/DA_connexion.jpg" alt="DA_connexion">
+                        <h4>Flux du menu principal</h4>
+                        <img class="preview-img" src="images/DA_menu principal.jpg" alt="DA_menu principal">
+                        <h4>Flux des activités</h4>
+                        <img class="preview-img" src="images/DA_activités.jpg" alt="DA_activités">
+                        <h4>Flux des membres</h4>
+                        <img class="preview-img" src="images/DA_membres.jpg" alt="DA_membres">
+                        <h4>Flux des intérêts</h4>
+                        <img class="preview-img" src="images/DA_intérêts.jpg" alt="DA_intérêts">
+                        <h4>Flux du profil</h4>
+                        <img class="preview-img" src="images/DA_profil.jpg" alt="DA_profil">
+                </div>
             </section>
 
             <section>
                 <h2 id="prototype" class="section-title">Prototype</h2>
+                <p>
+                    Vous trouverez ci-dessous un apperçu des différentes vues du logiciel dans son état actuel d'implémentation: 
+                </p>
                 <ul class="bare-list previews">
                     <li class="preview">
                         <h4 style="font-size: 1.2em; margin-bottom: 6px">Menu principal (Authentification)</h4> 
@@ -1948,7 +1986,29 @@
                     </li>
                 </li>
             </section>
+
+            <section>
+                <h2 id="conception" class="section-title">Conception</h2>
+                <h3>Justification des choix du design</h3>
+                <h3>Diagramme de classes</h3>
+                <h3>Diagrammes de séquence</h3>
+                    <p>
+                        Vous trouverez ci-dessous les diagrammes de séquence pour les 3 CUs demandés : 
+                    </p>
+                    <h4>Rechercher un article et afficher la fiche complète</h4>
+                    <img class="preview-img" src="images/DS_Recherche article.jpg" alt="DS_chercher article">
+                    <br>
+                    <h4>Afficher la liste des activités associées à un intérêt</h4>
+                    <img class="preview-img" src="images/DS_activités par intrêts.jpg" alt="DS_activités intérêts">
+                    <br>
+                    <h4>Modifier le statut d'un article</h4>
+                    <img class="preview-img" src="images/DS_statut article.jpg" alt="DS_statut article">
+            </section>
         </div>
+
+
+
+
     </main>
     <footer class="report-footer">
         <p>
