@@ -21,20 +21,105 @@ public class ActivityController {
         return true;
     }
 
-    public boolean modifyArticle(Article article, String title, String summary, String url, Date publicationDate, List<User> collaborators, List<User> authors,
+    public boolean modifyArticle(String title, String summary, String url, Date publicationDate, List<User> collaborators, List<User> authors,
                                  List<String> keywords, List<Interest> interests, ArticleStatus status, int id) {
 
         for (Activity activity: this.activities) {
             if (activity instanceof Article && activity.getId() == id ) {
-                activity.setTitle(title);
-                ((Article) activity).setSummary(summary);
-                ((Article) activity).setArticleUrl(url);
-                ((Article) activity).setPublicationDate(publicationDate);
-                ((Article) activity).setCollaborators(collaborators);
-                ((Article) activity).setAuthors(authors);
-                ((Article) activity).setKeywords(keywords);
-                activity.setInterests(interests);
-                ((Article) activity).setStatus(status);
+                if (!title.equals("")) {
+                    activity.setTitle(title);
+                }
+                if (!summary.equals("")) {
+                    ((Article) activity).setSummary(summary);
+                }
+                if (!url.equals("")) {
+                    ((Article) activity).setArticleUrl(url);
+                }
+                if (publicationDate != null) {
+                    ((Article) activity).setPublicationDate(publicationDate);
+                }
+                if (collaborators != null) {
+                    ((Article) activity).setCollaborators(collaborators);
+                }
+                if (authors != null) {
+                    ((Article) activity).setAuthors(authors);
+                }
+                if (keywords != null) {
+                    ((Article) activity).setKeywords(keywords);
+                }
+                if (interests != null) {
+                    activity.setInterests(interests);
+                }
+                if (interests != null) {
+                    ((Article) activity).setStatus(status);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean modifyTool(String title, String description, String url, User responsable, List<User> collaborators, List<Article> linkedArticle,
+                                 List<String> keywords, List<Interest> interests, int id) {
+
+        for (Activity activity: this.activities) {
+            if (activity instanceof Tool && activity.getId() == id ) {
+                if (!title.equals("")) {
+                    activity.setTitle(title);
+                }
+                if (!description.equals("")) {
+                    ((Tool) activity).setDescription(description);
+                }
+                if (!url.equals("")) {
+                    ((Tool) activity).setToolUrl(url);
+                }
+                if (responsable != null) {
+                    ((Tool) activity).setResponsable(responsable);
+                }
+                if (collaborators != null) {
+                    ((Tool) activity).setCollaborators(collaborators);
+                }
+                if (linkedArticle != null) {
+                    ((Tool) activity).setLinkedArticle(linkedArticle);
+                }
+                if (keywords != null) {
+                    ((Tool) activity).setKeywords(keywords);
+                }
+                if (interests != null) {
+                    activity.setInterests(interests);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean modifyProject(String title, String description, Professor responsable, Date startDate, Date finishDate,
+                              List<String> keywords, List<Interest> interests, int id) {
+
+        for (Activity activity: this.activities) {
+            if (activity instanceof Project && activity.getId() == id ) {
+                if (!title.equals("")) {
+                    activity.setTitle(title);
+                }
+                if (!description.equals("")) {
+                    ((Project) activity).setDescription(description);
+                }
+                if (responsable != null) {
+                    ((Project) activity).setResponsable(responsable);
+                }
+                if (startDate != null) {
+                    ((Project) activity).setStartDate(startDate);
+                }
+                if (finishDate != null) {
+                    ((Project) activity).setFinishDate(finishDate);
+                }
+                if (keywords != null) {
+                    ((Project) activity).setKeywords(keywords);
+                }
+                if (interests != null) {
+                    activity.setInterests(interests);
+                }
                 return true;
             }
         }
@@ -127,6 +212,35 @@ public class ActivityController {
         }
     }
 
+    public List<Article> getAllArticle() {
+        List<Article> result = new ArrayList<>();
+        for (Activity activity: this.activities) {
+            if (activity instanceof Article) {
+                result.add((Article) activity);
+            }
+        }
+        return result;
+    }
+
+    public List<Tool> getAllTool() {
+        List<Tool> result = new ArrayList<>();
+        for (Activity activity: this.activities) {
+            if (activity instanceof Tool) {
+                result.add((Tool) activity);
+            }
+        }
+        return result;
+    }
+
+    public List<Project> getAllProject() {
+        List<Project> result = new ArrayList<>();
+        for (Activity activity: this.activities) {
+            if (activity instanceof Project) {
+                result.add((Project) activity);
+            }
+        }
+        return result;
+    }
 
 
 }
