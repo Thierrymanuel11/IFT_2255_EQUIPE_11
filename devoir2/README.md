@@ -1,5 +1,13 @@
 # Prototype Roundtable
 
+## Rouler l'application
+
+une fois que vous êtes dans le fichier nommé java: 
+    cd out/artifact/s/java_jar
+    java -jar java.jar
+
+Sinon, pour pouvex toujours importer le project dans Intellij et le rouler à partir le là. La Main classe est Main.
+
 ## Utilisation
 
 * Le prototype est une application en ligne de commande. Elle contient plusiseurs vues qui accomplissent différentes fonctions.
