@@ -21,4 +21,15 @@ public class Account {
 
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }
