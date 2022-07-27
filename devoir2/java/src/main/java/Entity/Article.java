@@ -1,6 +1,6 @@
-package Entity;
+package main.java.Entity;
 
-import enums.ArticleStatus;
+import main.java.enums.ArticleStatus;
 
 import java.util.Date;
 import java.util.List;

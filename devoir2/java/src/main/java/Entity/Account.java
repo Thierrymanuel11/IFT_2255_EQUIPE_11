@@ -1,7 +1,7 @@
-package Entity;
+package main.java.Entity;
 
-import enums.AccountRole;
-import enums.AccountStatus;
+import main.java.enums.AccountRole;
+import main.java.enums.AccountStatus;
 
 public class Account {
 

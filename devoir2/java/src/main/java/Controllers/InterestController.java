@@ -1,7 +1,7 @@
-package Controllers;
+package main.java.Controllers;
 
-import Entity.Interest;
-import Entity.User;
+import main.java.Entity.Interest;
+import main.java.Entity.User;
 
 import java.util.List;
 

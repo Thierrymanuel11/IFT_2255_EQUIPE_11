@@ -1,12 +1,12 @@
-package MainApp;
-import Controllers.ActivityController;
-import Controllers.InterestController;
-import Controllers.UserController;
-import Entity.*;
-import enums.AccountRole;
-import enums.AccountStatus;
-import enums.UserTitle;
-import enums.ArticleStatus;
+package main.java.MainApp;
+import main.java.Controllers.ActivityController;
+import main.java.Controllers.InterestController;
+import main.java.Controllers.UserController;
+import main.java.Entity.*;
+import main.java.enums.AccountRole;
+import main.java.enums.AccountStatus;
+import main.java.enums.UserTitle;
+import main.java.enums.ArticleStatus;
 
 import java.lang.invoke.SwitchPoint;
 import java.lang.reflect.Array;

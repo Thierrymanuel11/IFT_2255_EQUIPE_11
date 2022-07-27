@@ -1,7 +1,7 @@
-package Controllers;
+package main.java.Controllers;
 
-import Entity.*;
-import enums.ArticleStatus;
+import main.java.Entity.*;
+import main.java.enums.ArticleStatus;
 
 import java.util.ArrayList;
 import java.util.Date;

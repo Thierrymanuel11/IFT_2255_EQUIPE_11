@@ -1,12 +1,12 @@
-package Controllers;
+package main.java.Controllers;
 
-import Entity.Account;
-import Entity.Interest;
-import Entity.Professor;
-import Entity.User;
-import enums.AccountRole;
-import enums.AccountStatus;
-import enums.UserTitle;
+import main.java.Entity.Account;
+import main.java.Entity.Interest;
+import main.java.Entity.Professor;
+import main.java.Entity.User;
+import main.java.enums.AccountRole;
+import main.java.enums.AccountStatus;
+import main.java.enums.UserTitle;
 
 import java.util.ArrayList;
 import java.util.List;
