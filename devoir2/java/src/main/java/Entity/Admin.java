@@ -1,6 +1,6 @@
-package Entity;
+package main.java.Entity;
 
-import enums.UserTitle;
+import main.java.enums.UserTitle;
 
 public class Admin extends User {
 
