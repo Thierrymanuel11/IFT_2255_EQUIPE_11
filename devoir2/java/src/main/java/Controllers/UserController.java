@@ -55,12 +55,14 @@ public class UserController {
         return result;
     }
 
-    public User login(String email, String passord) {
+    public User login(String email, String password, AccountStatus accountStatus) {
 
         for (Account account: this.accounts) {
             if (account.getEmail().equals(email)) {
-                if (account.getPassword().equals(passord)) {
-                    return account.getUser();
+                if (account.getPassword().equals(password)) {
+                    if (accountStatus.equals(AccountStatus.VALID)){
+                        return account.getUser();
+                    }
                 }
             }
         }

@@ -2,18 +2,20 @@ package main.java.Entity;
 
 import main.java.enums.UserTitle;
 
+import java.util.List;
+
 public class User {
 
     private int id;
     String fname;
     String lname;
-    Interest[] interest;
-    String[] notifications;
+    List<Interest> interest;
+    List<String> notifications;
     String webPageURL;
     UserTitle title;
     String email;
 
-    public User(int id, String fname, String lname, Interest[] interest, String[] notifications, String webPageURL,
+    public User(int id, String fname, String lname, List<Interest> interest, List<String> notifications, String webPageURL,
                 UserTitle title, String email){
 
         this.id = id;
@@ -27,7 +29,7 @@ public class User {
 
     }
 
-    public String[] getNotifications() {
+    public List<String> getNotifications() {
         return notifications;
     }
 
@@ -48,7 +50,7 @@ public class User {
         return this.email;
     }
 
-    public Interest[] getInterest() {
+    public List<Interest> getInterest() {
         return interest;
     }
 
