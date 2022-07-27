@@ -466,7 +466,7 @@ public class Menu {
 
     public void start(){
 
-        switchMainMenu();
+        switchLoginMenu();
 
     }
 
@@ -494,7 +494,7 @@ public class Menu {
                 switchInterestMenu();
 
             case "5":
-                displayLoginPage();
+                switchLoginMenu();
                 //nextChoice();
                 break;
 
@@ -593,7 +593,11 @@ public class Menu {
                 break;
 
             case "2":
-                System.out.println("notification");
+                List<String> notifications = this.loggedUser.getNotifications();
+                System.out.println("----- Notifications -----");
+                for (String notification : notifications) {
+                    System.out.println(notification);
+                }
                 switchProfilePage();
                 break;
 
