@@ -12,6 +12,8 @@
             </manifest>
         </jar>
     </target>
-    
+    <target name="doc" depends="jar" description="generate doc">
+        <javadoc sourcepath="src" destdir="doc"/>
+    </target>
 
 </project>
