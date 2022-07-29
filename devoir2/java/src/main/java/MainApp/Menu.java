@@ -29,16 +29,20 @@ public class Menu {
         this.loggedUser = new User(3, "Louis-Édouard", "Lafontant", null, null,
                 "https://ceduni.github.io/udem-ift2255/devoirs/dm2.html", UserTitle.Master, "louis.edouard.lafontant@umontreal.ca");
 
-        List<Interest> interests = new ArrayList(Arrays.asList(
-                new Interest("programation", "Tout ce qui est lié à la programmation"),
-                new Interest("innovation", "Tout ce qui est lié à l'innocation")
-        ));
+
 
         Interest interest1 = new Interest("programation", "Tout ce qui est lié à la programmation");
         Interest interest2 = new Interest("innovation", "Tout ce qui est lié à l'innocation");
         Interest interest3 = new Interest("recherche", "Anvencements technologique");
         Interest interest4 = new Interest("hardware", "relié au développement de nouveau hardware");
         Interest interest5 = new Interest("système", "focus sur le fonctionnement des système");
+        List<Interest> interests = new ArrayList(Arrays.asList(
+                interest1,
+                interest2,
+                interest3,
+                interest4,
+                interest5
+        ));
 
         Professor michalis = new Professor(4, "Michalis", "Famelis", null, null,
                 "https://geodes.iro.umontreal.ca/", UserTitle.Professor, "michalis.famelis@umontreal.ca");
@@ -62,8 +66,8 @@ public class Menu {
                         interest2,
                         interest3
                 )),
-                new ArrayList<String>(Arrays.asList(
-                        "nouvel article disponible"
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
                 )),
                 "https://geodes.iro.umontreal.ca/",
                 UserTitle.Master,
@@ -76,9 +80,9 @@ public class Menu {
                         interest2,
                         interest4
                 )),
-                new ArrayList<String>(Arrays.asList(
-                        "Bienvenue sur RoundTable!",
-                        "nouvel article disponible"
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "Bienvenue sur Roundtable"),
+                        new Notification("Système", "nouvel article disponible")
                 )),
                 "https://geodes.iro.umontreal.ca/",
                 UserTitle.PostDoc,
@@ -91,8 +95,8 @@ public class Menu {
                         interest2,
                         interest3
                 )),
-                new ArrayList<String>(Arrays.asList(
-                        "nouvel article disponible"
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
                 )),
                 "https://geodes.iro.umontreal.ca/",
                 UserTitle.PHD,
@@ -105,8 +109,8 @@ public class Menu {
                         interest2,
                         interest1
                 )),
-                new ArrayList<String>(Arrays.asList(
-                        "nouvel article disponible"
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
                 )),
                 "https://geodes.iro.umontreal.ca/",
                 UserTitle.Master,
@@ -121,8 +125,8 @@ public class Menu {
                         interest4,
                         interest1
                 )),
-                new ArrayList<String>(Arrays.asList(
-                        "nouvel article disponible"
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
                 )),
                 "https://geodes.iro.umontreal.ca/",
                 UserTitle.Master,
@@ -139,17 +143,6 @@ public class Menu {
                 new Account("patrick.lanoie@umontreal.ca", "patrick", AccountStatus.PENDING, membre3, AccountRole.Member),
                 new Account("fannie.filion-bienvenue@umontreal.ca", "fannie", AccountStatus.VALID, membre4, AccountRole.Member),
                 new Account("luke.skywalker@umontreal.ca", "luke", AccountStatus.VALID, membre5, AccountRole.Member)
-        ));
-
-        List<User> users = new ArrayList (Arrays.asList(
-                new User(0, "gabriel", "test", null, null, "goole.com", UserTitle.Master, "test@umontreal.ca"),
-                new User(2, "simon", "levesque", null, null, "youtube.com", UserTitle.PHD, "tess@gmail.com"),
-                new User(3, "Louis-Édouard", "Lafontant", null, null, "https://ceduni.github.io/udem-ift2255/devoirs/dm2.html", UserTitle.Master, "louis.edouard.lafontant@umontreal.ca"),
-                michalis,
-                eugene,
-                houari,
-                istvanUser,
-                louisUser
         ));
 
         List<Activity> activities = new ArrayList<>(Arrays.asList(
@@ -457,6 +450,18 @@ public class Menu {
                         14
                 )
         ));
+        List<User> users = new ArrayList (Arrays.asList(
+               michalis,
+                eugene,
+                houari,
+                istvanUser,
+                louisUser,
+                membre1,
+                membre2,
+                membre3,
+                membre4,
+                membre5
+        ));
 
         userController = new UserController(users, accounts);
         interestController = new InterestController(interests);
@@ -593,10 +598,10 @@ public class Menu {
                 break;
 
             case "2":
-                List<String> notifications = this.loggedUser.getNotifications();
+                List<Notification> notifications = this.loggedUser.getNotifications();
                 System.out.println("----- Notifications -----");
-                for (String notification : notifications) {
-                    System.out.println(notification);
+                for (Notification notification : notifications) {
+                    notification.printNotifications();
                 }
                 switchProfilePage();
                 break;
@@ -641,6 +646,42 @@ public class Menu {
                 break;
 
             case "3":
+                System.out.println("Entrez le nom du membre que duquel vous voulez changer le statut");
+                name = scanner.next();
+                user = userController.getUserByName(name);
+
+                if (user != null){
+                    System.out.println("Quel statut voulez voulez-vous lui donner?" +
+                            "\n[1] EN ATTENTE" +
+                            "\n[2] VALIDE" +
+                            "\n[3] SUSPENDU" +
+                            "\n[0] Annuler le requête");
+                    Account account = this.userController.getAccountByUser(user);
+                    System.out.println(account.getPassword());
+                    switch (scanner.next()) {
+                        case "1":
+                            account.setStatus(AccountStatus.PENDING);
+                            break;
+                        case "2":
+                            account.setStatus(AccountStatus.VALID);
+                            break;
+                        case "3":
+                            account.setStatus(AccountStatus.SUSPENDED);
+                            break;
+                        case "0":
+                            break;
+                        default:
+                            System.out.println("Choix invalide");
+                            switchUserMenu();
+                    }
+                } else {
+                    System.out.println("Aucun utilisateur trouvé");
+
+                }
+                switchUserMenu();
+                break;
+
+            case "4":
                 displayMenuPage();
                 switchMainMenu();
                 break;
@@ -1007,7 +1048,8 @@ public class Menu {
                 "Veuillez choisir une option\n" +
                 "[1] Afficher la liste des membre\n" +
                 "[2] Chercher un membre\n" +
-                "[3] Retourner au menu principal\n" +
+                "[3] Modifier le statut d'un membre\n" +
+                "[4] Retourner au menu principal\n" +
                 "[0] Quitter l'application");
 
     }

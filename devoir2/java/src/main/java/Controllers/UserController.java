@@ -10,6 +10,7 @@ import main.java.enums.UserTitle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class UserController {
@@ -34,8 +35,15 @@ public class UserController {
     }
 
     public User getUserByName(String name) {
-        for (User x : users) {
-            if (name.equals(x.getFname())) return x;
+        for (User x : this.users) {
+            if (name.toLowerCase().equals(x.getFname().toLowerCase())) return x;
+        }
+        return null;
+    }
+
+    public Account getAccountByUser(User user) {
+        for (Account x : this.accounts) {
+            if (Objects.equals(user, x.getUser())) return x;
         }
         return null;
     }
@@ -79,6 +87,11 @@ public class UserController {
         this.users.add(newUser);
         this.accounts.add(new Account(email, password, AccountStatus.PENDING, newUser, AccountRole.Member));
         return true;
+    }
+
+    public Account changeStatus(Account account, AccountStatus status) {
+        account.setStatus(status);
+        return account;
     }
 
 }

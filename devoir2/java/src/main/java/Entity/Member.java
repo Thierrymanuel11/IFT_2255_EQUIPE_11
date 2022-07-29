@@ -8,7 +8,7 @@ public class Member extends User {
 
     Professor supervisor;
 
-    public Member(int id, String fname, String lname, List<Interest> interest, List<String> notifications, String webPageURL,
+    public Member(int id, String fname, String lname, List<Interest> interest, List<Notification> notifications, String webPageURL,
                   UserTitle title, String email, Professor supervisor){
         super(id, fname, lname, interest, notifications, webPageURL, title, email);
         this.supervisor = supervisor;

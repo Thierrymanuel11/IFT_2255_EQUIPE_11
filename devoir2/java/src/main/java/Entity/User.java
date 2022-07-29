@@ -2,6 +2,8 @@ package main.java.Entity;
 
 import main.java.enums.UserTitle;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
@@ -10,12 +12,12 @@ public class User {
     String fname;
     String lname;
     List<Interest> interest;
-    List<String> notifications;
+    List<Notification> notifications;
     String webPageURL;
     UserTitle title;
     String email;
 
-    public User(int id, String fname, String lname, List<Interest> interest, List<String> notifications, String webPageURL,
+    public User(int id, String fname, String lname, List<Interest> interest, List<Notification> notifications, String webPageURL,
                 UserTitle title, String email){
 
         this.id = id;
@@ -29,8 +31,13 @@ public class User {
 
     }
 
-    public List<String> getNotifications() {
-        return notifications;
+    public List<Notification> getNotifications() {
+        if (this.notifications == null) {
+            return new ArrayList<Notification>(Arrays.asList(
+                    new Notification("Alerte", "Pas de notifications")
+            ));
+        }
+        return this.notifications;
     }
 
     public String print(){

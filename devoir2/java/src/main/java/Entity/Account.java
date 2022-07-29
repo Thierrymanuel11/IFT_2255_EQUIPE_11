@@ -36,4 +36,9 @@ public class Account {
     public AccountStatus getStatus() {
         return status;
     }
+
+    public void setStatus(AccountStatus status) {
+        this.status = status;
+    }
+
 }
