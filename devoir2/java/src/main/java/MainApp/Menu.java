@@ -12,6 +12,14 @@ import java.lang.invoke.SwitchPoint;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ *
+ * Cette classe est celle qui va s'occuper de tout ce qui concerne le Menu c'est à  dire de l'affichage des différents
+ * menus de l'application jusqu'à la logique implémentée derrière chaque choix dans le menu
+ * @author Gabriel Menard
+ * @version 1.0
+ *
+ */
 public class Menu {
 
     User loggedUser;
@@ -23,6 +31,9 @@ public class Menu {
 
     List<Account> accounts;
 
+    /** Constructeur du menu principal ainsi que de toutes les autres composantes de base du système.
+     * Ici, les membres de base sont définies ainsi que les divers activités demandées au préalable.
+     */
     public Menu(){
 
 
@@ -469,11 +480,21 @@ public class Menu {
 
     }
 
+    /**
+     * Méthode pour lancer le premier menu de l'application
+     * Elle appelle une des autres méthode définies permettant d'afficher un menu en particulier.
+     * On y appelera donc la méthode permettant d'afficher le premier Menu qui sera le menu principal
+     */
+
     public void start(){
 
         switchLoginMenu();
 
     }
+    /**
+     * Cette méthode permet de passer au Menu principal de l'application pour un utilisateur conecté
+     * la logique des choix y est aussi directement implémentée
+     */
 
     public void switchMainMenu(){
         displayMenuPage();
@@ -512,6 +533,12 @@ public class Menu {
                 switchMainMenu();
         }
     }
+
+
+    /**
+     * Cette méthode  permet de passer au menu des intérets pour un utilisateur connecté.
+     * La logique des différents choix de l'utilisateur y est aussi directement implémentée
+     */
 
     private void switchInterestMenu() {
 
@@ -586,6 +613,12 @@ public class Menu {
 
     }
 
+
+    /**
+     * Cette méthode permet de passer à la page du profil d'un utilisateur connecté
+     * La logique des différents choix de l'utilisateur y est aussi implémentée
+     */
+
     private void switchProfilePage() {
         displayProfilePage();
         Scanner scanner = new Scanner(System.in);
@@ -618,6 +651,11 @@ public class Menu {
                 switchProfilePage();
         }
     }
+
+    /**
+     * Cette méthode permet de passer à la page du Menu d'utilisateur
+     * La logique des différents choix des utilisateurs y est également implémentée
+     */
 
     public void switchUserMenu(){
         displayUserPage();
@@ -696,6 +734,11 @@ public class Menu {
         }
     }
 
+
+    /**
+     * Cette méthode permet de passer à la page de connexion pour les différents utilisateurs
+     * La logique des différents choix de l'utilisateur y est égalment implémentée
+     */
     public void switchLoginMenu(){
         displayLoginPage();
         Scanner scanner = new Scanner(System.in);
@@ -771,6 +814,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Cette méthode permet de passer à la page des Projets de l'application
+     * La logique des choix de l'utilisateur y est également implémentée
+     */
+
     private void switchProjectMenu() {
         displayProjectPage();
         Scanner scanner = new Scanner(System.in);
@@ -801,6 +849,12 @@ public class Menu {
 
     private void switchToolMenu() {
     }
+
+
+    /**
+     * Cette méthode permet de passer à la page des activités de l'application pour un utilisateur connecté
+     * La logique des choix de l'utilisateur y est également implémentée
+     */
 
     private void switchActivityMenu() {
         displayActivityPage();
@@ -987,6 +1041,10 @@ public class Menu {
         }
     }
 
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu d'activité
+     */
+
     private void displayActivityPage() {
 
         System.out.println("----------Activité----------\n" +
@@ -999,6 +1057,10 @@ public class Menu {
 
     }
 
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu principal lorsque l'utilisateur se connecte
+     */
 
     public void displayMenuPage(){
         System.out.println(" .----------------.  .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. \n" +
@@ -1022,10 +1084,16 @@ public class Menu {
                 "\nVeuillez choisir une option\n");
     }
 
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu principal pour la connexion des utilisateurs
+     */
     public void displayLoginPage(){
         System.out.println("----------Login----------\n[1] Authentication\n[2] Inscription\n[0] Quitter l'application");
     }
 
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu d'intéret de l'application
+     */
     public void displayInterestPage(){
         System.out.println("----------Interêts----------\n" +
                 "[1] Ajouté un intérêt\n" +
@@ -1035,6 +1103,11 @@ public class Menu {
                 "[0] Quitter l'application");
     }
 
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu de gestion de projet de l'application
+     */
+
     public void displayProjectPage(){
         System.out.println("----------Projets----------\n" +
                 "[1] Projets publics\n" +
@@ -1042,6 +1115,11 @@ public class Menu {
                 "[3] Retourner au menu principal\n" +
                 "[0] Quitter l'application");
     }
+
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu de gestion des utilisateurs pour l'ensemble des membres
+     */
 
     public void displayUserPage(){
         System.out.println("----------Membres----------\n" +
@@ -1053,6 +1131,10 @@ public class Menu {
                 "[0] Quitter l'application");
 
     }
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu du profil des différents utilisateurs de l'application
+     */
 
     public void displayProfilePage(){
         System.out.println("----------Profile----------\nNom et Prénom: " + this.loggedUser.getFname() + " " +
