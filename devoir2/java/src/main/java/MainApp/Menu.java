@@ -12,6 +12,14 @@ import java.lang.invoke.SwitchPoint;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ *
+ * Cette classe est celle qui va s'occuper de tout ce qui concerne le Menu c'est à  dire de l'affichage des différents
+ * menus de l'application jusqu'à la logique implémentée derrière chaque choix dans le menu
+ * @author Gabriel Menard
+ * @version 1.0
+ *
+ */
 public class Menu {
 
     User loggedUser;
@@ -21,11 +29,31 @@ public class Menu {
     InterestController interestController;
     ActivityController activityController;
 
+    List<Account> accounts;
+
+    /** Constructeur du menu principal ainsi que de toutes les autres composantes de base du système.
+     * Ici, les membres de base sont définies ainsi que les divers activités demandées au préalable.
+     */
     public Menu(){
 
 
         this.loggedUser = new User(3, "Louis-Édouard", "Lafontant", null, null,
                 "https://ceduni.github.io/udem-ift2255/devoirs/dm2.html", UserTitle.Master, "louis.edouard.lafontant@umontreal.ca");
+
+
+
+        Interest interest1 = new Interest("programation", "Tout ce qui est lié à la programmation");
+        Interest interest2 = new Interest("innovation", "Tout ce qui est lié à l'innocation");
+        Interest interest3 = new Interest("recherche", "Anvencements technologique");
+        Interest interest4 = new Interest("hardware", "relié au développement de nouveau hardware");
+        Interest interest5 = new Interest("système", "focus sur le fonctionnement des système");
+        List<Interest> interests = new ArrayList(Arrays.asList(
+                interest1,
+                interest2,
+                interest3,
+                interest4,
+                interest5
+        ));
 
         Professor michalis = new Professor(4, "Michalis", "Famelis", null, null,
                 "https://geodes.iro.umontreal.ca/", UserTitle.Professor, "michalis.famelis@umontreal.ca");
@@ -42,28 +70,90 @@ public class Menu {
         User louisUser = new User(8, "Louis-Edouard", "Lafontant", null, null,
                 "https://geodes.iro.umontreal.ca/", UserTitle.PHD, "louis.edouard.lafontant@umontreal.ca");
 
-        List<Account> accounts = new ArrayList<>(Arrays.asList(
+        User membre1 = new User(9,
+                "Gabriel",
+                "Ménard",
+                new ArrayList<Interest>(Arrays.asList(
+                        interest2,
+                        interest3
+                )),
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
+                )),
+                "https://geodes.iro.umontreal.ca/",
+                UserTitle.Master,
+                "gabriel.menard@umontreal.ca");
+
+        User membre2 = new User(10,
+                "Thierry Manuel",
+                "Tchoumken Djeumen",
+                new ArrayList<Interest>(Arrays.asList(
+                        interest2,
+                        interest4
+                )),
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "Bienvenue sur Roundtable"),
+                        new Notification("Système", "nouvel article disponible")
+                )),
+                "https://geodes.iro.umontreal.ca/",
+                UserTitle.PostDoc,
+                "thierry.manuel.tchoumkeu.djeumen@umontreal.ca");
+
+        User membre3 = new User(11,
+                "Patrick",
+                "Lanoie",
+                new ArrayList<Interest>(Arrays.asList(
+                        interest2,
+                        interest3
+                )),
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
+                )),
+                "https://geodes.iro.umontreal.ca/",
+                UserTitle.PHD,
+                "patrick.lanoie@umontreal.ca");
+
+        User membre4 = new User(12,
+                "Fannie",
+                "Filion-Bienvenue",
+                new ArrayList<Interest>(Arrays.asList(
+                        interest2,
+                        interest1
+                )),
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
+                )),
+                "https://geodes.iro.umontreal.ca/",
+                UserTitle.Master,
+                "fannie.filion-bienvenue@umontreal.ca");
+
+        User membre5 = new User(13,
+                "Luke",
+                "Skywalker",
+                new ArrayList<Interest>(Arrays.asList(
+                        interest2,
+                        interest3,
+                        interest4,
+                        interest1
+                )),
+                new ArrayList<Notification>(Arrays.asList(
+                        new Notification("Système", "nouvel article disponible")
+                )),
+                "https://geodes.iro.umontreal.ca/",
+                UserTitle.Master,
+                "luke.skywalker@umontreal.ca");
+
+        this.accounts = new ArrayList<>(Arrays.asList(
                 new Account("michalis.famelis@umontreal.ca","test", AccountStatus.VALID, michalis, AccountRole.Professor),
                 new Account("eugene.syriani@umontreal.ca","test", AccountStatus.VALID, eugene, AccountRole.Professor),
                 new Account("houari.sahraoui@umontreal.ca","test", AccountStatus.VALID, houari, AccountRole.Professor),
                 new Account("louis.edouard.lafontant@umontreal.ca", "louis", AccountStatus.VALID, istvanUser, AccountRole.Admin),
-                new Account("istvan.david@umontreal.ca", "istvan", AccountStatus.VALID, louisUser, AccountRole.Admin)
-        ));
-
-        List<User> users = new ArrayList (Arrays.asList(
-                new User(0, "gabriel", "test", null, null, "goole.com", UserTitle.Master, "test@umontreal.ca"),
-                new User(2, "simon", "levesque", null, null, "youtube.com", UserTitle.PHD, "tess@gmail.com"),
-                new User(3, "Louis-Édouard", "Lafontant", null, null, "https://ceduni.github.io/udem-ift2255/devoirs/dm2.html", UserTitle.Master, "louis.edouard.lafontant@umontreal.ca"),
-                michalis,
-                eugene,
-                houari,
-                istvanUser,
-                louisUser
-        ));
-
-        List<Interest> interests = new ArrayList(Arrays.asList(
-                new Interest("programation", "Tout ce qui est lié à la programmation"),
-                new Interest("innovation", "Tout ce qui est lié à l'innocation")
+                new Account("istvan.david@umontreal.ca", "istvan", AccountStatus.VALID, louisUser, AccountRole.Admin),
+                new Account("gabriel.menard@umontreal.ca", "gabriel", AccountStatus.SUSPENDED, membre1, AccountRole.Member),
+                new Account("thierry.manuel.tchoumkeu.djeumen@umontreal.ca", "thierry", AccountStatus.PENDING, membre2, AccountRole.Member),
+                new Account("patrick.lanoie@umontreal.ca", "patrick", AccountStatus.PENDING, membre3, AccountRole.Member),
+                new Account("fannie.filion-bienvenue@umontreal.ca", "fannie", AccountStatus.VALID, membre4, AccountRole.Member),
+                new Account("luke.skywalker@umontreal.ca", "luke", AccountStatus.VALID, membre5, AccountRole.Member)
         ));
 
         List<Activity> activities = new ArrayList<>(Arrays.asList(
@@ -88,20 +178,205 @@ public class Menu {
                         "Article 1",
                         0
                 ),
+                new Article(
+                        "The objective of pre-trained language models is to learn contextual representations of textual data. Pre-trained language models have become mainstream in natural language processing and code modeling. Using probes, a technique to study the linguistic properties of hidden vector spaces, previous works have shown that these pre-trained language models encode simple linguistic properties in their hidden representations. However, none of the previous work assessed whether these models encode the whole grammatical structure of a programming language. In this paper, we prove the existence of a \\textit{syntactic subspace}, lying in the hidden representations of pre-trained language models, which contain the syntactic information of the programming language. We show that this subspace can be extracted from the models' representations and define a novel probing method, the AST-Probe, that enables recovering the whole abstract syntax tree (AST) of an input code snippet. In our experimentations, we show that this syntactic subspace exists in five state-of-the-art pre-trained language models. In addition, we highlight that the middle layers of the models are the ones that encode most of the AST information. Finally, we estimate the optimal size of this syntactic subspace and show that its dimension is substantially lower than those of the models' representation spaces. This suggests that pre-trained language models use a small part of their representation spaces to encode syntactic information of the programming languages.",
+                        new Date(2022, 6 , 23),
+                        "https://scholar.google.be/citations?view_op=view_citation&hl=en&user=6tBH8MAAAAAJ&sortby=pubdate&citation_for_view=6tBH8MAAAAAJ:wUn16MOA3RoC",
+                        ArticleStatus.Published,
+                        new ArrayList<User>(Arrays.asList(
+                                michalis,
+                                eugene
+                        )),
+                        new ArrayList<User>(Arrays.asList(
+                                istvanUser,
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "language models",
+                                "pre-trained"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest2,
+                                interest3
+                        )),
+                        "AST-Probe: Recovering abstract syntax trees from hidden representations of pre-trained language models",
+                        1
+                ),
+                new Article(
+                        "Software modeling activities typically involve a tedious and time-consuming effort by specially trained personnel. This lack of automation hampers the adoption of model-driven engineering (MDE). Nevertheless, in the recent years, much research work has been dedicated to learn executable MDE artifacts instead of writing them manually. In this context, mono- and multi-objective genetic programming (GP) has proven being an efficient and reliable method to derive automation knowledge by using, as training data, a set of examples representing the expected behavior of an artifact. Generally, conformance to the training example set is the main objective to lead the learning process. Yet, single fitness peak, or local optima deadlock, a common challenge in GP, hinders the application of GP to MDE. In this paper, we propose a strategy to promote populations’ social diversity during the GP learning process.",
+                        new Date(2022, 6 , 1),
+                        "https://scholar.google.be/citations?view_op=view_citation&hl=en&user=6tBH8MAAAAAJ&sortby=pubdate&citation_for_view=6tBH8MAAAAAJ:nqdriD65xNoC",
+                        ArticleStatus.Published,
+                        new ArrayList<User>(Arrays.asList(
+                                michalis,
+                                eugene
+                        )),
+                        new ArrayList<User>(Arrays.asList(
+                                istvanUser,
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "article 3",
+                                "software"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest4,
+                                interest5
+                        )),
+                        "Promoting social diversity for the automated learning of complex MDE artifacts",
+                        2
+                ),
+                new Article(
+                        "The design of conceptually sound metamodels that embody proper semantics in relation to the application domain is particularly tedious in model-driven engineering. As metamodels define complex relationships between domain concepts, it is crucial for a modeler to define these concepts thoroughly while being consistent with respect to the application domain. We propose an approach to assist a modeler in the design of metamodel by recommending relevant domain concepts in several modeling scenarios. Our approach does not require knowledge from the domain or to hand-design completion rules. Instead, we design a fully data-driven approach using a deep learning model that is able to abstract domain concepts by learning from both structural and lexical metamodel properties in a corpus of thousands of independent metamodels.",
+                        new Date(2022, 6 , 1),
+                        "https://scholar.google.be/citations?view_op=view_citation&hl=en&user=6tBH8MAAAAAJ&sortby=pubdate&citation_for_view=6tBH8MAAAAAJ:NMlhSUseqAsC",
+                        ArticleStatus.Published,
+                        new ArrayList<User>(Arrays.asList(
+                                michalis,
+                                eugene
+                        )),
+                        new ArrayList<User>(Arrays.asList(
+                                istvanUser,
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "design",
+                                "article 4",
+                                "metamodels"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest2,
+                                interest3
+                        )),
+                        "Recommending metamodel concepts during modeling activities with pre-trained language models",
+                        3
+                ),
+                new Article(
+                        "Textual editors are omnipresent in all software tools. Editors provide basic features, such as copy-pasting and searching, or more advanced features, such as error checking and text completion. Current technologies in model-driven engineering can automatically generate textual editors to manipulate domain-specific languages (DSLs). However, the customization and addition of new features to these editors is often limited to changing the internal structure and behavior. In this paper, we explore a new generation of self-descriptive textual editors for DSLs, allowing full configuration of their structure and behavior in a convenient formalism, rather than in source code. We demonstrate the feasibility of the approach by providing a prototype implementation and applying it in two domain-specific modeling scenarios, including one in architecture modeling.",
+                        new Date(2021, 11 , 6),
+                        "https://scholar.google.be/citations?view_op=view_citation&hl=en&user=6tBH8MAAAAAJ&sortby=pubdate&citation_for_view=6tBH8MAAAAAJ:Og1tA8FjbJAC",
+                        ArticleStatus.Published,
+                        new ArrayList<User>(Arrays.asList(
+                                michalis,
+                                eugene
+                        )),
+                        new ArrayList<User>(Arrays.asList(
+                                istvanUser,
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "generation",
+                                "article 5",
+                                "editors"
+                        )),
+                        interests,
+                        "Generation of Custom Textual Model Editors",
+                        4
+                ),
                 new Tool(
-                        "test tool",
+                        "lowkey is a low-level and transparent framework for real-time collaborative framework for multi-level and multi-view modeling. At the bottom layer of the architecture of lowkey, conflict-free replicated data types (CRDT) take care of preventing inconsistencies before they happen. The physical metamodel built on top of these data types allows for defining arbitrary numbers of linguistic models, which are in a type-instance relationship with each other. The framework is available as a Python implementation.",
                         "2.1",
                         "https://github.com/geodes-sms/lowkey",
                         michalis,
                         null,
                         null,
                         new ArrayList<String>(Arrays.asList(
-                                "test",
-                                "article 1"
+                                "lowkey",
+                                "tool 1"
                         )),
-                        interests,
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest3,
+                                interest4
+                        )),
                         "lowkey",
-                        1
+                        5
+
+                ),
+                new Tool(
+                        "AToMPM (A Tool for Multi-Paradigm Modeling) is the modeling tool we are developing at the University of Montreal in collaboration with McGill University, the University of Antwerp, and the University of Alabama. AToMPM provides facilities for generating web-based, domain-specific modeling tools tools that run on the cloud.",
+                        "0.9.9",
+                        "https://atompm.github.io/",
+                        michalis,
+                        null,
+                        null,
+                        new ArrayList<String>(Arrays.asList(
+                                "atompm",
+                                "tool 2"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest3,
+                                interest2
+                        )),
+                        "AToMPM",
+                        6
+
+                ),
+                new Tool(
+                        "AToMPM (A Tool for Multi-Paradigm Modeling) is the modeling tool we are developing at the University of Montreal in collaboration with McGill University, the University of Antwerp, and the University of Alabama. AToMPM provides facilities for generating web-based, domain-specific modeling tools tools that run on the cloud.",
+                        "1.5",
+                        "https://github.com/geodes-sms/gentleman",
+                        michalis,
+                        null,
+                        new ArrayList<User>(Arrays.asList(
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "gentlemant",
+                                "tool 2"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest2
+                        )),
+                        "Gentleman",
+                        7
+
+                ),
+                new Tool(
+                        "Conducting a systematic review involves many steps over a long period of time, and it is typically repetitive and labor-intensive. ReLiS (Revue Littéraire Systématique - Systematic Literature Review) can considerably reduce the effort of many of these steps by providing essential software support to reviewers. ReLiS supports planning, conducting and reportig a review, while following a previously defined process, which can be automatically adapted as the project evolves.",
+                        "1.7",
+                        "http://relis.iro.umontreal.ca/auth.html",
+                        michalis,
+                        null,
+                        new ArrayList<User>(Arrays.asList(
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "gentleman",
+                                "tool 4"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest2
+                        )),
+                        "ReLis",
+                        8
+
+                ),
+                new Tool(
+                        "BiBler is a software for managing references to scientific articles using BibTeX. Not only is it a fully functional software, the tool has been entirely modeled and synthesized in Python. It is used for educational purposes in order to understand how to generate a complete application from UML models in an agile and test-driven environment.",
+                        "1.4.3",
+                        "https://github.com/geodes-sms/bibler",
+                        michalis,
+                        null,
+                        new ArrayList<User>(Arrays.asList(
+                                louisUser
+                        )),
+                        new ArrayList<String>(Arrays.asList(
+                                "biblier",
+                                "tool 5"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest2,
+                                interest5
+                        )),
+                        "ReLis",
+                        9
 
                 ),
                 new Project(
@@ -115,8 +390,88 @@ public class Menu {
                         )),
                         interests,
                         "project 1",
-                        2
+                        10
+                ),
+                new Project(
+                        "Relations internationales et francophones Quebec-Bavaria\n" +
+                                "In partnership with Fortiss.",
+                        new Date(2018, 1,2),
+                        new Date(2029, 6,25),
+                        (Professor) michalis,
+                        new ArrayList<String>(Arrays.asList(
+                                "management",
+                                "project 1",
+                                "production"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest2,
+                                interest3
+                        )),
+                        "Management of smart production lines",
+                        11
+                ),
+                new Project(
+                        "Private philanthropic fund",
+                        new Date(2019, 1,1),
+                        new Date(2024, 1,1),
+                        (Professor) michalis,
+                        new ArrayList<String>(Arrays.asList(
+                                "ia",
+                                "project 2"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest2,
+                                interest5
+                        )),
+                        "\t\n" +
+                                "Artificial intelligence for and by software engineering",
+                        12
+                ),
+                new Project(
+                        "IVADO Postdoctoral Research Funding",
+                        new Date(2021, 1,1),
+                        new Date(2024, 6,1),
+                        (Professor) michalis,
+                        new ArrayList<String>(Arrays.asList(
+                                "test",
+                                "project 3"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1
+                        )),
+                        "Inference of Simulation Models in Digital Twins by Reinforcement Learning",
+                        13
+                ),
+                new Project(
+                        "NSERC Discovery Grant",
+                        new Date(2019, 1,2),
+                        new Date(2025, 6,10),
+                        (Professor) michalis,
+                        new ArrayList<String>(Arrays.asList(
+                                "knowledge",
+                                "project 4"
+                        )),
+                        new ArrayList<Interest>(Arrays.asList(
+                                interest1,
+                                interest3
+                        )),
+                        "From examples to knowledge to software engineering support and automation",
+                        14
                 )
+        ));
+        List<User> users = new ArrayList (Arrays.asList(
+               michalis,
+                eugene,
+                houari,
+                istvanUser,
+                louisUser,
+                membre1,
+                membre2,
+                membre3,
+                membre4,
+                membre5
         ));
 
         userController = new UserController(users, accounts);
@@ -125,11 +480,21 @@ public class Menu {
 
     }
 
+    /**
+     * Méthode pour lancer le premier menu de l'application
+     * Elle appelle une des autres méthode définies permettant d'afficher un menu en particulier.
+     * On y appelera donc la méthode permettant d'afficher le premier Menu qui sera le menu principal
+     */
+
     public void start(){
 
-        switchMainMenu();
+        switchLoginMenu();
 
     }
+    /**
+     * Cette méthode permet de passer au Menu principal de l'application pour un utilisateur conecté
+     * la logique des choix y est aussi directement implémentée
+     */
 
     public void switchMainMenu(){
         displayMenuPage();
@@ -155,7 +520,7 @@ public class Menu {
                 switchInterestMenu();
 
             case "5":
-                displayLoginPage();
+                switchLoginMenu();
                 //nextChoice();
                 break;
 
@@ -168,6 +533,12 @@ public class Menu {
                 switchMainMenu();
         }
     }
+
+
+    /**
+     * Cette méthode  permet de passer au menu des intérets pour un utilisateur connecté.
+     * La logique des différents choix de l'utilisateur y est aussi directement implémentée
+     */
 
     private void switchInterestMenu() {
 
@@ -242,6 +613,12 @@ public class Menu {
 
     }
 
+
+    /**
+     * Cette méthode permet de passer à la page du profil d'un utilisateur connecté
+     * La logique des différents choix de l'utilisateur y est aussi implémentée
+     */
+
     private void switchProfilePage() {
         displayProfilePage();
         Scanner scanner = new Scanner(System.in);
@@ -254,7 +631,11 @@ public class Menu {
                 break;
 
             case "2":
-                System.out.println("notification");
+                List<Notification> notifications = this.loggedUser.getNotifications();
+                System.out.println("----- Notifications -----");
+                for (Notification notification : notifications) {
+                    notification.printNotifications();
+                }
                 switchProfilePage();
                 break;
 
@@ -270,6 +651,11 @@ public class Menu {
                 switchProfilePage();
         }
     }
+
+    /**
+     * Cette méthode permet de passer à la page du Menu d'utilisateur
+     * La logique des différents choix des utilisateurs y est également implémentée
+     */
 
     public void switchUserMenu(){
         displayUserPage();
@@ -298,6 +684,42 @@ public class Menu {
                 break;
 
             case "3":
+                System.out.println("Entrez le nom du membre que duquel vous voulez changer le statut");
+                name = scanner.next();
+                user = userController.getUserByName(name);
+
+                if (user != null){
+                    System.out.println("Quel statut voulez voulez-vous lui donner?" +
+                            "\n[1] EN ATTENTE" +
+                            "\n[2] VALIDE" +
+                            "\n[3] SUSPENDU" +
+                            "\n[0] Annuler le requête");
+                    Account account = this.userController.getAccountByUser(user);
+                    System.out.println(account.getPassword());
+                    switch (scanner.next()) {
+                        case "1":
+                            account.setStatus(AccountStatus.PENDING);
+                            break;
+                        case "2":
+                            account.setStatus(AccountStatus.VALID);
+                            break;
+                        case "3":
+                            account.setStatus(AccountStatus.SUSPENDED);
+                            break;
+                        case "0":
+                            break;
+                        default:
+                            System.out.println("Choix invalide");
+                            switchUserMenu();
+                    }
+                } else {
+                    System.out.println("Aucun utilisateur trouvé");
+
+                }
+                switchUserMenu();
+                break;
+
+            case "4":
                 displayMenuPage();
                 switchMainMenu();
                 break;
@@ -312,6 +734,11 @@ public class Menu {
         }
     }
 
+
+    /**
+     * Cette méthode permet de passer à la page de connexion pour les différents utilisateurs
+     * La logique des différents choix de l'utilisateur y est égalment implémentée
+     */
     public void switchLoginMenu(){
         displayLoginPage();
         Scanner scanner = new Scanner(System.in);
@@ -322,12 +749,18 @@ public class Menu {
                 String email = scanner.next();
                 System.out.println("Entrez votre mot de passe");
                 String password = scanner.next();
-                User validLogin = userController.login(email, password);
+                AccountStatus status = null;
+                for (Account account: this.accounts) {
+                    if (account.getEmail().equals(email)) {
+                         status = account.getStatus();
+                    }
+                }
+                User validLogin = userController.login(email, password, status);
                 if (validLogin != null) {
                     loggedUser = validLogin;
                     switchMainMenu();
                 } else {
-                    System.out.println("Email ou mot de passe invalide");
+                    System.out.println("Email invalide, mot de passe invalide ou statut invalid");
                     switchLoginMenu();
                 }
                 break;
@@ -381,6 +814,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Cette méthode permet de passer à la page des Projets de l'application
+     * La logique des choix de l'utilisateur y est également implémentée
+     */
+
     private void switchProjectMenu() {
         displayProjectPage();
         Scanner scanner = new Scanner(System.in);
@@ -411,6 +849,12 @@ public class Menu {
 
     private void switchToolMenu() {
     }
+
+
+    /**
+     * Cette méthode permet de passer à la page des activités de l'application pour un utilisateur connecté
+     * La logique des choix de l'utilisateur y est également implémentée
+     */
 
     private void switchActivityMenu() {
         displayActivityPage();
@@ -597,6 +1041,10 @@ public class Menu {
         }
     }
 
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu d'activité
+     */
+
     private void displayActivityPage() {
 
         System.out.println("----------Activité----------\n" +
@@ -609,6 +1057,10 @@ public class Menu {
 
     }
 
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu principal lorsque l'utilisateur se connecte
+     */
 
     public void displayMenuPage(){
         System.out.println(" .----------------.  .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. \n" +
@@ -632,10 +1084,16 @@ public class Menu {
                 "\nVeuillez choisir une option\n");
     }
 
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu principal pour la connexion des utilisateurs
+     */
     public void displayLoginPage(){
         System.out.println("----------Login----------\n[1] Authentication\n[2] Inscription\n[0] Quitter l'application");
     }
 
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu d'intéret de l'application
+     */
     public void displayInterestPage(){
         System.out.println("----------Interêts----------\n" +
                 "[1] Ajouté un intérêt\n" +
@@ -645,6 +1103,11 @@ public class Menu {
                 "[0] Quitter l'application");
     }
 
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu de gestion de projet de l'application
+     */
+
     public void displayProjectPage(){
         System.out.println("----------Projets----------\n" +
                 "[1] Projets publics\n" +
@@ -653,15 +1116,25 @@ public class Menu {
                 "[0] Quitter l'application");
     }
 
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu de gestion des utilisateurs pour l'ensemble des membres
+     */
+
     public void displayUserPage(){
         System.out.println("----------Membres----------\n" +
                 "Veuillez choisir une option\n" +
                 "[1] Afficher la liste des membre\n" +
                 "[2] Chercher un membre\n" +
-                "[3] Retourner au menu principal\n" +
+                "[3] Modifier le statut d'un membre\n" +
+                "[4] Retourner au menu principal\n" +
                 "[0] Quitter l'application");
 
     }
+
+    /**
+     * Cette méthode affiche l'interface utilisateur pour le menu du profil des différents utilisateurs de l'application
+     */
 
     public void displayProfilePage(){
         System.out.println("----------Profile----------\nNom et Prénom: " + this.loggedUser.getFname() + " " +

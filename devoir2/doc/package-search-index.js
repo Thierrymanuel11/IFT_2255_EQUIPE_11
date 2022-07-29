@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"main.java.Controllers"},{"l":"main.java.Entity"},{"l":"main.java.enums"},{"l":"main.java.MainApp"}];updateSearchResults();
