@@ -792,23 +792,24 @@
                     <ul>
                         <li>
                             <p>
-                                QUESTION : 
+                                QUESTION : Comment agencer les dossiers du projet pour la remise au client?
                                 <br>
-                                RÉPONSE : 
+                                RÉPONSE : Suivre la structure indiquée sur Studium dans la section "Remise" du devoir 3.
                             </p>
                         </li>
                         <li>
                             <p>
-                                QUESTION :  
+                                QUESTION : Serait-il possible d'obtenir quelques détails supplémentaires à l'égard des tests qui doivent être mis sur pied?
                                 <br>
-                                RÉPONSE : 
+                                RÉPONSE : On aimerait avoir des tests unitaires qui portent sur certaines fonctions sans nécessairement regarder le résultat, mais 
+                                plutôt observer l'impact de cette fonction sur d'autres éléments de l'application. 
                             </p>
                         </li>
                         <li>
                             <p>
-                                QUESTION : 
+                                QUESTION : Est-ce que l'interaction avec le logiciel doit toujours se faire en ligne de commande ?
                                 <br>
-                                RÉPONSE : 
+                                RÉPONSE : Oui.  
                             </p>
                         </li>
                     </ul>
@@ -829,7 +830,7 @@
                     simplifier la lecture du diagramme.
                 </p>
 
-                <img src="images/Use Case Diagram_V2.jpg" alt="VP">
+                <img src="images/DCU.jpg" alt="Diagramme CUs">
 
 
                 <h3>Cas d'utilisation 1</h3>
@@ -1929,7 +1930,6 @@
 
             <section>
                 <h2 id="analysis" class="section-title">Analyse</h2>
-                <p>Notre analyse préliminaire nous a permis d'identifier les besoins et risques suivants :</p>
                 <div>
                     <h3>Risques</h3>
                     <ol class="risks">
@@ -2075,27 +2075,68 @@
                     </ul>
                 </div>
                 <div>
+                    <h3>Suggestions pour la suite</h3>
+                    <p>Comme ce projet était circonscrit en termes de temps et de portée, certaines améliorations au logiciel n'ont pas été apportées.
+                        Voici donc quelques suggestions pour la suite du logiciel : 
+                    </p>
+                    <ul class="nf-requirements">
+                        
+                        <li>
+                            <p>
+                            Développement d'une interface graphique plus conviviale. Bien que le client exigeait que les intéractions avec le système ce fasse en 
+                            ligne de commande, il serait possible de développer un GUI plus sophistiqué qui permettrait une utilisation plus rapide et plus 
+                            intuitive du logiciel. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Ajout d'autres types de recherche pour les activités. Comme le logiciel est présentement limité à seulement quelques termes de 
+                            recherche par type d'entité recherchée, l'ajout d'autres moyens de recherche permettrait de le repérer plus facilement,
+                            par exemple en permettant de chercher un article par statut de publication ou par auteur.   
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Mise sur pied d'une base de données dédiée au logiciel. Comme la plateforme est destinée à être utilisée par un nombre croissant 
+                            d'individus et que l'information qu'elle traitera croitra aussi, l'exploitation d'une base de données dédiée permettrait une interaction
+                            plus efficace avec les données persistentes du système. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            Ajout de fonctionnalités supplémentaires. Comme l'application rendue est plutôt	minimaliste, il serait possible d'ajouter plusieurs 
+                            fonctionnalités supplémentaires au logiciel qui permettraient un encore meilleur suivi des membres et des activités au sein du 
+                            GEODES. On peut penser par exemple à l'ajout d'une option pour visualiser l'ensemble des membres dans une forme hierarchique qui permet 
+                            de voir qui relève de qui et qui sont les responsables des principaux projets du GEODES. Un autre exemple serait l'ajout d'une option pour
+                            laisser des commentaires lorsqu'on consulte une activité afin de partager certaines impressions avec les responsables de cette 
+                            activité. 
+                            </p>
+                        </li>
+        
+                    </ul>
+                </div>
+                <div>
                     <h3>Diagrammes d'activités</h3>
                         <p>
                             Les diagrammes ci-dessous permettent d'avoir une meilleure compréhension du flot des activité dans le logiciel :  
                         </p>
                         <h4>Flux de connexion</h4>
-                        <img class="preview-img" src="images/DA_connexion.jpg" alt="DA_connexion">
+                        <img class="preview-img" src="images/Diagrammes_A/Connexion.jpg" alt="DA_connexion">
                         <h4>Flux du menu principal</h4>
-                        <img class="preview-img" src="images/DA_menu principal.jpg" alt="DA_menu principal">
+                        <img class="preview-img" src="images/Diagrammes_A/Menu principal.jpg" alt="DA_menu principal">
                         <h4>Flux des activités</h4>
-                        <img class="preview-img" src="images/DA_activités.jpg" alt="DA_activités">
+                        <img src="images/Diagrammes_A/Activités.jpg" alt="DA_activités" width="1000" height="1000">
                         <h4>Flux des membres</h4>
-                        <img class="preview-img" src="images/DA_membres.jpg" alt="DA_membres">
+                        <img class="preview-img" src="images/Diagrammes_A/Membres.jpg" alt="DA_membres">
                         <h4>Flux des intérêts</h4>
-                        <img class="preview-img" src="images/DA_intérêts.jpg" alt="DA_intérêts">
+                        <img class="preview-img" src="images/Diagrammes_A/Intérêts.jpg" alt="DA_intérêts">
                         <h4>Flux du profil</h4>
-                        <img class="preview-img" src="images/DA_profil.jpg" alt="DA_profil">
+                        <img class="preview-img" src="images/Diagrammes_A/Mon profil.jpg" alt="DA_mon profil">
                 </div>
-                <div>
+                <!--<div>
                     <h3>Diagramme des classes participantes</h3>
                     <img class="preview-img" src="images/Diagramme ECB.png" alt="ECB">
-                </div>
+                </div>-->
             </section>
 
             <section>
@@ -2135,16 +2176,13 @@
 
             <section>
                 <h2 id="conception" class="section-title">Conception</h2>
-                <h3>Justification des choix du design</h3>
                 <h3>Diagramme de classes</h3>
                 <img  src="images/Diagramme classes.jpg" alt="Classes" width = "1500", height = "1000">
+                <h3>Justification des choix du design</h3>
                 <p>Pour la conception, nous avons éssayer d'opter pour l'une des caractéristiques d'une bonne conception qui est le "Faible couplage".
                     En effet, les modules comme il est possible de le voir sur notre diagramme de classe sont assez indépendantes d'elles meme et ne dépendent pas forcément trop l'une de l'autre.
-                    Il n'y a que le module du Menu qui a une dépendance par rapport à 3 éléments, car nous avons choisi de faire en sorte que le menu puisse gérer l'ensemble des implémentations dont on aura besoin dans l'application à savoir la gestion des membres, activités et intérets.</p>
-                <h3>Diagramme ECB</h3>
-                <img class="preview-img" src="images/ECB.png" alt="ecb">
-                <h3>Diagramme de classes</h3>
-                <img class="preview-img" src="images/classes.jpg" alt="classes">
+                    Il n'y a que le module du Menu qui a une dépendance par rapport à 3 éléments, car nous avons choisi de faire en sorte que le menu puisse gérer l'ensemble des implémentations dont on aura besoin dans l'application à savoir la gestion des membres, activités et intérets.
+                </p>
                 <h3>Diagrammes de séquence</h3>
                     <p>
                         Vous trouverez ci-dessous les diagrammes de séquence pour les 3 CUs demandés : 
@@ -2166,13 +2204,11 @@
     </main>
     <footer class="report-footer">
         <p>
-            <a class="link report-footer__link" href="https://github.com/Thierrymanuel11/IFT_2255_Devoir_1_EQUIPE_11"> Lien vers répertoire GitHub</a></p>
+            <a class="link report-footer__link" href="https://github.com/Thierrymanuel11/IFT_2255_Devoir_1_EQUIPE_11"> Lien vers répertoire GitHub</a>
+        </p>
         <p>
-           <a class="link report-footer__link" href="VPP/CUs.vpp">Lien vers ressource externe (fichiers VPP CU)</a></p>
-        <p>
-            <a class="link report-footer__link" href="VPP/Diagrame_d'activité_devoir_2.vpp">Lien vers ressource externe (fichiers VPP Classes)</a></p>
-        <p>
-            <a class="link report-footer__link" href="VPP/classes_devoirs2.vpp">Lien vers ressource externe (fichiers VPP Activités)</a></p>
+           <a class="link report-footer__link" href="VPP/Diagrammes.vpp">Lien vers ressource externe (fichier VPP)</a>
+        </p>
     </footer>
 </body>
 
