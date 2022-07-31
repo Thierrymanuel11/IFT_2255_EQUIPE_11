@@ -141,10 +141,10 @@ public class MenuTest {
         String fakeEmail = "wrong@google.com";
 
         // Test the function itself
-        User test = userController.login(email, pw);
+        User test = userController.login(email, pw, AccountStatus.PENDING);
         assertEquals(user, test);
 
-        User test2 = userController.login(fakeEmail, pw);
+        User test2 = userController.login(fakeEmail, pw, AccountStatus.PENDING);
         assertEquals(null, test2);
 
     }
