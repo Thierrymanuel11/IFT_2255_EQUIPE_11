@@ -10,6 +10,7 @@ import main.java.enums.UserTitle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -58,8 +59,15 @@ public class UserController {
      * @return Renvoit une instance de l'utilisateur correspondant au nom passé en argument
      */
     public User getUserByName(String name) {
-        for (User x : users) {
-            if (name.equals(x.getFname())) return x;
+        for (User x : this.users) {
+            if (name.toLowerCase().equals(x.getFname().toLowerCase())) return x;
+        }
+        return null;
+    }
+
+    public Account getAccountByUser(User user) {
+        for (Account x : this.accounts) {
+            if (Objects.equals(user, x.getUser())) return x;
         }
         return null;
     }
@@ -84,18 +92,21 @@ public class UserController {
         return result;
     }
 
-    /**
+
+      /**
      *  Méthode pour permettre à un utilisateur de se connecter à son compte
      * @param email Chaine de caractère contenant l'adresse mail entree par l'utilisateur
      * @param passord Chaine de caractère contenant le mot de passe entre par l'utilisateur
      * @return Renvoit L'instance d'utilisateur correspondant à l'adresse mail et au mot de passe entre ou sinon renvoit null
      */
-    public User login(String email, String passord) {
+    public User login(String email, String password, AccountStatus accountStatus) {
 
         for (Account account: this.accounts) {
             if (account.getEmail().equals(email)) {
-                if (account.getPassword().equals(passord)) {
-                    return account.getUser();
+                if (account.getPassword().equals(password)) {
+                    if (accountStatus.equals(AccountStatus.VALID)){
+                        return account.getUser();
+                    }
                 }
             }
         }
@@ -122,6 +133,11 @@ public class UserController {
         this.users.add(newUser);
         this.accounts.add(new Account(email, password, AccountStatus.PENDING, newUser, AccountRole.Member));
         return true;
+    }
+
+    public Account changeStatus(Account account, AccountStatus status) {
+        account.setStatus(status);
+        return account;
     }
 
 }

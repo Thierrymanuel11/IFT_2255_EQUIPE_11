@@ -2,6 +2,7 @@ package main.java.Entity;
 
 import main.java.enums.UserTitle;
 
+import java.util.List;
 /**
  * Classe membre pour les membres de la plateforme qui est une sous classe de User
  * @author Gabriel Menard
@@ -12,7 +13,7 @@ public class Member extends User {
 
     Professor supervisor;
 
-    /**
+       /**
      * Constructeur de la classe
      * @param id Identifiant numérique de l'instance de Membre
      * @param fname Chaine de caractère contenant le premier nom du Membre
@@ -24,9 +25,9 @@ public class Member extends User {
      * @param email Chaine de caractère contenant l'adresse mail du membre
      * @param supervisor Instance de Professeur jouant le role de superviseur du membre
      */
+    public Member(int id, String fname, String lname, List<Interest> interest, List<Notification> notifications, String webPageURL,
+                  UserTitle title, String email, Professor supervisor){
 
-    public Member(int id, String fname, String lname, Interest[] interest, String[] notifications, String webPageURL,
-                 UserTitle title, String email, Professor supervisor){
         super(id, fname, lname, interest, notifications, webPageURL, title, email);
         this.supervisor = supervisor;
     }

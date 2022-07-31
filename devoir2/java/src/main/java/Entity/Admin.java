@@ -2,6 +2,8 @@ package main.java.Entity;
 
 import main.java.enums.UserTitle;
 
+import java.util.List;
+
 /**
  * Classe pour gérer les instances d'administrateur de la plateforme
  * @author Gabriel Menard
@@ -20,8 +22,8 @@ public class Admin extends User {
      * @param title Chaine de caractère contenant le Titre de l'administrateur
      * @param email Chaine de caractère contenant l'adresse mail de l'administrateur
      */
-    public Admin(int id, String fname, String lname, Interest[] interest, String[] notifications, String webPageURL,
-                 UserTitle title, String email){
+    public Admin(int id, String fname, String lname, List<Interest> interest, List<Notification> notifications, String webPageURL,
+    UserTitle title, String email) {
         super(id, fname, lname, interest, notifications, webPageURL, title, email);
     }
 }

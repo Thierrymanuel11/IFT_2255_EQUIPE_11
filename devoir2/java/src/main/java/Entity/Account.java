@@ -58,4 +58,13 @@ public class Account {
     public User getUser() {
         return user;
     }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AccountStatus status) {
+        this.status = status;
+    }
+
 }

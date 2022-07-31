@@ -2,6 +2,10 @@ package main.java.Entity;
 
 import main.java.enums.UserTitle;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /** Cette classe est celle pour les instances d'utilisateurs que l'on va créer dans l'application
  * @author Gabriel Menard
  * @version 1.0
@@ -11,13 +15,14 @@ public class User {
     private int id;
     String fname;
     String lname;
-    Interest[] interest;
-    String[] notifications;
+    List<Interest> interest;
+    List<Notification> notifications;
     String webPageURL;
     UserTitle title;
     String email;
 
-    /**
+
+     /**
      * Constructeur de la classe des utilisateurs
      * @author Gabriel Menard
      * @param id Contien l'identifiant de l'utilisateur
@@ -29,8 +34,8 @@ public class User {
      * @param title Contient le titre de l'utilisateur
      * @param email Contient l'adresse mail de l'utilisateur
      */
-    public User(int id, String fname, String lname, Interest[] interest, String[] notifications, String webPageURL,
-                UserTitle title, String email){
+    public User(int id, String fname, String lname, List<Interest> interest, List<Notification> notifications, String webPageURL,
+    UserTitle title, String email){
 
         this.id = id;
         this.fname = fname;
@@ -43,12 +48,17 @@ public class User {
 
     }
 
-    /**
+
+     /**
      * Permet de récupérer le tableau des notifications de l'utilisateur
      * @return Retourne un tableau contenant l'ensemble des notifications de l'utilisateur
      */
-
-    public String[] getNotifications() {
+    public List<Notification> getNotifications() {
+        if (this.notifications == null) {
+            return new ArrayList<Notification>(Arrays.asList(
+                    new Notification("Alerte", "Pas de notifications")
+            ));
+        }
         return notifications;
     }
 
@@ -89,7 +99,8 @@ public class User {
      * Getter pour la liste des intérets de l'utilisateur
      * @return Renvoit une liste contenant les intérets liés à un utilisateur
      */
-    public Interest[] getInterest() {
+    public List<Interest> getInterest() {
+    
         return interest;
     }
 

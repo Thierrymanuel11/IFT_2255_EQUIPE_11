@@ -2,6 +2,8 @@ package main.java.Entity;
 
 import main.java.enums.UserTitle;
 
+import java.util.List;
+
 /**
  * Classe pour les instances de professeur et qui est une sous classe de la classe des utilisateurs User
  * @author Gabriel Menard
@@ -20,9 +22,10 @@ public class Professor extends User{
      * @param title Chaine de caractère contenant le Titre du professeur
      * @param email Chaine de caractère contenant l'adresse mail du Professeur
      */
-    public Professor(int id, String fname, String lname, Interest[] interest, String[] notifications, String webPageURL,
-                 UserTitle title, String email){
-        super(id, fname, lname, interest, notifications, webPageURL, title, email);
+    public Professor(int id, String fname, String lname, List<Interest> interest, List<Notification> notifications, String webPageURL,
+                     UserTitle title, String email){
+
+    super(id, fname, lname, interest, notifications, webPageURL, title, email);
     }
 
 
