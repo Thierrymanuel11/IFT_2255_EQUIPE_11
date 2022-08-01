@@ -1,17 +1,25 @@
 package main.java.MainApp;
 
-import org.junit.Test;
+import main.java.Controllers.ActivityController;
+import main.java.Controllers.InterestController;
+import main.java.Controllers.UserController;
 import main.java.Entity.*;
-import main.java.enums.*;
-import main.java.Controllers.*;
+import main.java.enums.AccountStatus;
+import main.java.enums.ArticleStatus;
+import main.java.enums.UserTitle;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
-import javax.print.attribute.standard.PrinterMoreInfoManufacturer;
-import java.util.*;
-import static org.junit.Assert.assertArrayEquals;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+/*import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertNull;*/
 
 
 /**
@@ -141,10 +149,10 @@ public class MenuTest {
         String fakeEmail = "wrong@google.com";
 
         // Test the function itself
-        User test = userController.login(email, pw);
+        User test = userController.login(email, pw, AccountStatus.PENDING);
         assertEquals(user, test);
 
-        User test2 = userController.login(fakeEmail, pw);
+        User test2 = userController.login(fakeEmail, pw, AccountStatus.PENDING);
         assertEquals(null, test2);
 
     }
