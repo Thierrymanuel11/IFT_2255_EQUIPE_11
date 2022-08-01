@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="roundtable">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/java/roundtable.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
